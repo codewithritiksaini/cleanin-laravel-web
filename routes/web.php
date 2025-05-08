@@ -1,14 +1,41 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\{
+    SeviceController as AdminServiceController,
+    BlogController as AdminBlogController,
+    ProjectController as AdminProjectController,
+    TestimonialController as AdminTestimonialController,
+
+};
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+
+
+
+Route::prefix('admin')->group(function () {
+    // backend section Routes
+    Route::get('services', [AdminServiceController::class, 'index'])->name('service.index');
+    Route::get('services/create', [AdminServiceController::class, 'create'])->name('service.create');
+    Route::post('/services', [AdminServiceController::class, 'store'])->name('services.store');
+    Route::get('/services/{id}/edit', [AdminServiceController::class, 'edit'])->name('services.edit');
+    Route::post('/services/{id}', [AdminServiceController::class, 'update'])->name('services.update');
+    Route::get('/services/{id}/delete', [AdminServiceController::class, 'destroy'])->name('services.destroy');
+
+    // backend section Routes
+    Route::get('blog', [AdminBlogController::class, 'index'])->name('blog.index');
+    Route::get('blog/create', [AdminBlogController::class, 'create'])->name('blog.create');
+
+    // backend section Routes
+    Route::get('project', [AdminProjectController::class, 'index'])->name('project.index');
+    Route::get('project/create', [AdminProjectController::class, 'create'])->name('project.create');
+
+    // backend section Routes
+    Route::get('testimonial', [AdminTestimonialController::class, 'index'])->name('testimonial.index');
+    Route::get('testimonial/create', [AdminTestimonialController::class, 'create'])->name('testimonial.create');
 });
 
-Route::get('/school', function () {
-    return '<script>alert("Hello from About Page!");</script>';
-})->name('about');
-Route::get('/contact', function(){
-    return '<script>alert("Hello from Contact Page!");</script>';
-})->name('contact');
+Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');
