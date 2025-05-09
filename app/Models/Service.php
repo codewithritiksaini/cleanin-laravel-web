@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 class Service extends Model
 {
     protected $fillable = [
-        'title', 'name', 'slug', 'image', 'description', 'content'
-    ];
+        'title', 'name', 'slug', 'image', 'description', 'content', 'status'
+    ];    
 
     protected $casts = [
         'image' => 'array',

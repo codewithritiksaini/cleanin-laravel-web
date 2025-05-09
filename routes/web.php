@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\{
-    SeviceController as AdminServiceController,
+    ServiceController as AdminServiceController,
     BlogController as AdminBlogController,
     ProjectController as AdminProjectController,
     TestimonialController as AdminTestimonialController,
@@ -18,12 +18,13 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     // backend section Routes
-    Route::get('services', [AdminServiceController::class, 'index'])->name('service.index');
-    Route::get('services/create', [AdminServiceController::class, 'create'])->name('service.create');
+    Route::get('services', [AdminServiceController::class, 'index'])->name('services.index');
+    Route::get('services/create', [AdminServiceController::class, 'create'])->name('services.create');
     Route::post('/services', [AdminServiceController::class, 'store'])->name('services.store');
     Route::get('/services/{id}/edit', [AdminServiceController::class, 'edit'])->name('services.edit');
-    Route::post('/services/{id}', [AdminServiceController::class, 'update'])->name('services.update');
-    Route::get('/services/{id}/delete', [AdminServiceController::class, 'destroy'])->name('services.destroy');
+    Route::put('/services/{id}', [AdminServiceController::class, 'update'])->name('services.update');
+    Route::delete('/services/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
+
 
     // backend section Routes
     Route::get('blog', [AdminBlogController::class, 'index'])->name('blog.index');

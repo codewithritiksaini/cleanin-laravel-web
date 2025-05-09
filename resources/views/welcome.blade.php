@@ -22,10 +22,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('service.index') }}">Services</a>
+          <a class="nav-link" href="{{ route('services.index') }}">Services</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('service.create') }}">Create Services</a>
+            <a class="nav-link" href="{{ route('services.create') }}">Create Services</a>
           </li>
         <!-- Add more nav items here -->
         <li class="nav-item">

@@ -16,6 +16,7 @@ class CreateServicesTable extends Migration
             $table->json('image'); // Store multiple image names in JSON format
             $table->text('description');
             $table->longText('content');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
