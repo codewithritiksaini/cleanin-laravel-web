@@ -385,7 +385,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a class="menu" href="{{route('project.create')}}">
+                                <a class="menu" href="{{route('projects.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -397,7 +397,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('project.index')}}">
+                                <a class="menu" href="{{route('projects.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -425,7 +425,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a class="menu" href="{{route('blog.create')}}">
+                                <a class="menu" href="{{route('blogs.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -437,7 +437,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('blog.index')}}">
+                                <a class="menu" href="{{route('blogs.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -505,7 +505,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a class="menu" href="{{route('testimonial.create')}}">
+                                <a class="menu" href="{{route('testimonials.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -517,7 +517,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('testimonial.index')}}">
+                                <a class="menu" href="{{route('testimonials.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -738,7 +738,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="{{route('project.create')}}" class="side-menu">
+                                <a href="{{route('projects.create')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -748,7 +748,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('project.index')}}" class="side-menu">
+                                <a href="{{route('projects.index')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -773,7 +773,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="{{route('blog.create')}}" class="side-menu">
+                                <a href="{{route('blogs.create')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -783,7 +783,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('blog.index')}}" class="side-menu">
+                                <a href="{{route('blogs.index')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -843,7 +843,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="{{route('testimonial.create')}}" class="side-menu">
+                                <a href="{{route('testimonials.create')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -853,7 +853,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('testimonial.index')}}" class="side-menu">
+                                <a href="{{route('testimonials.index')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>

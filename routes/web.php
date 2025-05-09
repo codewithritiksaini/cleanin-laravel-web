@@ -17,26 +17,46 @@ Route::get('/', function () {
 
 
 Route::prefix('admin')->group(function () {
-    // backend section Routes
-    Route::get('services', [AdminServiceController::class, 'index'])->name('services.index');
-    Route::get('services/create', [AdminServiceController::class, 'create'])->name('services.create');
-    Route::post('/services', [AdminServiceController::class, 'store'])->name('services.store');
-    Route::get('/services/{id}/edit', [AdminServiceController::class, 'edit'])->name('services.edit');
-    Route::put('/services/{id}', [AdminServiceController::class, 'update'])->name('services.update');
-    Route::delete('/services/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
+    // Services Routes
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/', [AdminServiceController::class, 'index'])->name('services.index');
+        Route::get('/create', [AdminServiceController::class, 'create'])->name('services.create');
+        Route::post('/', [AdminServiceController::class, 'store'])->name('services.store');
+        Route::get('/{id}/edit', [AdminServiceController::class, 'edit'])->name('services.edit');
+        Route::put('/{id}', [AdminServiceController::class, 'update'])->name('services.update');
+        Route::delete('/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
+    });
 
+    // Projects Routes
+    Route::group(['prefix' => 'projects'], function () {
+        Route::get('/', [AdminProjectController::class, 'index'])->name('projects.index');
+        Route::get('/create', [AdminProjectController::class, 'create'])->name('projects.create');
+        Route::post('/', [AdminProjectController::class, 'store'])->name('projects.store');
+        Route::get('/{id}/edit', [AdminProjectController::class, 'edit'])->name('projects.edit');
+        Route::put('/{id}', [AdminProjectController::class, 'update'])->name('projects.update');
+        Route::delete('/{id}', [AdminProjectController::class, 'destroy'])->name('projects.destroy');
+    });
 
-    // backend section Routes
-    Route::get('blog', [AdminBlogController::class, 'index'])->name('blog.index');
-    Route::get('blog/create', [AdminBlogController::class, 'create'])->name('blog.create');
+    // Blogs Routes
+    Route::group(['prefix' => 'blogs'], function () {
+        Route::get('/', [AdminBlogController::class, 'index'])->name('blogs.index');
+        Route::get('/create', [AdminBlogController::class, 'create'])->name('blogs.create');
+        Route::post('/', [AdminBlogController::class, 'store'])->name('blogs.store');
+        Route::get('/{id}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
+        Route::put('/{id}', [AdminBlogController::class, 'update'])->name('blogs.update');
+        Route::delete('/{id}', [AdminBlogController::class, 'destroy'])->name('blogs.destroy');
+    });
 
-    // backend section Routes
-    Route::get('project', [AdminProjectController::class, 'index'])->name('project.index');
-    Route::get('project/create', [AdminProjectController::class, 'create'])->name('project.create');
+    // Testimonials Routes
+    Route::group(['prefix' => 'testimonials'], function () {
+        Route::get('/', [AdminTestimonialController::class, 'index'])->name('testimonials.index');
+        Route::get('/create', [AdminTestimonialController::class, 'create'])->name('testimonials.create');
+        Route::post('/', [AdminTestimonialController::class, 'store'])->name('testimonials.store');
+        Route::get('/{id}/edit', [AdminTestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::put('/{id}', [AdminTestimonialController::class, 'update'])->name('testimonials.update');
+        Route::delete('/{id}', [AdminTestimonialController::class, 'destroy'])->name('testimonials.destroy');
+    });
 
-    // backend section Routes
-    Route::get('testimonial', [AdminTestimonialController::class, 'index'])->name('testimonial.index');
-    Route::get('testimonial/create', [AdminTestimonialController::class, 'create'])->name('testimonial.create');
 });
 
 Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');
