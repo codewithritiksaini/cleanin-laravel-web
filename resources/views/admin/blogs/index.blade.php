@@ -4,7 +4,7 @@
         <h2 class="intro-y mt-10 text-lg font-medium">{{$title}}</h2>
         <div class="mt-5 grid grid-cols-12 gap-6">
             <div class="intro-y col-span-12 mt-2 flex flex-wrap items-center sm:flex-nowrap">
-                <a href="{{route('services.create')}}" data-tw-merge=""
+                <a href="{{route('blogs.create')}}" data-tw-merge=""
                     class="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mr-2 shadow-md">
                     <i data-tw-merge="" data-lucide="plus-circle" class="stroke-1.5 w-5 h-5 mx-auto block"></i> &nbsp; Add
                     New
@@ -59,8 +59,8 @@
                                     <td class="text-center">{{ $key + 1 }}</td>
                         
                                     <td class="text-center; align-items-center">
-                                        @if ($item->image)
-                                        <img class="rounded" src="{{ asset('storage/services/' . $item->image[0]) }}" 
+                                        @if ($item->image && count($item->image) > 0)
+                                        <img class="rounded" src="{{ asset('storage/blogs/' . $item->image[0]) }}" 
                                             alt="{{ $item->title }}" style="width: 100px">
                                         @else
                                             <span>No Image</span>
@@ -85,12 +85,12 @@
                         
                                     <td class="w-56 text-center">
                                         <div class="flex items-center justify-center">
-                                            <a class="mr-3 flex items-center" href="{{ route('services.edit', $item->id) }}">
+                                            <a class="mr-3 flex items-center" href="{{ route('blogs.edit', $item->id) }}">
                                                 <i class="stroke-1.5 mr-1 h-4 w-4" data-lucide="check-square"></i> Edit
                                             </a>
                                             <a class="flex items-center text-danger"
                                                onclick="event.preventDefault(); callDelete($(this))"
-                                               href="{{ route('services.destroy', $item->id) }}">
+                                               href="{{ route('blogs.destroy', $item->id) }}">
                                                 <i class="stroke-1.5 mr-1 h-4 w-4" data-lucide="trash"></i> Delete
                                             </a>
                                         </div>
@@ -108,7 +108,7 @@
                         {{-- JS function --}}
                         <script>
                             function callDelete(element) {
-                                if (confirm('Are you sure you want to delete this service?')) {
+                                if (confirm('Are you sure you want to delete this Record?')) {
                                     const form = document.getElementById('delete-form');
                                     form.action = element.attr('href');
                                     form.submit();

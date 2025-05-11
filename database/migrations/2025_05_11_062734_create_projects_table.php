@@ -4,11 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesTable extends Migration
+return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('name');
@@ -16,14 +19,16 @@ class CreateServicesTable extends Migration
             $table->json('image'); // Store multiple image names in JSON format
             $table->text('description');
             $table->longText('content');
-            // $table->boolean('status')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
 
-    public function down()
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('projects');
     }
-}
-
+};

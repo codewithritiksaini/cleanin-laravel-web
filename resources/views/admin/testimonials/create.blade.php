@@ -8,7 +8,7 @@
 <div class="mt-5 grid grid-cols-12 gap-6">
 <div class="intro-y col-span-12 lg:col-span-12">
 <!-- BEGIN: Input -->
-<form id="request-form" class="forms-sample" action="{{ route('services.store') }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
+<form id="request-form" class="forms-sample" action="{{ route('testimonials.store') }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
     @csrf
 <div class="preview-component intro-y box mb-4">
     <div class="p-5">

@@ -11,13 +11,15 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $items = Service::latest()->paginate(10); // changed from $services to $items
-        return view('admin.services.index', compact('items'));
+        $items = Service::latest()->paginate(10);
+        $title = 'Service';
+        return view('admin.services.index', compact('items','title'));
     }
 
     public function create()
     {
-        return view('admin.services.create');
+        $title = 'Service';
+        return view('admin.services.create',compact('title'));
     }
 
     public function store(Request $request)
@@ -57,8 +59,9 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $item = Service::findOrFail($id); // changed from $service to $item
-        return view('admin.services.edit', compact('item'));
+        $item = Service::findOrFail($id);
+        $title = 'Service';
+        return view('admin.services.edit', compact('item','title'));
     }
 
     public function update(Request $request, $id)
