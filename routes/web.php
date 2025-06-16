@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\{
     TestimonialController as AdminTestimonialController,
     ImageGalleryController as AdminImageController,
     BannerController as AdminBannerController,
+    AboutController as AdminAboutController,
 };
 
 Route::get('/', function () {
@@ -48,7 +49,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
     });
 
-                                                                            
+
     // Projects Routes
     Route::group(['prefix' => 'projects'], function () {
         Route::get('/', [AdminProjectController::class, 'index'])->name('projects.index');
@@ -79,6 +80,14 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{id}', [AdminTestimonialController::class, 'destroy'])->name('testimonials.destroy');
     });
 
+    // About Routes
+    Route::group(['prefix' => 'about'], function () {
+        Route::get('/', [AdminAboutController::class, 'edit'])
+            ->name('about.edit');
+        Route::put('/', [AdminAboutController::class, 'update'])
+            ->name('about.update');
+    });
+
 });
-                                                                                                
+
 Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');

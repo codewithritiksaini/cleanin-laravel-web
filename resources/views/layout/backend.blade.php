@@ -317,7 +317,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a class="menu" href="javascript:;">
+                                <a class="menu" href="{{route('about.edit')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
@@ -688,7 +688,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{route('about.edit')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -961,15 +961,35 @@
                 <nav aria-label="breadcrumb" class="flex -intro-x mr-auto hidden sm:flex">
                     <ol class="flex items-center text-theme-1 dark:text-slate-300">
                         <li class="">
-                            <a href="{{route('home')}}">Dashboard</a>
+                            <a href="{{ route('home') }}">Dashboard</a>
                         </li>
-                        <li
-                            class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                            <a href="{{ route(request()->segment(2) . '.index') }}">{{ ucfirst(request()->segment(index: 2)) }}</a>
-                        </li>
-                        @if (!empty(request()->segment(3)))
+                        @php
+                            $segment2 = request()->segment(2);
+                            $routeName = $segment2 . '.index';
+                        @endphp
+
+                        @if(!empty($segment2))
                             <li class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                                <a href="#">{{ ucfirst(request()->segment(3)) }}</a>
+                                @if(Route::has($routeName))
+                                    <a href="{{ route($routeName) }}">{{ ucfirst($segment2) }}</a>
+                                @else
+                                    <span>{{ ucfirst($segment2) }}</span>
+                                @endif
+                            </li>
+                        @endif
+
+                        @if (!empty(request()->segment(3)))
+                            @php
+                                $segment3 = request()->segment(3);
+                                $subRouteName = $segment2 . '.' . $segment3;
+                            @endphp
+
+                            <li class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
+                                @if(Route::has($subRouteName))
+                                    <a href="{{ route($subRouteName) }}">{{ ucfirst($segment3) }}</a>
+                                @else
+                                    <span>{{ ucfirst($segment3) }}</span>
+                                @endif
                             </li>
                         @endif
                     </ol>
