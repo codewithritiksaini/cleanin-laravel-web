@@ -653,12 +653,22 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{route('banners.create')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
                                     <div class="side-menu__title">
                                         Add Banner
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('banners.index')}}" class="side-menu">
+                                    <div class="side-menu__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                    </div>
+                                    <div class="side-menu__title">
+                                        Banner
                                     </div>
                                 </a>
                             </li>
@@ -951,12 +961,17 @@
                 <nav aria-label="breadcrumb" class="flex -intro-x mr-auto hidden sm:flex">
                     <ol class="flex items-center text-theme-1 dark:text-slate-300">
                         <li class="">
-                            <a href="https://www.ritiksaini.in/admin/dashboard">Dashboard</a>
+                            <a href="{{route('home')}}">Dashboard</a>
                         </li>
                         <li
                             class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                            <a href="#">Services</a>
+                            <a href="{{ route(request()->segment(2) . '.index') }}">{{ ucfirst(request()->segment(index: 2)) }}</a>
                         </li>
+                        @if (!empty(request()->segment(3)))
+                            <li class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
+                                <a href="#">{{ ucfirst(request()->segment(3)) }}</a>
+                            </li>
+                        @endif
                     </ol>
                 </nav>
                 <!-- END: Breadcrumb -->

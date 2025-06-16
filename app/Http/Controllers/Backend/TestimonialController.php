@@ -20,7 +20,7 @@ class TestimonialController extends Controller
     public function create()
     {
         $title = 'Testimonial';
-        return view('admin.testimonial.create',compact('title'));
+        return view('admin.testimonials.create',compact('title'));
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class TestimonialController extends Controller
             $extension = $file->getClientOriginalExtension();
             $name = "testimonial_{$random}_{$date}." . $extension;
 
-            $file->move(public_path('storage/testimonial'), $name);
+            $file->move(public_path('storage/testimonials'), $name);
             $images[] = $name;
         }
 
@@ -82,7 +82,7 @@ class TestimonialController extends Controller
         if ($request->hasFile('image')) {
             if (is_array($images)) {
                 foreach ($images as $img) {
-                    $path = public_path('storage/testimonial/' . $img);
+                    $path = public_path('storage/testimonials/' . $img);
                     if (file_exists($path)) {
                         unlink($path);
                     }
@@ -97,7 +97,7 @@ class TestimonialController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $name = "testimonial_{$random}_{$date}." . $extension;
 
-                $file->move(public_path('storage/testimonial'), $name);
+                $file->move(public_path('storage/testimonials'), $name);
                 $images[] = $name;
             }
         }
@@ -123,7 +123,7 @@ class TestimonialController extends Controller
         // Delete associated images
         if (is_array($item->image)) {
             foreach ($item->image as $img) {
-                $path = public_path('storage/testimonial/' . $img);
+                $path = public_path('storage/testimonials/' . $img);
                 if (file_exists($path)) {
                     unlink($path);
                 }

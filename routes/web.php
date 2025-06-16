@@ -6,7 +6,8 @@ use App\Http\Controllers\Backend\{
     BlogController as AdminBlogController,
     ProjectController as AdminProjectController,
     TestimonialController as AdminTestimonialController,
-
+    ImageGalleryController as AdminImageController,
+    BannerController as AdminBannerController,
 };
 
 Route::get('/', function () {
@@ -27,6 +28,27 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
     });
 
+    // Images Routes
+    Route::group(['prefix' => 'images'], function () {
+        Route::get('/', [AdminImageController::class, 'index'])->name('images.index');
+        Route::get('/create', [AdminImageController::class, 'create'])->name('images.create');
+        Route::post('/', [AdminImageController::class, 'store'])->name('images.store');
+        Route::get('/{id}/edit', [AdminImageController::class, 'edit'])->name('images.edit');
+        Route::put('/{id}', [AdminImageController::class, 'update'])->name('images.update');
+        Route::delete('/{id}', [AdminImageController::class, 'destroy'])->name('images.destroy');
+    });
+
+    // Banner Routes
+    Route::group(['prefix' => 'banners'], function () {
+        Route::get('/', [AdminBannerController::class, 'index'])->name('banners.index');
+        Route::get('/create', [AdminBannerController::class, 'create'])->name('banners.create');
+        Route::post('/', [AdminBannerController::class, 'store'])->name('banners.store');
+        Route::get('/{id}/edit', [AdminBannerController::class, 'edit'])->name('banners.edit');
+        Route::put('/{id}', [AdminBannerController::class, 'update'])->name('banners.update');
+        Route::delete('/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
+    });
+
+                                                                            
     // Projects Routes
     Route::group(['prefix' => 'projects'], function () {
         Route::get('/', [AdminProjectController::class, 'index'])->name('projects.index');
@@ -58,5 +80,5 @@ Route::prefix('admin')->group(function () {
     });
 
 });
-
+                                                                                                
 Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');
