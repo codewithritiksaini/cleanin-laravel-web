@@ -1,14 +1,14 @@
 Dashboard
 Banner
-About Us---err ha ess ma 
+About Us---err ha ess ma `-- done`
 Services--completed
 Project--completed
-Blog---err h ess ya page dusaray page  pa ja ra ha 
+Blog---err h ess ya page dusaray page  pa ja ra ha `-- done`
+
+
 Gallery---Target class [App\Http\Controllers\Backend\ImageGalleryController] does not exist.
-
-
 Testimonial--completed
-Settings---not rout ha 
+Settings---not rout ha
 Enquiry-- not routed
-Policy--not routed ha 
+Policy--not routed ha
 

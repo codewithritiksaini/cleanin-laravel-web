@@ -10,9 +10,13 @@ class AboutController extends Controller
 {
     public function edit()
     {
-        $about = About::firstOrCreate(['slug' => 'about-us']);
+        $about = About::firstOrCreate(
+            ['slug' => 'about-us'],
+            ['content' => ''] // Default content if creating new
+        );
+
         $title = "About-us";
-        return view('admin.about.edit', compact('about','title'));
+        return view('admin.about.edit', compact('about', 'title'));
     }
 
     public function update(Request $request)
@@ -21,12 +25,12 @@ class AboutController extends Controller
             'content' => 'required|string'
         ]);
 
-        About::updateOrCreate(
+        $about = About::updateOrCreate(
             ['slug' => 'about-us'],
             ['content' => $request->content]
         );
 
-        return redirect()->route('admin.about.edit')
+        return redirect()->route('about.edit')
                ->with('success', 'About page updated successfully!');
     }
 }
