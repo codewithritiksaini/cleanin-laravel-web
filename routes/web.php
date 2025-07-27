@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+// Backend Controllers
 use App\Http\Controllers\Backend\{
     ServiceController as AdminServiceController,
     BlogController as AdminBlogController,
@@ -11,10 +13,20 @@ use App\Http\Controllers\Backend\{
     AboutController as AdminAboutController,
 };
 
+// Frontend Controllers
+use App\Http\Controllers\site\{
+    MessageController as SiteMessageController
+};
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/message', function () {
+    return view('site.message');
+})->name('message');
+
+Route::post('/send-message', [MessageController::class, 'store'])->name('message.store');
 
 
 
