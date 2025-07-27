@@ -1,6 +1,7 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Site;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Message;
 
@@ -8,7 +9,6 @@ class MessageController extends Controller
 {
     public function store(Request $request)
     {
-        // Validate
         $request->validate([
             'name'    => 'required|string|max:100',
             'email'   => 'required|email',
@@ -16,7 +16,6 @@ class MessageController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Save to database
         Message::create($request->all());
 
         return redirect()->back()->with('success', 'Message sent successfully!');

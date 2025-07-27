@@ -913,7 +913,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{ route('enquiries.index') }}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -1150,6 +1150,68 @@
         }
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Common SweetAlert for Laravel session flash messages
+    @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            timer: 3000,
+            showConfirmButton: false
+        });
+    @elseif(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}',
+            timer: 3000,
+            showConfirmButton: false
+        });
+    @elseif(session('warning'))
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning!',
+            text: '{{ session('warning') }}',
+            timer: 3000,
+            showConfirmButton: false
+        });
+    @elseif(session('info'))
+        Swal.fire({
+            icon: 'info',
+            title: 'Note',
+            text: '{{ session('info') }}',
+            timer: 3000,
+            showConfirmButton: false
+        });
+    @endif
+
+    // Common delete confirmation
+    function confirmDelete(element) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This record will be deleted permanently!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const form = element.closest("form");
+                if (form) {
+                    form.submit();
+                } else {
+                    window.location.href = element.getAttribute("href");
+                }
+            }
+        });
+    }
+</script>
+
     <!-- END: Vendor JS Assets-->
     <!-- BEGIN: Pages, layouts, components JS Assets-->
     <!-- END: Pages, layouts, components JS Assets-->

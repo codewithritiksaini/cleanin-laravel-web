@@ -11,22 +11,28 @@ use App\Http\Controllers\Backend\{
     ImageGalleryController as AdminImageController,
     BannerController as AdminBannerController,
     AboutController as AdminAboutController,
+    AdminEnquiryController,
+
 };
 
 // Frontend Controllers
-use App\Http\Controllers\site\{
-    MessageController as SiteMessageController
+use App\Http\Controllers\Site\{
+    MessageController as SiteMessageController,
 };
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/test', function () {
+    return view('admin.message');
+})->name('test');
+
 Route::get('/message', function () {
     return view('site.message');
 })->name('message');
 
-Route::post('/send-message', [MessageController::class, 'store'])->name('message.store');
+Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
 
 
 
@@ -98,6 +104,12 @@ Route::prefix('admin')->group(function () {
             ->name('about.edit');
         Route::put('/', [AdminAboutController::class, 'update'])
             ->name('about.update');
+    });
+
+    // Enquiry Routes
+    Route::group(['prefix' => 'enquiries'], function () {
+        Route::get('/', [AdminEnquiryController::class, 'index'])->name('enquiries.index');
+        Route::delete('/{id}', [AdminEnquiryController::class, 'destroy'])->name('enquiries.destroy');
     });
 
 });
