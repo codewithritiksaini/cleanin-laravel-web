@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\{
     BlogController as AdminBlogController,
     ProjectController as AdminProjectController,
     TestimonialController as AdminTestimonialController,
-    ImageGalleryController as AdminImageController,
+    ImageController as AdminImageController,
     BannerController as AdminBannerController,
     AboutController as AdminAboutController,
     AdminEnquiryController,

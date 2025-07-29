@@ -6,9 +6,10 @@ Project--completed
 Blog---err h ess ya page dusaray page  pa ja ra ha `-- done`
 Enquiry --done
 Testimonial--completed
+image Gallery `_done_`
 
 
-Gallery---Target class [App\Http\Controllers\Backend\ImageGalleryController] does not exist.
+video Gallery
 Settings---not rout ha
 Policy--not routed ha
 

@@ -1166,7 +1166,7 @@
             icon: 'success',
             title: 'Success!',
             text: '{{ session('success') }}',
-            timer: 3000,
+            timer: 1500,
             showConfirmButton: false
         });
     @elseif(session('error'))
@@ -1174,7 +1174,7 @@
             icon: 'error',
             title: 'Error!',
             text: '{{ session('error') }}',
-            timer: 3000,
+            timer: 1500,
             showConfirmButton: false
         });
     @elseif(session('warning'))
@@ -1182,7 +1182,7 @@
             icon: 'warning',
             title: 'Warning!',
             text: '{{ session('warning') }}',
-            timer: 3000,
+            timer: 1500,
             showConfirmButton: false
         });
     @elseif(session('info'))
@@ -1190,7 +1190,7 @@
             icon: 'info',
             title: 'Note',
             text: '{{ session('info') }}',
-            timer: 3000,
+            timer: 1500,
             showConfirmButton: false
         });
     @endif
