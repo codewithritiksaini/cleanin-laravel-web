@@ -59,13 +59,13 @@
                                     <td class="text-center">{{ $key + 1 }}</td>
 
                             <td class="text-center align-middle">
-                                @if (!empty($item->images) && is_array($item->images) && isset($item->images[0]))
-                                    <img class="rounded" src="{{ asset('storage/images/' . $item->images[0]) }}"
-                                        alt="{{ $item->title }}" style="width: 100px">
+                                @if (!empty($item->image))
+                                    <img src="{{ asset('storage/images/' . $item->image) }}" alt="{{ $item->title }}" style="width: 100px">
                                 @else
                                     <span>No Image</span>
                                 @endif
                             </td>
+
 
 
                                     <td class="text-center">{{ $item->title }}</td>
@@ -86,12 +86,12 @@
 
                                     <td class="w-56 text-center">
                                         <div class="flex items-center justify-center">
-                                            <a class="mr-3 flex items-center" href="{{ route('services.edit', $item->id) }}">
+                                            <a class="mr-3 flex items-center" href="{{ route('images.edit', $item->id) }}">
                                                 <i class="stroke-1.5 mr-1 h-4 w-4" data-lucide="check-square"></i> Edit
                                             </a>
                                             <a class="flex items-center text-danger"
                                                onclick="event.preventDefault(); callDelete($(this))"
-                                               href="{{ route('services.destroy', $item->id) }}">
+                                               href="{{ route('images.destroy', $item->id) }}">
                                                 <i class="stroke-1.5 mr-1 h-4 w-4" data-lucide="trash"></i> Delete
                                             </a>
                                         </div>

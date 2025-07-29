@@ -35,8 +35,8 @@ class ServiceController extends Controller
 
         $images = [];
         foreach ($request->file('image') as $file) {
-            $random = rand(1000, 9999); 
-            $date = date('Y-m-d');      
+            $random = rand(1000, 9999);
+            $date = date('Y-m-d');
             $extension = $file->getClientOriginalExtension();
             $name = "service_{$random}_{$date}." . $extension;
 
@@ -88,7 +88,7 @@ class ServiceController extends Controller
                 }
             }
 
-            
+
             $images = [];
             foreach ($request->file('image') as $file) {
                 $random = rand(1000, 9999);

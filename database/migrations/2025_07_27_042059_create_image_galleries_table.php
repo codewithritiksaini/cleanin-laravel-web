@@ -12,8 +12,9 @@ class CreateImageGalleriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->json('images')->nullable();
-            $table->boolean('status')->default(true);
+            $table->string('image')->nullable();
+            $table->text('description');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

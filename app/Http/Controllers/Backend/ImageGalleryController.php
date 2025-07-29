@@ -3,62 +3,79 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\ImageGallery;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ImageGalleryController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('title', 'Image');
+    }
     public function index()
     {
         $items = ImageGallery::latest()->paginate(10);
-        $title = 'Image Gallery';
-        return view('admin.image-gallery.index', compact('items', 'title'));
+        return view('admin.image-gallery.index', compact('items'));
     }
 
     public function create()
     {
-        $title = 'Image Gallery';
-        return view('admin.image-gallery.create', compact('title'));
+        return view('admin.image-gallery.create');
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required|string|max:1000',
-            'image' => 'required|array',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048',
-        ]);
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'slug' => 'nullable|string|max:255|unique:image_galleries,slug',
+        'description' => 'required|string|max:1000',
+        'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'status' => 'required|in:active,inactive',
+    ]);
 
-
-        $images = [];
-        foreach ($request->file('image') as $file) {
-            $random = rand(1000, 9999);
-            $date = date('Y-m-d');
-            $extension = $file->getClientOriginalExtension();
-            $name = "image_{$random}_{$date}." . $extension;
-
-            $file->move(public_path('storage/images'), $name);
-            $images[] = $name;
-        }
-
-        ImageGallery::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'slug' => $request->slug ?? Str::slug($request->title),
-            'image' => $images,
-            'status' => $request->status === 'active' ? 1 : 0,
-        ]);
-
-        return redirect()->route('images.index')->with('success', 'Image created successfully!');
+    // Ensure the directory exists
+    $destination = public_path('storage/images');
+    if (!File::exists($destination)) {
+        File::makeDirectory($destination, 0775, true);
     }
+
+    $image = null;
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move($destination, $filename);
+        $image = $filename;
+    }
+
+    // Generate slug
+    $slug = $request->slug;
+    if (empty($slug)) {
+        $slug = Str::slug($request->title);
+        $originalSlug = $slug;
+        $counter = 1;
+        while (ImageGallery::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
+    }
+
+    ImageGallery::create([
+        'title' => $request->title,
+        'slug' => $slug,
+        'description' => $request->description,
+        'image' => $image,
+        'status' => $request->status === 'active' ? 1 : 0,
+    ]);
+
+    return redirect()->route('images.index')->with('success', 'Image created successfully.');
+}
+
 
     public function edit($id)
     {
         $item = ImageGallery::findOrFail($id);
-        $title = 'Image Gallery';
-        return view('admin.image-gallery.edit', compact('item', 'title'));
+        return view('admin.image-gallery.edit', compact('item'));
     }
 
     public function update(Request $request, $id)
@@ -66,84 +83,55 @@ class ImageGalleryController extends Controller
         $item = ImageGallery::findOrFail($id);
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255|unique:image_galleries,slug,' . $item->id,
             'description' => 'required|string|max:1000',
-            'image' => 'required|array',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'status' => 'required|in:active,inactive',
         ]);
 
-
-        $images = $item->image;
+        $image = $item->image;
 
         if ($request->hasFile('image')) {
-            if (is_array($images)) {
-                foreach ($images as $img) {
-                    $path = public_path('storage/images/' . $img);
-                    if (file_exists($path)) {
-                        unlink($path);
-                    }
-                }
+            $destination = public_path('storage/images');
+
+            if (!File::exists($destination)) {
+                File::makeDirectory($destination, 0775, true);
             }
 
-            $images = [];
-            foreach ($request->file('image') as $file) {
-                $random = rand(1000, 9999);
-                $date = date('Y-m-d');
-                $extension = $file->getClientOriginalExtension();
-                $name = "image_{$random}_{$date}." . $extension;
-
-                $file->move(public_path('storage/images'), $name);
-                $images[] = $name;
+            // Delete old image
+            if ($image && File::exists($destination . '/' . $image)) {
+                File::delete($destination . '/' . $image);
             }
+
+            $file = $request->file('image');
+            $filename = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move($destination, $filename);
+            $image = $filename;
         }
 
         $item->update([
             'title' => $request->title,
+            'slug' => $request->slug ?: Str::slug($request->title),
             'description' => $request->description,
-            'slug' => $request->slug ?? Str::slug($request->title),
-            'image' => $images,
+            'image' => $image,
             'status' => $request->status === 'active' ? 1 : 0,
         ]);
 
-        return redirect()->route('images.index')->with('success', 'Image updated successfully!');
+        return redirect()->route('images.index')->with('success', 'Image updated successfully.');
     }
 
     public function destroy($id)
     {
         $item = ImageGallery::findOrFail($id);
+        $destination = public_path('storage/images');
 
-        if (is_array($item->image)) {
-            foreach ($item->image as $img) {
-                $path = public_path('storage/images/' . $img);
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-            }
+        // Delete image file
+        if ($item->image && File::exists($destination . '/' . $item->image)) {
+            File::delete($destination . '/' . $item->image);
         }
 
         $item->delete();
-
-        return redirect()->route('images.index')->with('success', 'Image and associated files deleted successfully!');
-    }
-
-    public function changeStatus($id)
-    {
-        $item = ImageGallery::find($id);
-
-        if ($item) {
-            $item->status = !$item->status;
-            $item->save();
-
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Image status updated successfully.',
-                'new_status' => $item->status
-            ]);
-        }
-
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Image not found.'
-        ]);
+        return redirect()->route('images.index')->with('success', 'Image deleted successfully.');
     }
 }

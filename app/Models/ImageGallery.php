@@ -7,11 +7,11 @@ use Illuminate\Support\Str;
 
 class ImageGallery extends Model
 {
-    protected $fillable = ['title', 'slug', 'images', 'status'];
+    protected $fillable = ['title', 'slug', 'image', 'description', 'status'];
 
     protected $casts = [
-        'images' => 'array',
-    ];
+    'image' => 'array',
+];
 
     public static function boot()
     {
