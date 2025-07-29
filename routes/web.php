@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\{
     ImageController as AdminImageController,
     BannerController as AdminBannerController,
     AboutController as AdminAboutController,
+    SettingController,
     AdminEnquiryController,
 
 };
@@ -100,16 +101,19 @@ Route::prefix('admin')->group(function () {
 
     // About Routes
     Route::group(['prefix' => 'about'], function () {
-        Route::get('/', [AdminAboutController::class, 'edit'])
-            ->name('about.edit');
-        Route::put('/', [AdminAboutController::class, 'update'])
-            ->name('about.update');
+        Route::get('/', [AdminAboutController::class, 'edit'])->name('about.edit');
+        Route::put('/', [AdminAboutController::class, 'update'])->name('about.update');
     });
 
     // Enquiry Routes
     Route::group(['prefix' => 'enquiries'], function () {
         Route::get('/', [AdminEnquiryController::class, 'index'])->name('enquiries.index');
         Route::delete('/{id}', [AdminEnquiryController::class, 'destroy'])->name('enquiries.destroy');
+    });
+
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', [SettingController::class, 'edit'])->name('settings.edit');
+        Route::post('/', [SettingController::class, 'update'])->name('settings.update');
     });
 
 });
