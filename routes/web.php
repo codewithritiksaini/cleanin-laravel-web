@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\{
     ProjectController as AdminProjectController,
     TestimonialController as AdminTestimonialController,
     ImageController as AdminImageController,
+    VideoController as AdminVideoController,
     BannerController as AdminBannerController,
     AboutController as AdminAboutController,
     SettingController,
@@ -56,6 +57,16 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/edit', [AdminImageController::class, 'edit'])->name('images.edit');
         Route::put('/{id}', [AdminImageController::class, 'update'])->name('images.update');
         Route::delete('/{id}', [AdminImageController::class, 'destroy'])->name('images.destroy');
+    });
+
+    // Video Routes
+    Route::group(['prefix' => 'videos'], function () {
+        Route::get('/', [AdminVideoController::class, 'index'])->name('videos.index');
+        Route::get('/create', [AdminVideoController::class, 'create'])->name('videos.create');
+        Route::post('/', [AdminVideoController::class, 'store'])->name('videos.store');
+        Route::get('/{id}/edit', [AdminVideoController::class, 'edit'])->name('videos.edit');
+        Route::put('/{id}', [AdminVideoController::class, 'update'])->name('videos.update');
+        Route::delete('/{id}', [AdminVideoController::class, 'destroy'])->name('videos.destroy');
     });
 
     // Banner Routes
