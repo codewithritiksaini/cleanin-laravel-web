@@ -50,7 +50,7 @@ class VideoController extends Controller
             'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
-        return redirect()->route('images.index')->with('success', 'Image created successfully!');
+        return redirect()->route('videos.index')->with('success', 'Image created successfully!');
     }
 
     public function edit($id)

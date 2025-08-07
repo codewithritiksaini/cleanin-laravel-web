@@ -39,7 +39,16 @@ Route::post('/send-message', [SiteMessageController::class, 'store'])->name('mes
 
 
 Route::prefix('admin')->group(function () {
-    // Services Routes
+
+
+
+################################################################################################################endregion
+
+
+    // Method 1:
+
+    // Services Routes Direct Using Prifix
+
     Route::group(['prefix' => 'services'], function () {
         Route::get('/', [AdminServiceController::class, 'index'])->name('services.index');
         Route::get('/create', [AdminServiceController::class, 'create'])->name('services.create');
@@ -48,6 +57,65 @@ Route::prefix('admin')->group(function () {
         Route::put('/{id}', [AdminServiceController::class, 'update'])->name('services.update');
         Route::delete('/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
     });
+
+
+        // Method 2:
+
+        // SERVICE ROUTE WITH CONTROLLER METHOD
+
+        // Route::controller(AdminServiceController::class)->prefix('services')->group(function () {
+        //     Route::get('/', 'index')->name('services.index');
+        //     Route::get('/create', 'create')->name('services.create');
+        //     Route::post('/', 'store')->name('services.store');
+        //     Route::get('/{id}/edit', 'edit')->name('services.edit');
+        //     Route::put('/{id}', 'update')->name('services.update');
+        //     Route::delete('/{id}', 'destroy')->name('services.destroy');
+        // });
+
+
+        // Method 3:
+
+        // Route With Array For Passing Controller and prifix Values
+
+        // Route::group([
+        //     'prefix' => 'services',
+        //     'controller' => AdminServiceController::class
+        // ], function () {
+        //     Route::get('/', 'index')->name('services.index');
+        //     Route::get('/create', 'create')->name('services.create');
+        //     Route::post('/', 'store')->name('services.store');
+        //     Route::get('/{id}/edit', 'edit')->name('services.edit');
+        //     Route::put('/{id}', 'update')->name('services.update');
+        //     Route::delete('/{id}', 'destroy')->name('services.destroy');
+        // });
+
+
+
+        // Method 4:
+
+        // Using Resource Route -> es route se automatic 7 route ban jate hai ,
+        // esmein jo route ki naming hoti hai vo default hoti hai ,
+        //  ye naming url base hoti hai jo url hoga uske naam se hi naming chalegi
+        // eg : yahan services url hai to esmein naming automatic
+
+            // HTTP Method    URL	            Controller Method	Route Name
+            // GET     	/services	            index	        services.index
+            // GET     	/services/create	    create	        services.create
+            // POST        /services	            store	        services.store
+            // GET     	/services/{id}	         show	        services.show
+            // GET     	/services/{id}/edit	     edit	        services.edit
+            // PUT/PATCH   /services/{id}	        update	        services.update
+            // DELETE      /services/{id}	        destroy	    services.destroy
+
+
+        // Route::resource('services', AdminServiceController::class);
+
+
+################################################################################################################endregion
+
+
+
+
 
     // Images Routes
     Route::group(['prefix' => 'images'], function () {
