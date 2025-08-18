@@ -11,7 +11,7 @@
     <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, midone Admin Template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
-    <title>Dashboard - Midone - Admin Dashboard</title>
+    <title>Dashboard - {{env('APP_NAME')}}</title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{asset('backend-assets/dist/css/vendors/tippy.css')}}">
     <link rel="stylesheet" href="{{asset('backend-assets/dist/css/vendors/litepicker.css')}}">
@@ -266,7 +266,7 @@
                 <ul class="py-2">
                     <!-- BEGIN: First Child -->
                     <li>
-                        <a class="menu menu--active" href="{{route('home')}}">
+                        <a class="menu menu--active" href="{{route('dashboard')}}">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="home" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -630,7 +630,7 @@
                 <div class="my-6 side-nav__divider"></div>
                 <ul>
                     <li>
-                        <a href="{{route('home')}}" class="side-menu side-menu--active">
+                        <a href="{{route('dashboard')}}" class="side-menu side-menu--active">
                             <div class="side-menu__icon">
                                 <i data-tw-merge="" data-lucide="home" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -888,7 +888,7 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{route('settings.edit')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -1086,15 +1086,11 @@
                                 Reset Password</a>
                             <div class="h-px my-2 -mx-2 bg-slate-200/60 dark:bg-darkmode-400 bg-white/[0.08]">
                             </div>
-                            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            <a href="{{ route('logout')}}"
                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item hover:bg-white/5"><i
                                     data-tw-merge="" data-lucide="toggle-right" class="stroke-1.5 mr-2 h-4 w-4"></i>
                                 Logout
                             </a>
-                            <form id="logout-form" action="https://www.ritiksaini.in/logout" method="POST" class="d-none">
-                                <input type="hidden" name="_token" value="kc15lic7hhcKjGbGl5zCaxigNMTZi0n6UcQgMXWM"
-                                    autocomplete="off">
-                            </form>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\{
     AboutController as AdminAboutController,
     SettingController,
     AdminEnquiryController,
+    AdminController,
 
 };
 
@@ -22,8 +23,12 @@ use App\Http\Controllers\Site\{
     MessageController as SiteMessageController,
 };
 
+Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
+Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 })->name('home');
 
 Route::get('/test', function () {
@@ -37,8 +42,13 @@ Route::get('/message', function () {
 Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
 
 
+// Admin Dashboard Route
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
+
+
+
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 
 
