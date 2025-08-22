@@ -1,0 +1,153 @@
+/*==============================================
+  Before After One
+===============================================*/
+.before-after-one {
+  position: relative;
+  display: block;
+  padding: 120px 0 120px;
+  z-index: 1;
+}
+
+.before-after-one__img-box {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  border: 4px solid var(--cleanin-white);
+}
+
+.before-after-one__img-box .before-after {
+  position: relative;
+}
+
+.before-after-one__img-box .before-after .twentytwenty-container img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.before-after-one__img-box .before-after .twentytwenty-horizontal .twentytwenty-before-label:before {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cleanin-white);
+  margin: 0px;
+  padding: 0px;
+  background: transparent;
+  z-index: 1;
+  transform: rotate(-45deg);
+  text-transform: uppercase;
+  display: none;
+}
+
+.before-after-one__img-box .before-after .twentytwenty-horizontal .twentytwenty-before-label:after {
+  position: absolute;
+  content: '';
+  left: 0px;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%, 0% 0%);
+}
+
+.before-after-one__img-box .before-after .twentytwenty-horizontal .twentytwenty-after-label:before {
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  line-height: 140px;
+  text-align: center;
+  font-size: 16px;
+  background: transparent;
+  font-weight: 700;
+  color: var(--cleanin-white);
+  margin: 0px;
+  padding: 0px;
+  bottom: 0px;
+  transform: rotate(-45deg);
+  z-index: 1;
+  text-transform: uppercase;
+  display: none;
+}
+
+.before-after-one__img-box.before-after .twentytwenty-horizontal .twentytwenty-after-label:after {
+  position: absolute;
+  content: '';
+  bottom: 0px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+
+.twentytwenty-after-label,
+.twentytwenty-before-label {
+  opacity: 1 !important;
+}
+
+.before-after-one__img-box .twentytwenty-handle {
+  background-color: var(--cleanin-base);
+}
+
+.before-after-one__img-box .twentytwenty-horizontal .twentytwenty-handle:before {
+  height: 290px;
+  top: -292px;
+}
+
+.before-after-one__img-box .twentytwenty-horizontal .twentytwenty-handle:after {
+  height: 275px;
+}
+
+.before-after-one__img-box .twentytwenty-overlay {
+  border-radius: 10px
+}
+
+.before-after-one__tag {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+.before-after-one__tag span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  font-family: var(--cleanin-font-two);
+  color: var(--cleanin-white);
+  background-color: var(--cleanin-base);
+  padding: 8px 20px 8px;
+  border-radius: 12px;
+}
+
+.before-after-one__tag-2 {
+  left: inherit;
+  right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# End
+--------------------------------------------------------------*/

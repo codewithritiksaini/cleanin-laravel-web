@@ -1,0 +1,319 @@
+/***
+=============================================
+    Pricing Plan One
+=============================================
+***/
+.pricing-plan-one {
+    position: relative;
+    display: block;
+    padding: 120px 0px 90px;
+    z-index: 1;
+}
+
+.pricing-plan-one__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    z-index: -1;
+}
+
+.pricing-plan-one__tab {
+    position: relative;
+    display: block;
+}
+
+.pricing-plan-one__tab .tab-buttons {
+    position: absolute;
+    top: -106px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    width: 259px;
+    background-color: var(--cleanin-white);
+    border: 1px solid var(--cleanin-bdr-color);
+    margin: 0 auto 0;
+    z-index: 2;
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn+.tab-btn {
+    margin-left: 0px;
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn h3 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--cleanin-gray);
+    background-color: transparent;
+    padding: 14px 17px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    text-transform: capitalize;
+    font-family: var(--cleanin-font-two);
+    border-radius: 25px;
+    letter-spacing: -0.03em;
+    transition: all 0.5s linear;
+    z-index: 1;
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn h3:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0%;
+    background-color: var(--cleanin-base);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn.active-btn h3 {
+    color: var(--cleanin-white);
+}
+
+.pricing-plan-one__tab .tab-buttons .tab-btn.active-btn h3:before {
+    height: 100%;
+}
+
+.pricing-plan-one .tabs-content {
+    position: relative;
+    display: block;
+}
+
+.pricing-plan-one .tabs-content .tab {
+    position: relative;
+    display: none;
+    -webkit-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    transform: translateY(15px);
+    -webkit-transition: all 900ms ease;
+    -moz-transition: all 900ms ease;
+    -ms-transition: all 900ms ease;
+    -o-transition: all 900ms ease;
+    transition: all 900ms ease;
+    z-index: 10;
+}
+
+.pricing-plan-one .tabs-content .tab.active-tab {
+    display: block;
+    margin-top: 0px;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.pricing-plan-one__single-tab {
+    position: relative;
+    display: block;
+}
+
+.pricing-plan-one__single-tab-inner {
+    position: relative;
+    display: block;
+}
+
+.pricing-plan-one__single {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+    transition: all 500ms ease;
+    transition-delay: 0.3s;
+    z-index: 1;
+}
+
+.pricing-plan-one__single:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 15px;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 4px 60px RGBA(var(--cleanin-black-rgb, 33, 34, 38), 0.09);
+    background: var(--cleanin-white);
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    z-index: -1;
+    content: "";
+}
+
+.pricing-plan-one__single-inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-top: 15px;
+    padding: 0px 40px 50px;
+}
+
+.pricing-plan-one__single .table-header {
+    position: relative;
+    display: block;
+    padding-bottom: 22px;
+    border-bottom: 2px dashed var(--cleanin-base);
+    z-index: 5;
+}
+
+.pricing-plan-one__single .table-header .category-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.pricing-plan-one__single .table-header .category-wrapper:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 15px;
+    width: 10px;
+    background: var(--cleanin-base);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    z-index: 10;
+}
+
+.pricing-plan-one__single .table-header .category-wrapper:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    height: 15px;
+    width: 10px;
+    background: var(--cleanin-base);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    z-index: 10;
+}
+
+.pricing-plan-one__single .table-header h3 {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 20px;
+    font-weight: 700;
+    background: var(--cleanin-base);
+    padding: 15px 45px;
+    font-family: var(--cleanin-font);
+    margin-bottom: 36px;
+    z-index: 1;
+}
+
+.pricing-plan-one__single .table-header h2 {
+    color: var(--cleanin-black);
+    font-size: 45px;
+    line-height: 1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    z-index: 5;
+}
+
+.pricing-plan-one__single .table-header p {
+    color: var(--cleanin-gray);
+}
+
+.pricing-plan-one__single .table-content {
+    position: relative;
+    display: block;
+    margin-top: 37px;
+    z-index: 5;
+}
+
+.pricing-plan-one__single .table-content ul {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.pricing-plan-one__single .table-content ul li {
+    position: relative;
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.pricing-plan-one__single .table-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 0;
+    background: var(--cleanin-base);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.pricing-plan-one__single .table-content ul li p {
+    color: var(--cleanin-gray);
+    font-size: 17px;
+    line-height: 29px;
+    font-weight: 400;
+    font-family: var(--cleanin-font);
+}
+
+.pricing-plan-one__single .table-content ul li p span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-base);
+    font-size: 17px;
+    line-height: 17px;
+    top: 1px;
+}
+
+.pricing-plan-one__single .table-content ul li:last-child {
+    margin-bottom: 0px;
+}
+
+.pricing-plan-one__single .table-footer {
+    position: relative;
+    display: block;
+    margin-top: 36px;
+    line-height: 0px;
+    z-index: 5;
+}
+
+/***
+=============================================
+    Pricing Plan One Carousel
+=============================================
+***/
+.pricing-plan-one--carousel {
+    position: relative;
+    display: block;
+    padding-bottom: 107px;
+}
+
+.pricing-plan-one__carousel.owl-carousel .owl-stage-outer {
+    overflow: visible;
+}
+
+.pricing-plan-one__carousel.owl-carousel .owl-item {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms ease, visibility 500ms ease;
+}
+
+.pricing-plan-one__carousel.owl-carousel .owl-item.active {
+    opacity: 1;
+    visibility: visible;
+}

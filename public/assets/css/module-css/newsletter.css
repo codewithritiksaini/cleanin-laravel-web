@@ -1,0 +1,109 @@
+/*==============================================
+    Newsletter One
+===============================================*/
+.newsletter-one {
+    position: relative;
+    display: block;
+    background-color: var(--cleanin-black);
+    border-bottom: 1px solid rgba(var(--cleanin-white-rgb), 0.15);
+    z-index: 2;
+}
+
+.newsletter-one__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 44px 0 43px;
+}
+
+.newsletter-one__left {
+    position: relative;
+    display: block;
+}
+
+.newsletter-one__title-box {
+    position: relative;
+    display: block;
+}
+
+.newsletter-one__title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--cleanin-white);
+    line-height: 45px;
+    letter-spacing: -0.03em;
+    margin-bottom: 5px;
+}
+
+.newsletter-one__title span {
+    font-weight: 300;
+}
+
+.newsletter-one__text {
+    font-size: 16px;
+    color: var(--cleanin-white);
+}
+
+.newsletter-one__text a {
+    color: var(--cleanin-white);
+    text-decoration: underline;
+}
+
+.newsletter-one__text a:hover {
+    color: var(--cleanin-white);
+    text-decoration: underline;
+}
+
+.newsletter-one__form-box {
+    position: relative;
+    display: block;
+    max-width: 550px;
+    width: 100%;
+}
+
+.newsletter-one__form {
+    position: relative;
+    display: block;
+}
+
+.newsletter-one__input {
+    position: relative;
+    display: block;
+}
+
+.newsletter-one__input input[type="email"] {
+    font-size: 16px;
+    color: var(--cleanin-white);
+    font-weight: 500;
+    height: 60px;
+    width: 100%;
+    background: rgba(var(--cleanin-white-rgb), 0.1);
+    border: 1px solid rgba(var(--cleanin-white-rgb), 0.1);
+    border-radius: 5px;
+    outline: none;
+    padding: 0 25px 0;
+    padding-right: 215px;
+}
+
+.newsletter-one__form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.newsletter-one__form button.thm-btn {
+    background: var(--cleanin-white);
+    color: var(--cleanin-black);
+}
+
+.newsletter-one__form button.thm-btn:hover {
+    color: var(--cleanin-white);
+}
+
+.newsletter-one__form button.thm-btn .hover-btn {
+    background-color: var(--cleanin-base);
+}

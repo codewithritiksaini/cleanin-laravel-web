@@ -1,0 +1,87 @@
+name: Deploy Laravel Project to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, intl
+          tools: composer
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Deploy to Hostinger via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage"
+          target: ${{ secrets.DEPLOY_PATH }}
+          overwrite: true
+
+      - name: Run Laravel commands on server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
+
+            # Ensure storage & cache directories exist
+            mkdir -p bootstrap/cache
+            mkdir -p storage/framework/{cache,sessions,views}
+            mkdir -p storage/logs
+            chmod -R 775 storage bootstrap/cache
+
+            # Install dependencies
+            composer install --no-dev --optimize-autoloader
+
+            # Run migrations & safe seeder
+            php artisan migrate --force
+            php artisan db:seed --force || true
+
+            # Clear caches
+            php artisan config:clear
+            php artisan cache:clear
+            php artisan route:clear
+            php artisan view:clear
+
+            # Force remove and create symlink
+            rm -rf public/storage
+            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+
+            # Optimize caches
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache

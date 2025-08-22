@@ -1,0 +1,183 @@
+/*==============================================
+    Counter One
+===============================================*/
+.counter-one {
+    position: relative;
+    display: block;
+    background: var(--cleanin-black);
+    padding: 110px 0px 112px;
+    z-index: 1;
+}
+
+.counter-one .row {
+    --bs-gutter-x: 125px;
+}
+
+.counter-one__single {
+    position: relative;
+    display: block;
+}
+
+.counter-one__single-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.counter-one__single-icon {
+    position: relative;
+    display: block;
+}
+
+.counter-one__single-icon::before {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    bottom: -25px;
+    width: 35px;
+    border: 1px solid rgba(var(--cleanin-white-rgb), 0.1);
+    content: "";
+    z-index: -1;
+}
+
+.counter-one__single-icon span {
+    position: relative;
+    display: block;
+    line-height: 0px;
+}
+
+.counter-one__single-icon span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 65px;
+    line-height: 65px;
+    transition-delay: 0.1s;
+    transition: all 500ms ease;
+}
+
+.counter-one__single:hover .counter-one__single-icon span::before {
+    transform: rotateY(180deg);
+    transition-delay: 0.1s;
+}
+
+.counter-one__single-content {
+    position: relative;
+    display: block;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.counter-one__single-content .count-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.counter-one__single-content .count-box h2 {
+    color: var(--cleanin-white);
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 600;
+}
+
+.counter-one__single-content .count-box .k {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+.counter-one__single-content .count-box .plus {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 600;
+    margin-left: 1px;
+    top: 2px;
+}
+
+.counter-one__single-content p {
+    color: var(--cleanin-white);
+}
+
+/*==============================================
+    Counter Two
+===============================================*/
+.counter-one--two {
+    position: relative;
+    display: block;
+    z-index: 1;
+}
+
+.counter-one--two .shape1 {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    z-index: -1;
+}
+
+.counter-one--two .shape2 {
+    position: absolute;
+    bottom: 40px;
+    left: 70px;
+    z-index: -1;
+}
+
+.counter-one--two .shape3 {
+    position: absolute;
+    left: 585px;
+    top: 55px;
+    z-index: -1;
+}
+
+.counter-one--two .shape4 {
+    position: absolute;
+    top: 40px;
+    right: 700px;
+    z-index: -1;
+}
+
+.counter-one--two .shape5 {
+    position: absolute;
+    bottom: 40px;
+    right: 570px;
+    z-index: -1;
+}
+
+.counter-one--two .shape6 {
+    position: absolute;
+    top: 30px;
+    right: 120px;
+    z-index: -1;
+}
+
+.counter-one--two .shape7 {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    z-index: -1;
+}
+
+.counter-one--two .counter-one__single-icon::before {
+    display: none;
+}
+
+.counter-one--two .counter-one__single::before {
+    position: absolute;
+    top: 0;
+    right: -56px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(var(--cleanin-white-rgb), 0.1);
+    content: "";
+}
+
+.counter-one--two .counter-one__single.style2::before {
+    display: none;
+}

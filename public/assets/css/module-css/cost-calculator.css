@@ -1,0 +1,146 @@
+/*==============================================
+Cost Calculator
+===============================================*/
+.cost-calculator {
+    position: relative;
+    display: block;
+    padding: 120px 0px 120px;
+    z-index: 1;
+}
+
+.cost-calculator .shape1 {
+    position: absolute;
+    top: 50%;
+    right: -110px;
+    z-index: 0;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.cost-calculator__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    z-index: -1;
+}
+
+.cost-calculator__bg::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(0, 74, 148);
+    background: linear-gradient(90deg, rgba(0, 74, 148, 0) 0%, rgba(0, 74, 148, 0) 13%, rgba(0, 74, 148, 0.2553396358543417) 22%, rgba(0, 74, 148, 0.8743872549019608) 45%, rgba(0, 74, 148, 1) 74%, rgba(0, 74, 148, 1) 100%);
+    content: "";
+    z-index: -1;
+}
+
+.cost-calculator__inner {
+    position: relative;
+    display: block;
+}
+
+.cost-calculator__form-box {
+    position: relative;
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    background-color: rgba(var(--cleanin-white-rgb), .1);
+    border: 1px solid rgba(var(--cleanin-white-rgb), .20);
+    padding: 80px 60px 59px;
+    border-radius: 10px;
+    float: right;
+}
+
+.cost-calculator__form-box .sec-title__tagline .icon-box span::before {
+    color: var(--cleanin-white);
+}
+
+.cost-calculator__form-box .sec-title__tagline .text h4 {
+    color: var(--cleanin-white);
+}
+
+.cost-calculator__form-box .sec-title__title {
+    color: var(--cleanin-white);
+}
+
+.cost-calculator__form {
+    position: relative;
+    display: block;
+}
+
+.cost-calculator__input-box {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.cost-calculator__input-box input[type="text"],
+.cost-calculator__input-box input[type="email"] {
+    height: 58px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(var(--cleanin-white-rgb), 0.45);
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    font-size: 16px;
+    color: var(--cleanin-white);
+    display: block;
+    font-weight: 400;
+    border-radius: 10px;
+    line-height: 58px;
+}
+
+.cost-calculator__input-box .select-box .nice-select {
+    background-color: transparent;
+    border: 1px solid rgba(var(--cleanin-white-rgb), 0.45);
+    border-radius: 10px;
+    color: var(--cleanin-white);
+    font-size: 16px;
+    font-weight: 400;
+    height: 58px;
+    line-height: 58px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.cost-calculator__input-box .select-box .nice-select:after {
+    position: absolute;
+    top: 47%;
+    right: 30px;
+    border-bottom: 1px solid rgba(var(--cleanin-white-rgb), 1.0);
+    border-right: 1px solid rgba(var(--cleanin-white-rgb), 1.0);
+}
+
+.cost-calculator__btn-box {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.cost-calculator__btn-box .thm-btn {
+    width: 100%;
+    gap: 0;
+    justify-content: space-between;
+    background: rgba(var(--cleanin-white-rgb), 1.0);
+    color: var(--cleanin-base);
+}
+
+/*==============================================
+Cost Calculator Page
+===============================================*/
+.cost-calculator--page {
+    position: relative;
+    display: block;
+    margin-top: 120px;
+}

@@ -1,0 +1,193 @@
+/***
+=============================================
+Faq One
+=============================================
+***/
+.faq-one {
+    position: relative;
+    display: block;
+    background: var(--cleanin-black);
+    padding: 120px 0 120px;
+    z-index: 1;
+}
+
+.faq-one__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: calc((100% - 60px) / 2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.faq-one .shape1 {
+    position: absolute;
+    bottom: 0px;
+    right: -10px;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.faq-one .big-title {
+    position: absolute;
+    top: 160px;
+    right: -60px;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(var(--cleanin-white-rgb), 0.09);
+    font-size: 170px;
+    line-height: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    font-family: var(--cleanin-font-two);
+}
+
+.faq-one__inner {
+    position: relative;
+    display: block;
+    max-width: 645px;
+    width: 100%;
+    float: right;
+}
+
+.faq-one__inner .sec-title__tagline .text h4 {
+    color: var(--cleanin-white);
+}
+
+.faq-one__inner .sec-title__tagline .icon-box span::before {
+    color: var(--cleanin-white);
+}
+
+.faq-one__inner .sec-title__title {
+    color: var(--cleanin-white);
+}
+
+.faq-one__content {
+    position: relative;
+    display: block;
+    margin-left: 20px;
+}
+
+.faq-one__content-faq {
+    position: relative;
+    display: block;
+    z-index: 1;
+}
+
+.faq-one-accrodion {
+    position: relative;
+    display: block;
+}
+
+.faq-one-accrodion .accrodion {
+    position: relative;
+    display: block;
+    background: rgba(var(--cleanin-white-rgb), 0.05);
+    border: 1px solid rgba(var(--cleanin-white-rgb), 0.06);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    padding: 0px 35px 0px;
+}
+
+.faq-one-accrodion .accrodion.active {
+    padding-bottom: 25px;
+}
+
+.faq-one__content-faq .faq-one-accrodion .accrodion+.accrodion {
+    margin-top: 10px;
+}
+
+.faq-one-accrodion .accrodion-title {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 19px 0px 18px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.faq-one-accrodion .accrodion-title h4 {
+    position: relative;
+    color: var(--cleanin-white);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: capitalize;
+    margin: 0;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.faq-one-accrodion .accrodion-title h4::before {
+    position: absolute;
+    color: var(--cleanin-white);
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 700;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    text-align: center;
+    content: "\e938";
+    font-family: 'icomoon' !important;
+}
+
+.faq-one-accrodion .accrodion.active .accrodion-title h4::before {
+    content: "\e939";
+}
+
+.faq-one-accrodion .accrodion-content {
+    position: relative;
+    display: block;
+    padding: 21px 25px 20px;
+    background: rgba(var(--cleanin-white-rgb), 0.07);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.faq-one-accrodion .accrodion-content p {
+    color: var(--cleanin-white);
+    margin: 0;
+}
+
+/***
+=============================================
+Faq One Faq
+=============================================
+***/
+.faq-one--faq {
+    position: relative;
+    display: block;
+    background: var(--cleanin-white);
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion+.accrodion {
+    margin-top: 10px;
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion-title h4 {
+    color: var(--cleanin-black);
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion {
+    background: var(--cleanin-gray-bg);
+    border: 1px solid var(--cleanin-bdr-color);
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion-title h4::before {
+    color: var(--cleanin-black);
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion-content {
+    background: var(--cleanin-white);
+}
+
+.faq-one--faq .faq-one-accrodion .accrodion-content p {
+    color: var(--cleanin-gray);
+}

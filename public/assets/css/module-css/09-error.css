@@ -1,0 +1,117 @@
+/***
+=====================================================
+    Error Page
+=====================================================
+***/
+.error-page {
+    position: relative;
+    display: block;
+    padding: 92px 0px 120px;
+    z-index: 1;
+}
+
+.error-page__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.025;
+    z-index: -1;
+}
+
+.error-page__wrapper {
+    position: relative;
+    display: block;
+}
+
+.error-page__content {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+}
+
+.error-page__content h2 {
+    color: transparent;
+    -webkit-text-stroke: 4px var(--cleanin-black);
+    font-size: 230px;
+    line-height: 0.9em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.error-page__content h3 {
+    font-size: 60px;
+    line-height: 1.1em;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.error-page__content p {
+    font-weight: 500;
+    margin: 0px;
+}
+
+.error-page__form {
+    position: relative;
+    display: block;
+    margin: 47px auto 20px;
+}
+
+.error-page__form-input {
+    position: relative;
+    display: block;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.error-page__form input[type="search"] {
+    height: 60px;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid var(--cleanin-base);
+    font-size: 16px;
+    color: var(--cleanin-gray);
+    font-weight: 500;
+    padding-left: 30px;
+    padding-right: 60px;
+    border-radius: 10px;
+}
+
+.error-page__form button[type="submit"] {
+    background-color: var(--cleanin-base);
+    color: var(--cleanin-white);
+    font-size: 17px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    width: 60px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.error-page__form button[type="submit"]:hover {
+    background-color: var(--cleanin-black);
+}
+
+.error-page__content .btn-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 41px;
+}

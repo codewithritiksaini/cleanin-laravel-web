@@ -1,0 +1,117 @@
+/*==============================================
+    Feature One
+===============================================*/
+.feature-one {
+    position: relative;
+    display: block;
+    padding: 0px 0px 90px;
+    margin-top: -50px;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.feature-one__single {
+    position: relative;
+    display: block;
+    background: var(--cleanin-white);
+    border: 1px solid #e6e6e6;
+    border-bottom: 3px solid var(--cleanin-base);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 28px 30px 28px;
+    margin-bottom: 30px;
+}
+
+.feature-one__single-inner {
+    position: relative;
+    display: block;
+    padding-left: 100px;
+}
+
+.feature-one__single-icon {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cleanin-gray-bg);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.feature-one__single-icon span {
+    position: relative;
+    display: block;
+    line-height: 0px;
+}
+
+.feature-one__single-icon span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-base);
+    font-size: 35px;
+    line-height: 35px;
+    transition: all 500ms ease;
+}
+
+.feature-one__single:hover .feature-one__single-icon span::before {
+    -webkit-animation-name: wobble-horizontal-hover;
+    animation-name: wobble-horizontal-hover;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.feature-one__single-content {
+    position: relative;
+    display: block;
+}
+
+.feature-one__single-content h2 {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.feature-one__single-content h2 a {
+    color: var(--cleanin-black);
+}
+
+.feature-one__single-content h2 a:hover {
+    color: var(--cleanin-base);
+}
+
+.feature-one__single-content p {
+    margin: 0;
+}
+
+.feature-one__single-content .btn-box {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+
+.feature-one__single-content .btn-box a {
+    color: var(--cleanin-black);
+    font-size: 17px;
+    line-height: 27px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.feature-one__single-content .btn-box a span::before {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 13px;
+    margin-left: 2px;
+    font-weight: 700;
+}

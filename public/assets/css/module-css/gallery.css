@@ -1,0 +1,107 @@
+/***
+=============================================
+Gallery One
+=============================================
+***/
+.gallery-one {
+    position: relative;
+    display: block;
+    background: var(--cleanin-white);
+    padding: 120px 0px 107px;
+    z-index: 1;
+}
+
+.gallery-one__inner {
+    position: relative;
+    display: block;
+}
+
+.gallery-one__single {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.gallery-one__single-img {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-one__single-img img {
+    width: 100%;
+}
+
+.gallery-one__single-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--cleanin-white-rgb), 0.9);
+    border: 2px solid var(--cleanin-black);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-transition: all .8s ease;
+    transition: all .8s ease;
+    border-radius: 10px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.gallery-one__single:hover .gallery-one__single-icon {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.gallery-one__single-icon a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    background: var(--cleanin-base);
+    border-radius: 50%;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0;
+    -webkit-transition: all .8s ease;
+    transition: all .8s ease;
+    color: var(--wdtPrimaryColor);
+}
+
+.gallery-one__single:hover .gallery-one__single-icon a {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.gallery-one__single-icon a:hover {
+    background: var(--cleanin-black);
+}
+
+.gallery-one__single-icon a span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+/***
+=============================================
+Gallery One Gallery
+=============================================
+***/
+.gallery-one--gallery {
+    position: relative;
+    display: block;
+    padding-bottom: 90px;
+}

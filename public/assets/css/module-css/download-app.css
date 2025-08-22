@@ -1,0 +1,110 @@
+/***
+=============================================
+Download App One
+=============================================
+***/
+.download-app-one {
+    position: relative;
+    display: block;
+    padding: 120px 0px 120px;
+    background: var(--cleanin-gray-bg);
+    z-index: 1;
+}
+
+.download-app-one__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.download-app-one .row {
+    align-items: center;
+}
+
+.download-app-one__img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 470px;
+    width: 100%;
+}
+
+.download-app-one__img1 {
+    position: relative;
+    display: block;
+    transform: rotate(-11deg);
+    margin-right: -5px;
+}
+
+.download-app-one__img1 img {
+    width: auto;
+}
+
+.download-app-one__img2 {
+    position: relative;
+    display: block;
+    transform: rotate(11deg);
+}
+
+.download-app-one__img2 img {
+    width: auto;
+}
+
+.download-app-one__content {
+    position: relative;
+    display: block;
+}
+
+.download-app-one__content .sec-title {
+    padding-bottom: 21px;
+}
+
+.download-app-one__content-text {
+    position: relative;
+    display: block;
+}
+
+.download-app-one__content-text p {
+    margin: 0;
+}
+
+.download-app-one__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 42px;
+}
+
+.download-app-one__btn .btn-one {
+    position: relative;
+    display: block;
+}
+
+.download-app-one__btn .btn-one+.btn-one {
+    margin-left: 10px;
+}
+
+.download-app-one__btn .btn-one a {
+    position: relative;
+    display: inline-block;
+    background: var(--cleanin-base);
+    padding: 18px 35px 16px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.download-app-one__btn .btn-one a:hover {
+    background: var(--cleanin-black);
+}
+
+.download-app-one__btn .btn-one a img {
+    width: 100%;
+}

@@ -1,0 +1,213 @@
+/***
+=============================================
+Cta One
+=============================================
+***/
+.cta-one {
+    position: relative;
+    display: block;
+    background: var(--cleanin-black);
+    border-bottom: 1px solid rgba(var(--cleanin-white-rgb), 0.2);
+    padding: 81px 0px 78px;
+    z-index: 1;
+}
+
+.cta-one .shape1 {
+    position: absolute;
+    top: -40px;
+    left: 680px;
+    border-bottom: 40px solid #03376b;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    content: "";
+}
+
+.cta-one__bg {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    bottom: 0;
+    width: 700px;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    z-index: -1;
+}
+
+.cta-one__bg::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--cleanin-black);
+    content: "";
+    opacity: 0.75;
+}
+
+.cta-one__inner {
+    position: relative;
+    display: block;
+}
+
+.cta-one__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 780px;
+    width: 100%;
+    float: right;
+}
+
+.cta-one__content .text-box {
+    position: relative;
+    display: block;
+}
+
+.cta-one__content .text-box p {
+    color: var(--cleanin-white);
+    letter-spacing: 0.2em;
+}
+
+.cta-one__content .text-box h2 {
+    color: var(--cleanin-white);
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-top: 4px;
+}
+
+.cta-one__content .btn-box {
+    position: relative;
+    display: block;
+    line-height: 0;
+}
+
+.cta-one__content .btn-box .thm-btn:hover {
+    color: var(--cleanin-black);
+}
+
+.cta-one__content .btn-box .hover-btn {
+    background-color: var(--cleanin-white);
+}
+
+/***
+=============================================
+Cta Two
+=============================================
+***/
+.cta-two {
+    position: relative;
+    display: block;
+    padding: 120px 0px 120px;
+    z-index: 1;
+}
+
+.cta-two__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+}
+
+.cta-two__bg::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(var(--cleanin-base-rgb), 0.85);
+    content: "";
+    z-index: -1;
+}
+
+.cta-two__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.035;
+    z-index: -1;
+}
+
+.cta-two__inner {
+    position: relative;
+    display: block;
+}
+
+.cta-two__inner .sec-title {
+    padding-bottom: 37px;
+}
+
+.cta-two__inner .sec-title__tagline .text h4 {
+    color: var(--cleanin-white);
+}
+
+.cta-two__inner .sec-title__tagline .icon-box span::before {
+    color: var(--cleanin-white);
+}
+
+.cta-two__inner .sec-title__title {
+    color: var(--cleanin-white);
+}
+
+.cta-two__number-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-two__number-box .icon-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--cleanin-white-rgb), 0.15);
+    border-radius: 50%;
+}
+
+.cta-two__number-box .icon-box span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.cta-two__number-box .text-box {
+    position: relative;
+    display: block;
+    margin-left: 15px;
+}
+
+.cta-two__number-box .text-box h2 {
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 700;
+}
+
+.cta-two__number-box .text-box h2 a {
+    color: var(--cleanin-white);
+}
+
+.cta-two__number-box .text-box h2 a:hover {
+    color: var(--cleanin-white);
+}

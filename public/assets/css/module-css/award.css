@@ -1,0 +1,136 @@
+/*==============================================
+    Award One
+===============================================*/
+.award-one {
+    position: relative;
+    display: block;
+    padding: 120px 0px 120px;
+    z-index: 1;
+}
+
+.award-one .row {
+    align-items: center;
+}
+
+.award-one__award {
+    position: relative;
+    display: block;
+}
+
+.award-one__award-single {
+    position: relative;
+    display: block;
+    background: var(--cleanin-black);
+    text-align: center;
+    padding: 0px 25px 67px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+}
+
+.award-one__award-single .angle-text {
+    position: absolute;
+    top: 35px;
+    right: -28px;
+    background: var(--cleanin-white);
+    transform: rotate(45deg);
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.award-one__award-single .angle-text p {
+    color: var(--cleanin-black);
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.award-one__award-single .number {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--cleanin-white);
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 600;
+    width: 60px;
+    height: 60px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: rgba(var(--cleanin-white-rgb), 0.15);
+    margin: 0 auto;
+    font-family: var(--cleanin-font-two);
+}
+
+.award-one__award-single h3 {
+    color: var(--cleanin-white);
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 22px;
+}
+
+.award-one__award-single h2 {
+    color: var(--cleanin-white);
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+}
+
+.award-one__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.award-one__content-text {
+    position: relative;
+    display: block;
+    margin-right: 15px;
+}
+
+.award-one__content-text h2 {
+    color: var(--cleanin-base);
+    font-size: 35px;
+    line-height: 45px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.award-one__content-text p {
+    margin: 0;
+}
+
+.award-one__content-text .rating-box {
+    position: relative;
+    display: block;
+    margin-top: 17px;
+}
+
+.award-one__content-text .signature-box {
+    position: relative;
+    display: block;
+    margin-top: 19px;
+}
+
+.award-one__content-text .signature-box img {
+    width: auto;
+    opacity: 0.5;
+}
+
+.award-one__content-img {
+    position: relative;
+    display: block;
+    flex: 1;
+}
+
+.award-one__content-img img {
+    width: auto;
+}

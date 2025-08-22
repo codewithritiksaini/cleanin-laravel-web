@@ -28,8 +28,36 @@ Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
-    return view('index');
+    return view('site.index');
 })->name('home');
+
+Route::get('/about', function () {
+    return view('site.about.about');
+})->name('about');
+
+Route::get('/services', function () {
+    return view('site.services.index');
+})->name('services');
+
+// Route::get('/pages', function () {
+//     return view('site.pages.index');
+// })->name('pages');
+
+// Route::get('/blogs', function () {
+//     return view('site.blogs.index');
+// })->name('blogs ');
+
+Route::get('blogs', function () {
+    return view('site.blogs.index');
+})->name('blogs');
+
+Route::get('/projects', function () {
+    return view('site.projects.index');
+})->name('projects');
+
+Route::get('/Contact', function () {
+    return view('site.Contact.index');
+})->name('Contact');
 
 Route::get('/test', function () {
     return view('admin.message');

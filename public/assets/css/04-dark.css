@@ -1,0 +1,245 @@
+body,
+body.boxed-wrapper .page-wrapper {
+    background-color: var(--cleanin-black);
+}
+
+.about-one,
+.main-header-one__bottom,
+.services-one__single-inner,
+.services-one__single-inner h2,
+.services-one__single-icon,
+.services-one__single .shadow-one,
+.services-one__single .shadow-two,
+.project-one,
+.video-one,
+.team-one,
+.contact-one__inner,
+.why-choose-one,
+.brand-one,
+.working-process-one__single .icon,
+.blog-one {
+    background: #00182b;
+}
+
+.about-one__experience,
+.project-one__single-content,
+.team-one__single-content,
+.testimonial-one__single-inner,
+.testimonial-one__single .icon-box,
+.why-choose-one__single-tab-inner,
+.working-process-one,
+.blog-one__single-content-inner {
+    background: var(--cleanin-black);
+}
+
+
+.about-one__experience .count-box h2,
+.about-one__experience .count-box span,
+.about-one__video-icon,
+.sec-title__title,
+.about-one__content-list ul li .content-box h3,
+.services-one__single-inner h2 a,
+.services-one__single-btn a,
+.services-one__single-icon span::before,
+.project-one__single-content h2 a,
+.testimonial-one__single-inner h2,
+.working-process-one__single .content-box h2 a,
+.working-process-one__single .icon span,
+.blog-one__single-content-inner .meta-box li .text-box p a,
+.blog-one__single-content-inner .meta-box li .icon span::before,
+.blog-one__single-content-inner h2 a,
+.blog-one__single-content-inner .btn-box a,
+.sec-title__tagline .text h4,
+.sec-title__tagline .icon-box span::before {
+    color: var(--cleanin-white);
+}
+
+.about-one__experience p,
+.about-one__content-text p,
+.about-one__content-list ul li .content-box p,
+.services-one__single p,
+.project-one__single-content p,
+.team-one__single-content .text-box p,
+.testimonial-one__single-inner p,
+.why-choose-one__single-tab-content p,
+.working-process-one__single .content-box p,
+.blog-one__single-content-inner p {
+    color: rgba(var(--cleanin-white-rgb), 0.8);
+}
+
+.about-one__video-icon,
+.project-one__single-content .icon-box a {
+    background-color: var(--cleanin-base);
+}
+
+.about-one__content-list ul li .icon-box {
+    border: 2px solid rgba(var(--cleanin-white-rgb), 0.1);
+}
+
+.main-menu .main-menu__list>li>a,
+.stricky-header .main-menu__list>li>a {
+    color: var(--cleanin-white);
+}
+
+.main-menu .main-menu__list>li.dropdown>a:after {
+    color: var(--cleanin-white);
+}
+
+.main-menu__search,
+.main-header__shop .icon-box a,
+.team-one__single-content .text-box h2 a,
+.why-choose-one__single-tab-content h2 {
+    color: var(--cleanin-white);
+}
+
+.main-menu .main-menu__list>li.current>a::after,
+.main-menu .main-menu__list>li:hover>a::after,
+.stricky-header .main-menu__list>li.current>a::after,
+.stricky-header .main-menu__list>li:hover>a::after {
+    color: var(--cleanin-base);
+}
+
+.services-one__carousel.thm-dot-style1.owl-theme .owl-dots .owl-dot.active span,
+.services-one__carousel.thm-dot-style1.owl-theme .owl-dots .owl-dot:hover span {
+    background: rgba(var(--cleanin-white-rgb), 0.15);
+    border-color: rgba(var(--cleanin-white-rgb), 0.0);
+}
+
+.thm-dot-style1.owl-theme .owl-dots .owl-dot span {
+    border: 1px solid rgba(var(--cleanin-white-rgb), .26);
+}
+
+.thm-dot-style1.owl-theme .owl-dots .owl-dot.active span,
+.thm-dot-style1.owl-theme .owl-dots .owl-dot:hover span {
+    background: rgba(var(--cleanin-white-rgb), 0.15);
+    border-color: rgba(var(--cleanin-white-rgb), 0.0);
+}
+
+.video-one .shape1 {
+    top: 120px;
+}
+
+.team-one__single {
+    border: 2px solid rgba(var(--cleanin-white-rgb), .20);
+}
+
+.team-one__single-content .img-box {
+    border: 2px solid var(--cleanin-base);
+}
+
+.team-one__single-content .social-links a {
+    color: rgba(var(--cleanin-white-rgb), .30);
+    border: 1px solid rgba(var(--cleanin-white-rgb), .30);
+}
+
+.contact-one__bg::before {
+    background: rgba(var(--cleanin-black-rgb), 0.85);
+}
+
+.contact-one__form {
+    background: #081523;
+}
+
+.contact-one__form-box .input-box input[type="text"],
+.contact-one__form-box .input-box input[type="email"],
+.contact-one__form-box .input-box textarea {
+    background-color: rgba(var(--cleanin-black-rgb), .75);
+    border: 1px solid rgba(var(--cleanin-black-rgb), .12);
+    color: rgba(var(--cleanin-white-rgb), .70);
+}
+
+.contact-one__form-box .input-box .icon span::before {
+    color: rgba(var(--cleanin-white-rgb), .70);
+}
+
+.contact-one__form-box .input-box .nice-select {
+    background-color: rgba(var(--cleanin-black-rgb), .75);
+    border: 1px solid rgba(var(--cleanin-black-rgb), .12);
+    color: rgba(var(--cleanin-white-rgb), .70);
+}
+
+.contact-one__form-box .input-box .nice-select:after {
+    border-bottom: 2px solid rgba(var(--cleanin-white-rgb), .70);
+    border-right: 2px solid rgba(var(--cleanin-white-rgb), .70);
+}
+
+.testimonial-one__carousel.owl-carousel .owl-nav button.owl-prev,
+.testimonial-one__carousel.owl-carousel .owl-nav button.owl-next {
+    color: rgba(var(--cleanin-white-rgb), .30);
+    border: 1px solid rgba(var(--cleanin-white-rgb), .30);
+}
+
+.testimonial-one__single-inner {
+    border: 2px solid rgba(var(--cleanin-white-rgb), .1);
+}
+
+.testimonial-one__single .icon-box span::before {
+    color: rgba(var(--cleanin-white-rgb), .30);
+}
+
+.why-choose-one__tab .tabs-button-box .tab-btn-item:before {
+    background-color: var(--cleanin-black);
+}
+
+.why-choose-one__tab .tabs-button-box .tab-btn-item.active-btn h3 {
+    color: var(--cleanin-white);
+}
+
+.why-choose-one__single-tab-content .btn-box .thm-btn .hover-btn {
+    background: #00182b;
+}
+
+.brand-one {
+    border-bottom: 1px solid rgba(var(--cleanin-white-rgb), 0.15);
+}
+
+.blog-one__single-content .date-box::before {
+    border-bottom: 20px solid #2c526f;
+}
+
+.blog-one__single-content-inner .meta-box::before {
+    background: rgba(var(--cleanin-white-rgb), 0.15);
+}
+
+.footer-one__subscribe-form .subscribe-form input[type="email"] {
+    background: #00182b;
+    color: var(--cleanin-white);
+}
+
+.footer-one__subscribe-form .subscribe-form input[type="email"]::placeholder {
+    color: rgba(var(--cleanin-white-rgb), .65);
+}
+
+.why-choose-one .shape2 {
+    background: rgba(var(--cleanin-white-rgb), .65);
+}
+
+.stricky-header__one.stricky-header.main-menu {
+    background: #00182b;
+}
+
+.main-menu .mobile-nav__toggler {
+    color: var(--cleanin-white);
+}
+
+.search-popup .search-popup__group input {
+    background: #00182b;
+    color: rgba(var(--cleanin-white-rgb), 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The End */

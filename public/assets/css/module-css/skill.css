@@ -1,0 +1,164 @@
+/*==============================================
+Skill One
+===============================================*/
+.skill-one {
+    position: relative;
+    display: block;
+    background: var(--cleanin-base);
+    padding: 120px 0px 120px;
+    z-index: 1;
+}
+
+.skill-one__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: calc((100% - 100px) / 2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.skill-one__bg::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--cleanin-white);
+    content: "";
+}
+
+.skill-one .shape1 {
+    position: absolute;
+    top: 50%;
+    left: -110px;
+    z-index: 0;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.skill-one__content {
+    position: relative;
+    display: block;
+}
+
+.skill-one__content .sec-title {
+    padding-bottom: 26px;
+}
+
+.skill-one__content .sec-title__tagline .text h4 {
+    color: var(--cleanin-white);
+}
+
+.skill-one__content .sec-title__tagline .icon-box span::before {
+    color: var(--cleanin-white);
+}
+
+.skill-one__content .sec-title__title {
+    color: var(--cleanin-white);
+}
+
+.skill-one__content-text {
+    position: relative;
+    display: block;
+}
+
+.skill-one__content-text p {
+    color: var(--cleanin-white);
+}
+
+.skill-one__progress {
+    position: relative;
+    display: block;
+    margin-top: 35px;
+}
+
+.skill-one__progress li {
+    position: relative;
+    display: block;
+}
+
+.skill-one__progress li+li {
+    margin-top: 23px;
+}
+
+.skill-one__progress-single {
+    position: relative;
+    display: block;
+}
+
+.skill-one__progress-single .title-box {
+    position: relative;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.skill-one__progress-single .title-box p {
+    color: var(--cleanin-white);
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.skill-one__progress-single .bar {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(var(--cleanin-white-rgb), 0.2);
+    border-radius: 6px;
+}
+
+.skill-one__progress-single .bar-inner {
+    position: relative;
+    display: block;
+    width: 0px;
+    height: 6px;
+    border-radius: 6px;
+    background-color: var(--cleanin-white);
+    -webkit-transition: all 1500ms ease;
+    -ms-transition: all 1500ms ease;
+    -o-transition: all 1500ms ease;
+    -moz-transition: all 1500ms ease;
+    transition: all 1500ms ease;
+}
+
+.skill-one__progress-single .count-text {
+    position: absolute;
+    top: -35px;
+    right: -1px;
+    color: var(--cleanin-white);
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+    opacity: 0;
+    font-family: var(--cleanin-font-two);
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.skill-one__progress-single .bar-inner.counted .count-text {
+    opacity: 1;
+}
+
+.skill-one__content .btn-box {
+    position: relative;
+    display: block;
+    line-height: 0px;
+    margin-top: 45px;
+}
+
+.skill-one__content .btn-box .thm-btn {
+    background: var(--cleanin-white);
+    color: var(--cleanin-base);
+}
+
+.skill-one__content .btn-box .thm-btn:hover {
+    color: var(--cleanin-white);
+}

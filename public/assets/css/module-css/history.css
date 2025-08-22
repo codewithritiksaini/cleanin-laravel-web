@@ -1,0 +1,104 @@
+/***
+=============================================
+History Page
+=============================================
+***/
+.history-page {
+    position: relative;
+    display: block;
+    padding: 120px 0px 42px;
+    z-index: 1;
+}
+
+.history-page__line {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 119px;
+    width: 1px;
+    background: var(--cleanin-bdr-color);
+}
+
+.history-page__single {
+    position: relative;
+    display: block;
+    margin-bottom: 70px;
+}
+
+.history-page__single .year-box {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--cleanin-base);
+    border-radius: 50%;
+    color: var(--cleanin-white);
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.history-page__single .year-box::before {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    border: 1px solid var(--cleanin-base);
+    border-radius: 50%;
+    content: "";
+}
+
+.history-page__single-img {
+    position: relative;
+    display: block;
+    padding-right: 85px;
+}
+
+.history-page__single-img-inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.history-page__single-img-inner img {
+    width: 100%;
+}
+
+.history-page__single-content {
+    position: relative;
+    display: block;
+    padding-left: 85px;
+    margin-top: -8px;
+}
+
+.history-page__single.style2 .history-page__single-content {
+    padding-left: 0px;
+    padding-right: 85px;
+    text-align: right;
+}
+
+.history-page__single.style2 .history-page__single-img {
+    padding-right: 0px;
+    padding-left: 85px;
+}
+
+.history-page__single-content h2 {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 23px;
+}
+
+.history-page__single-content p {
+    margin: 0;
+}

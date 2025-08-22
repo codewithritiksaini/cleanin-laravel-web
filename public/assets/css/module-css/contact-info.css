@@ -1,0 +1,117 @@
+/***
+=============================================
+Contact Info One
+=============================================
+***/
+.contact-info-one {
+    position: relative;
+    display: block;
+    margin-bottom: -92px;
+    z-index: 5;
+}
+
+.contact-info-one__inner {
+    position: relative;
+    display: block;
+    padding: 60px 80px 60px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-info-one__inner .row {
+    --bs-gutter-x: 190px;
+}
+
+.contact-info-one__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+}
+
+.contact-info-one__bg::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(var(--cleanin-base-rgb), 0.95);
+    content: "";
+}
+
+.contact-info-one__single {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info-one__single-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border: 2px solid var(--cleanin-white);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.contact-info-one__single-icon span {
+    position: relative;
+    display: block;
+    line-height: 0px;
+}
+
+.contact-info-one__single-icon span::before {
+    position: relative;
+    display: inline-block;
+    color: var(--cleanin-white);
+    font-size: 30px;
+    line-height: 30px;
+    transition: all 500ms ease;
+}
+
+.contact-info-one__single:hover .contact-info-one__single-icon span::before {
+    -webkit-animation-name: wobble-horizontal-hover;
+    animation-name: wobble-horizontal-hover;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.contact-info-one__single-content {
+    position: relative;
+    display: block;
+    margin-left: 25px;
+    flex: 1;
+}
+
+.contact-info-one__single-content h3 {
+    color: var(--cleanin-white);
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.contact-info-one__single-content p {
+    color: var(--cleanin-white);
+}
+
+.contact-info-one__single-content p a {
+    color: var(--cleanin-white);
+}
+
+.contact-info-one__single-content p a:hover {
+    color: var(--cleanin-white);
+}

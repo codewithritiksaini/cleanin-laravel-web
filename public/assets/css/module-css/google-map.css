@@ -1,0 +1,19 @@
+/***
+=============================================
+Google Map One
+=============================================
+***/
+.google-map-one {
+    position: relative;
+    display: block;
+    margin-bottom: -93px;
+    z-index: 0;
+}
+
+.google-map-one__map {
+    position: relative;
+    display: block;
+    border: none;
+    height: 550px;
+    width: 100%;
+}
