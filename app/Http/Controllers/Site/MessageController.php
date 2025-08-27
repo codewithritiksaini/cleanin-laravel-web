@@ -12,12 +12,13 @@ class MessageController extends Controller
         $request->validate([
             'name'    => 'required|string|max:100',
             'email'   => 'required|email',
+            'Phone'   => 'required|string|max:15',
             'subject' => 'required|string|max:150',
             'message' => 'required|string',
         ]);
 
         Message::create($request->all());
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
+return redirect()->back()->with('success', 'Message sent successfully!');
     }
 }

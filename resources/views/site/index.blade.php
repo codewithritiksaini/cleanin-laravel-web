@@ -524,7 +524,7 @@
 
 
                 <div class="project-one__top-btn">
-                    <a class="thm-btn" href="project-1.html">View All Projects
+                    <a class="thm-btn" href="{{ route('projects.index') }}">View All Projects
                         <i class="icon-next"></i>
                         <span class="hover-btn hover-bx"></span>
                         <span class="hover-btn hover-bx2"></span>
@@ -542,7 +542,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img1.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -552,7 +552,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img1.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -564,7 +564,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img2.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -574,7 +574,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img2.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -586,7 +586,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img3.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -596,7 +596,227 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img3.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">House Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Window Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Floor Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Office Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">House Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Window Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Floor Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Office Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
+                                        class="icon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Project One Single-->
+
+                <!--Start Project One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__single-img">
+                        <div class="inner">
+                            <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
+                        </div>
+
+                        <div class="project-one__single-content">
+                            <div class="text-box">
+                                <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
+                                <p>Los Angeles, USA</p>
+                            </div>
+
+                            <div class="icon-box">
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -618,7 +838,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img4.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -630,7 +850,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img5.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -640,7 +860,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img5.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -652,7 +872,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img1.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -662,7 +882,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img1.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -674,7 +894,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img2.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -684,7 +904,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img2.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -696,7 +916,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img3.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">
@@ -706,7 +926,7 @@
                             </div>
 
                             <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img3.jpg"><span
+                                <a class="img-popup" href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
                                         class="icon-plus"></span></a>
                             </div>
                         </div>
@@ -718,227 +938,7 @@
                 <div class="project-one__single">
                     <div class="project-one__single-img">
                         <div class="inner">
-                            <img src="assets/images/project/project-v1-img4.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img4.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img5.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img5.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img1.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img1.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img2.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img2.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img3.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img3.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img4.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img4.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img5.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img5.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img1.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img1.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img2.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img2.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img3.jpg" alt="#">
-                        </div>
-
-                        <div class="project-one__single-content">
-                            <div class="text-box">
-                                <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                <p>Los Angeles, USA</p>
-                            </div>
-
-                            <div class="icon-box">
-                                <a class="img-popup" href="assets/images/project/project-v1-img3.jpg"><span
-                                        class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Project One Single-->
-
-                <!--Start Project One Single-->
-                <div class="project-one__single">
-                    <div class="project-one__single-img">
-                        <div class="inner">
-                            <img src="assets/images/project/project-v1-img4.jpg" alt="#">
+                            <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
                         </div>
 
                         <div class="project-one__single-content">

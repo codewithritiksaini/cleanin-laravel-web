@@ -59,68 +59,75 @@
                     <!--End Contact Page Content-->
 
                     <!--Start Contact Page Form-->
-                    <div class="col-xl-6">
-                        <div class="contact-page__form-box">
-                            <form class="contact-form-validated contact-page__form" action="https://php.unicktheme.com/cleanin/assets/inc/sendemail.php"
-                                method="post" novalidate="novalidate">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="text" name="name" placeholder="Name" required="">
-                                            <div class="icon"><span class="icon-people"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="email" name="email" placeholder="Email" required="">
-                                            <div class="icon"><span class="icon-envelope"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="text" name="Phone" placeholder="Phone" required="">
-                                            <div class="icon"><span class="icon-phone-call"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <div class="select-box">
-                                                <select class="selectmenu wide">
-                                                    <option selected="selected">Subject</option>
-                                                    <option>Subject 01</option>
-                                                    <option>Subject 02</option>
-                                                    <option>Subject 03</option>
-                                                    <option>Subject 04</option>
-                                                    <option>Subject 05</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                               <div class="col-xl-6">
+                                                <div class="contact-page__form-box">
 
-                                    <div class="col-xl-12">
-                                        <div class="input-box">
-                                            <textarea name="message" placeholder="Message"></textarea>
-                                            <div class="icon style2"><span class="icon-pen"></span></div>
-                                        </div>
-                                    </div>
+                                                    {{-- Success Message --}}
+                                                    {{-- @if(session('success'))
+                                                        <div class="alert alert-success mb-3">
+                                                            {{ session('success') }}
+                                                        </div>
+                                                    @endif --}}
+                                                    @if(session('success'))
+                                                        <script>
+                                                            alert("{{ session('success') }}");
+                                                        </script>
+                                                    @endif
 
-                                    <div class="col-xl-12">
-                                        <div class="contact-page__form-btn">
-                                            <button type="submit" class="thm-btn">
-                                                Submit Now
-                                                <i class="icon-next"></i>
-                                                <span class="hover-btn hover-bx"></span>
-                                                <span class="hover-btn hover-bx2"></span>
-                                                <span class="hover-btn hover-bx3"></span>
-                                                <span class="hover-btn hover-bx4"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="result"></div>
-                        </div>
-                    </div>
+
+                                                    <form class="contact-form-validated contact-page__form" action="{{ route('message.store') }}"
+                                                        method="post" novalidate="novalidate">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="text" name="name" placeholder="Name" required="">
+                                                                    <div class="icon"><span class="icon-people"></span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="email" name="email" placeholder="Email" required="">
+                                                                    <div class="icon"><span class="icon-envelope"></span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="text" name="Phone" placeholder="Phone" required="">
+                                                                    <div class="icon"><span class="icon-phone-call"></span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                <div class="input-box">
+                                                                    <input type="text" name="subject" placeholder="Subject" required="">
+                                                                    <div class="icon"><span class="icon-chat"></span></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xl-12">
+                                                                <div class="input-box">
+                                                                    <textarea name="message" placeholder="Message"></textarea>
+                                                                    <div class="icon style2"><span class="icon-pen"></span></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xl-12">
+                                                                <div class="contact-page__form-btn">
+                                                                    <button type="submit" class="thm-btn">
+                                                                        Submit Now
+                                                                        <i class="icon-next"></i>
+                                                                        <span class="hover-btn hover-bx"></span>
+                                                                        <span class="hover-btn hover-bx2"></span>
+                                                                        <span class="hover-btn hover-bx3"></span>
+                                                                        <span class="hover-btn hover-bx4"></span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div class="result"></div>
+                                                </div>
+</div>
                     <!--End Contact Page Form-->
                 </div>
 
@@ -201,8 +208,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -212,8 +219,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -223,8 +230,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -234,8 +241,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -245,8 +252,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -256,8 +263,8 @@
                         <div class="brand-one__single">
                             <div class="brand-one__single-inner">
                                 <a href="#">
-                                    <img src="assets/images/brand/brand-1-1.png" alt="">
-                                    <img src="assets/images/brand/brand-1-2.png" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -271,7 +278,7 @@
         <!--Start Cta One -->
         <section class="cta-one">
             <div class="shape1"></div>
-            <div class="cta-one__bg" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">
+        <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
             </div>
             <div class="container clearfix">
                 <div class="cta-one__inner">

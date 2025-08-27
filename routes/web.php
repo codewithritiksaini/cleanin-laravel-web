@@ -31,7 +31,7 @@ Route::get('/', function () {
     return view('site.index');
 })->name('home');
 
-Route::get('/about', function () {
+Route::get('/about-us', function () {
     return view('site.about.about');
 })->name('about');
 
@@ -47,17 +47,16 @@ Route::get('/services', function () {
 //     return view('site.blogs.index');
 // })->name('blogs ');
 
-Route::get('blogs', function () {
-    return view('site.blogs.index');
-})->name('blogs');
+Route::get('/blogs', [App\Http\Controllers\Site\BlogController::class, 'index'])->name('blogs');
+Route::get('/blogs/{id}', [App\Http\Controllers\Site\BlogController::class, 'show'])->name('blogs.details');
 
 Route::get('/projects', function () {
     return view('site.projects.index');
 })->name('projects');
 
-Route::get('/Contact', function () {
+Route::get('/contact-us', function () {
     return view('site.Contact.index');
-})->name('Contact');
+})->name('contact');
 
 Route::get('/test', function () {
     return view('admin.message');
@@ -68,6 +67,7 @@ Route::get('/message', function () {
 })->name('message');
 
 Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
+
 
 
 // Admin Dashboard Route

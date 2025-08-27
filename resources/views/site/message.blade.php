@@ -90,6 +90,7 @@
             {{ session('success') }}
         </div>
     @endif
+    
 
     <form action="{{ route('message.store') }}" method="POST">
         @csrf

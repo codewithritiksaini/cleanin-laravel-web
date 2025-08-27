@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from php.unicktheme.com/cleanin/about-1.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2025 10:41:19 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
 <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About One || Cleanin || Cleanin PHP Template</title>
+    <title>Home One || Cleanin || Cleanin PHP Template</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
@@ -22,63 +18,63 @@
         href="../../fonts.googleapis.com/css2314a.css?family=Exo:ital,wght@0,100..900;1,100..900&amp;family=Heebo:wght@100..900&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/01-bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/02-animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/03-custom-animate.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/05-flaticon.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/06-font-awesome-all.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/07-jarallax.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/08-jquery.magnific-popup.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/09-nice-select.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/10-odometer.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/11-owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/12-owl.theme.default.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/13-jquery-ui.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/twentytwenty.css') }}" />
+    <link rel="stylesheet" href="assets/css/01-bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/02-animate.min.css" />
+    <link rel="stylesheet" href="assets/css/03-custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/05-flaticon.css" />
+    <link rel="stylesheet" href="assets/css/06-font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/07-jarallax.css" />
+    <link rel="stylesheet" href="assets/css/08-jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/09-nice-select.css" />
+    <link rel="stylesheet" href="assets/css/10-odometer.min.css" />
+    <link rel="stylesheet" href="assets/css/11-owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/12-owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/13-jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/twentytwenty.css" />
 
 
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/01-slider.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/02-about.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/03-services.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/04-testimonial.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/05-team.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/06-blog.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/07-contact.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/08-counter.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/09-error.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/10-faq.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/11-footer.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/12-page-header.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/13-shop.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/14-video.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/award.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/before-and-after.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/brand.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/client.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/coming-soon.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/contact-info.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/cost-calculator.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/cta.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/download-app.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/feature.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/gallery.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/google-map.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/history.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/newsletter.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/office-location.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/pricing.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/privacy.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/project.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/skill.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/sliding-text.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/why-choose.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/module-css/working-process.css') }}" />
+    <link rel="stylesheet" href="assets/css/module-css/01-slider.css" />
+    <link rel="stylesheet" href="assets/css/module-css/02-about.css" />
+    <link rel="stylesheet" href="assets/css/module-css/03-services.css" />
+    <link rel="stylesheet" href="assets/css/module-css/04-testimonial.css" />
+    <link rel="stylesheet" href="assets/css/module-css/05-team.css" />
+    <link rel="stylesheet" href="assets/css/module-css/06-blog.css" />
+    <link rel="stylesheet" href="assets/css/module-css/07-contact.css" />
+    <link rel="stylesheet" href="assets/css/module-css/08-counter.css" />
+    <link rel="stylesheet" href="assets/css/module-css/09-error.css" />
+    <link rel="stylesheet" href="assets/css/module-css/10-faq.css" />
+    <link rel="stylesheet" href="assets/css/module-css/11-footer.css" />
+    <link rel="stylesheet" href="assets/css/module-css/12-page-header.css" />
+    <link rel="stylesheet" href="assets/css/module-css/13-shop.css" />
+    <link rel="stylesheet" href="assets/css/module-css/14-video.css" />
+    <link rel="stylesheet" href="assets/css/module-css/award.css" />
+    <link rel="stylesheet" href="assets/css/module-css/before-and-after.css" />
+    <link rel="stylesheet" href="assets/css/module-css/brand.css">
+    <link rel="stylesheet" href="assets/css/module-css/client.css">
+    <link rel="stylesheet" href="assets/css/module-css/coming-soon.css">
+    <link rel="stylesheet" href="assets/css/module-css/contact-info.css">
+    <link rel="stylesheet" href="assets/css/module-css/cost-calculator.css">
+    <link rel="stylesheet" href="assets/css/module-css/cta.css">
+    <link rel="stylesheet" href="assets/css/module-css/download-app.css">
+    <link rel="stylesheet" href="assets/css/module-css/feature.css">
+    <link rel="stylesheet" href="assets/css/module-css/gallery.css">
+    <link rel="stylesheet" href="assets/css/module-css/google-map.css">
+    <link rel="stylesheet" href="assets/css/module-css/history.css">
+    <link rel="stylesheet" href="assets/css/module-css/newsletter.css">
+    <link rel="stylesheet" href="assets/css/module-css/office-location.css">
+    <link rel="stylesheet" href="assets/css/module-css/pricing.css">
+    <link rel="stylesheet" href="assets/css/module-css/privacy.css">
+    <link rel="stylesheet" href="assets/css/module-css/project.css">
+    <link rel="stylesheet" href="assets/css/module-css/skill.css">
+    <link rel="stylesheet" href="assets/css/module-css/sliding-text.css">
+    <link rel="stylesheet" href="assets/css/module-css/why-choose.css">
+    <link rel="stylesheet" href="assets/css/module-css/working-process.css">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css') }}" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
     <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 
 <body class="custom-cursor">
@@ -88,247 +84,128 @@
 
 
     <!--Start Preloader-->
-    {{-- <div class="loader js-preloader">
+    <div class="loader js-preloader">
         <div></div>
         <div></div>
         <div></div>
-    </div> --}}
+    </div>
     <!--End Preloader-->
 
-    <div class="page-wrapper"><!-- header -->
-        <!--Start Main Header Two-->
-        <header class="main-header-two">
-            <div class="shape1"><img src="{{ asset('assets/images/shapes/header-v2-shape1.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="main-header-two__inner">
-                    <!--Start Main Header Two Top-->
-                    <div class="main-header-two__top">
-                        <div class="main-header-two__top-inner">
-                            <ul class="header-style2__contact">
-                                <li>
-                                    <div class="icon">
-                                        <i class="icon-clock-1"></i>
-                                    </div>
-
-                                    <div class="text">
-                                        <p class="text1">Opening Hours</p>
-                                        <p class="text2">8:00 am - 5:00 pm - Sat - Sun</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="icon">
-                                        <i class="icon-phone-call"></i>
-                                    </div>
-                                    <div class="text">
-                                        <p class="text1">Make A Call</p>
-                                        <p class="text2"><a href="tel:1234567890">+91 9389249642</a></p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="icon">
-                                        <i class="icon-placeholder"></i>
-                                    </div>
-                                    <div class="text">
-                                        <p class="text1">Send Us Mail</p>
-                                        <p class="text2"><a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a>
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <div class="header-style2__social-links">
-                                <div class="title-box">
-                                    <p>Follow Us On:</p>
+    <div class="page-wrapper"><!--Start Main Header One-->
+        <header class="main-header-one">
+            <!--Start Main Header One Top-->
+            <div class="main-header-one__top">
+                <div class="container">
+                    <div class="main-header-one__top-inner">
+                        <ul class="header-style1__contact">
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-clock-1"></i>
                                 </div>
-                                <!-- Add this in <head> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<ul>
-    <li>
-        <a href="https://www.facebook.com/share/15rwx89Bfc/" target="_blank">
-            <i class="fab fa-facebook"></i>
-        </a>
-    </li>
-    <li>
-        <a href="https://www.instagram.com/rikki__saini__26/profilecard/?igsh=aXppMjN6bm1uc3li" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </li>
-    <li>
-        <a href="https://www.linkedin.com/in/YourProfileName" target="_blank">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </li>
-    <li>
-        <a href="https://github.com/Rikki-Saini-Git" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
-    </li>
-</ul>
-{{--
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/share/15rwx89Bfc/" target="_blank">
-                                        <span class="icon-facebook-app-symbol"></span>
-                                    </a>
-                                </li>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/rikki__saini__26/profilecard/?igsh=aXppMjN6bm1uc3li" target="_blank">
-                                        <span class="icon-instagram"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                <a href="https://www.linkedin.com/in/YourProfileName" target="_blank">
-                                        <span class="icon-linkedin"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                <a href="https://github.com/YourUserName" target="_blank">
-                                    <span class="icon-github"></span>
-                                </a>
+                                <div class="text">
+                                    <p>8:00 am - 5:00 pm - Sat - Sun</p>
+                                </div>
                             </li>
 
-                            </ul> --}}
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-phone-call"></i>
+                                </div>
+                                <div class="text">
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                </div>
+                            </li>
 
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-placeholder"></i>
+                                </div>
+                                <div class="text">
+                                    <p>{{$setting->short_address}}</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="main-header-one__top-right">
+                            <div class="main-header__language-switcher">
+                                <div class="icon">
+                                    <span class="icon-internet"></span>
+                                </div>
+                            </div>
+                            <div class="header-style1__social-links">
+                                <a target="_blank" href="{{$setting->facebook}}"><i class="icon-facebook-app-symbol"></i></a>
+                                <a target="_blank" href="{{$setting->twitter}}"><i class="icon-twitter-1"></i></a>
+                                <a target="_blank" href="{{$setting->linkedin}}"><i class="icon-linkedin-big-logo"></i></a>
+                                <a target="_blank" href="{{$setting->instagram}}"><i class="icon-instagram"></i></a>
                             </div>
                         </div>
                     </div>
-                    <!--End Main Header Two Top-->
+                </div>
+            </div>
+            <!--End Main Header One Top-->
 
-                    <!--Start Main Header Two Bottom-->
-                    <div class="main-header-two__bottom">
-                        <nav class="main-menu">
-                            <div class="main-menu__wrapper">
-                                <div class="container">
-                                    <div class="main-menu__wrapper-inner">
-                                        <div class="main-header-two__logo">
-                                            <a href="#"><img src="assets/images/resources/logo-2.png"
-                                                    alt=""></a>
-                                        </div>
-
-                                        <!--Start Main Header Two Bottom Left-->
-                                        <div class="main-header-two__bottom-left">
-                                            <div class="main-menu__main-menu-box">
-                                                <a href="#" class="mobile-nav__toggler"><i
-                                                        class="fa fa-bars"></i></a>
-                                                <ul class="main-menu__list">
-                                                    <li class="">
-                                                        <a href="{{route('home')}}">Home </a>
-                                                    </li>
-
-                                                    <li class="">
-                                                        <a href="{{route('about')}}">About</a>
-                                                    </li>
-
-                                                    <li class="">
-                                                        <a href="{{route('services')}}">Services</a>
-                                                    </li>
-
-                                                    {{-- <li class="dropdown">
-                                                        <a href="#">Pages</a>
-
-                                                        <ul class="shadow-box">
-                                                            <li class="dropdown">
-                                                                <a href="#">Team</a>
-                                                                <ul>
-                                                                    <li><a href="#">Team 01</a></li>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li> --}}
-
-                                                    <li class="">
-                                                        <a href="{{route('blogs')}}">Blog</a>
-                                                    </li>
-
-                                                    <li class="">
-                                                        <a href="{{route('Contact')}}">Contact</a>
-                                                    </li>
-                                                    <div style="align-items: center; text-align:right;" class="row mb-4"><div class="main-header__btn">
-
-                                                        <div style="text-align:right;margin-top:20px;padding-right:10px;">
-                                                            <a class="thm-btn" href="{{route('login')}}">
-
-                                                                login<i class="icon-next"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                        <!--End Main Header Two Bottom Left-->
-
-                                        <!--Start Main Header Two Bottom Right-->
-                                        <div class="main-header-two__bottom-right">
-                                            <div class="header-search-box">
-                                                <a href="#"
-                                                    class="main-menu__search open-search icon-search-interface-symbol"></a>
-                                            </div>
-
-                                            <div class="sidebar-icon">
-                                                <a class="navSidebar-button icon2" href="#">
-                                                    <span class="nav-sidebar-menu-1"></span>
-                                                    <span class="nav-sidebar-menu-2"></span>
-                                                    <span class="nav-sidebar-menu-3"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="main-header__btn">
-                                                <a class="thm-btn" href="#">Get a Quote
-                                                    <i class="icon-next"></i>
-                                                    <span class="hover-btn hover-bx"></span>
-                                                    <span class="hover-btn hover-bx2"></span>
-                                                    <span class="hover-btn hover-bx3"></span>
-                                                    <span class="hover-btn hover-bx4"></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!--End Main Header Two Bottom Right-->
+            <!--Start Main Header One Bottom-->
+            <div class="main-header-one__bottom">
+                <nav class="main-menu">
+                    <div class="main-menu__wrapper">
+                        <div class="container">
+                            <div class="main-menu__wrapper-inner">
+                                <div class="main-header-one__bottom-left">
+                                    <div class="logo-one">
+                                        <a href="{{route('home')}}"><img style="margin:20px; width:100px; height:auto;" src="{{ asset('/'.$setting->dark_logo) }}"
+                                                alt=""></a>
                                     </div>
+                                </div>
 
+                                <div class="main-header-one__bottom-middle">
+                                    <div class="main-menu__main-menu-box">
+                                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                        <ul class="main-menu__list">
+                                            <li class="megamenu">
+                                                <a href="{{route('home')}}">Home </a>
+                                            </li>
 
-                                    <div class="row"><div class="main-header__btn">
+                                            <li class="">
+                                                <a href="{{route('about')}}">About</a>
+                                            </li>
 
-                                    {{-- <div style="text-align:right;margin-top:10px;">
-                                        <a class="thm-btn" href="contact-1.html">
-                                            Get a Quote <i class="icon-next"></i>
+                                            <li class="">
+                                                <a href="{{route('services')}}">Services</a>
+                                            </li>
+
+                                            <li class="">
+                                                <a href="{{route('blogs')}}">Blog</a>
+                                            </li>
+
+                                            <li class="">
+                                                <a href="{{route('contact')}}">Contact</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="main-header-one__bottom-right">
+
+                                    <div class="main-header__btn">
+                                        <a class="thm-btn" href="{{route('login')}}">Login
+                                            <i class="icon-next"></i>
+                                            <span class="hover-btn hover-bx"></span>
+                                            <span class="hover-btn hover-bx2"></span>
+                                            <span class="hover-btn hover-bx3"></span>
+                                            <span class="hover-btn hover-bx4"></span>
                                         </a>
-                                        </div> --}}
-
+                                    </div>
                                 </div>
                             </div>
-                        </nav>
+                        </div>
                     </div>
-                    <!--End Main Header Two Bottom-->
-                </div>
+                </nav>
             </div>
+            <!--End Main Header One Bottom-->
         </header>
-        <!--End Main Header Two-->
-
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                    <!--End Main Header Two Bottom-->
-                </div>
-            </div>
-        </header>
-        <!--End Main Header Two-->
-
-        <div class="stricky-header stricky-header__two stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
+        <!--End Main Header One-->
         @yield('content')
-
-
-        <!--Start Site Footer-->
+        <!--End Cta One --><!--Start Site Footer-->
         <footer class="site-footer">
             <div class="shape1 float-bob-x"><img src="assets/images/shapes/footer-v1-shape1.png" alt="">
             </div>
@@ -341,21 +218,21 @@
                         <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".0s">
                             <div class="footer-widget__single footer-widget__about">
                                 <div class="site-footer__logo">
-                                    <a href="#"><img src="{{asset('assets/images/resources/logo-2.png')}}"
+                                    <a href="{{route('home')}}"><img src="{{ asset('/'.$setting->light_logo) }}"  style="width:150px; height:auto;"
                                             alt=""></a>
                                 </div>
 
                                 <div class="footer-widget__about-text">
-                                    <p>We use natural and eco-friendly cleaning products and have a customer
-                                        satisfaction guarantee.</p>
+                                    <p>{{ $setting->description }}</p>
                                 </div>
 
                                 <div class="footer-widget__about-social-links">
                                     <ul>
-                                        <li><a href="#"><span class="icon-facebook-app-symbol"></span></a></li>
-                                        <li><a href="#"><span class="icon-twitter-1"></span></a></li>
-                                        <li><a href="#"><span class="icon-linkedin-big-logo"></span></a></li>
-                                        <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                        <li><a href="{{ $setting->facebook }}"><span class="icon-facebook-app-symbol"></span></a>
+                                        </li>
+                                        <li><a href="{{ $setting->twitter }}"><span class="icon-twitter-1"></span></a></li>
+                                        <li><a href="{{ $setting->linkedin }}"><span class="icon-linkedin-big-logo"></span></a></li>
+                                        <li><a href="{{ $setting->instagram }}"><span class="icon-instagram"></span></a></li>
                                     </ul>
                                 </div>
 
@@ -370,23 +247,23 @@
                                 </div>
 
                                 <ul class="footer-widget__services-list">
-                                    <li><a href="#"><span class="icon-right-chevron"></span> House
+                                    <li><a href="house-cleaning.html"><span class="icon-right-chevron"></span> House
                                             Cleaning</a>
                                     </li>
-                                    <li><a href="#"><span class="icon-chevron"></span> Window
+                                    <li><a href="window-cleaning.html"><span class="icon-chevron"></span> Window
                                             Cleaning</a></li>
-                                    <li><a href="#"><span class="icon-right-chevron"></span> Room
+                                    <li><a href="house-cleaning.html"><span class="icon-right-chevron"></span> Room
                                             Cleaning</a>
                                     </li>
-                                    <li><a href="#"><span class="icon-right-chevron"></span>
+                                    <li><a href="residential-cleaning.html"><span class="icon-right-chevron"></span>
                                             Kitchen
                                             Cleaning</a>
                                     </li>
-                                    <li><a href="#"><span class="icon-right-chevron"></span>
+                                    <li><a href="residential-cleaning.html"><span class="icon-right-chevron"></span>
                                             Toilet
                                             Cleaning</a>
                                     </li>
-                                    <li><a href="#"><span class="icon-right-chevron"></span>
+                                    <li><a href="commercial-cleaning.html"><span class="icon-right-chevron"></span>
                                             Outdoor
                                             Cleaning</a>
                                     </li>
@@ -408,7 +285,7 @@
                                         </div>
 
                                         <div class="text-box">
-                                            <p>Saharanpur | 247231 - Uttar Pradesh</p>
+                                            <p>{{ $setting->address }}</p>
                                         </div>
                                     </li>
 
@@ -418,8 +295,10 @@
                                         </div>
 
                                         <div class="text-box">
-                                            <p><a href="tel:9389249642">+9389249642</a></p>
-                                            <p><a href="tel:9389249642">+9389249642</a></p>
+                                            <p><a href="tel:+91{{ $setting->mobile }}">+91{{ $setting->mobile }}</a></p>
+                                            @if ($setting->mobile1)
+                                            <p><a href="tel:+91{{ $setting->mobile1 }}">+91{{ $setting->mobile1 }}</a></p>
+                                            @endif
                                         </div>
                                     </li>
 
@@ -429,8 +308,10 @@
                                         </div>
 
                                         <div class="text-box">
-                                            <p><a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a></p>
-                                            <p><a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a></p>
+                                            <p><a href="mailto:{{$setting->email}}">{{$setting->email}}</a></p>
+                                            @if ($setting->email1)
+                                            <p><a href="mailto:{{$setting->email1}}">{{$setting->email1}}</a></p>
+                                            @endif
                                         </div>
                                     </li>
                                 </ul>
@@ -474,13 +355,17 @@
                         <div class="col-xl-12">
                             <div class="site-footer__bottom-inner">
                                 <div class="site-footer__copyright">
-                                    <p>Copyright@ 2025 <a href="#">Cleanin</a>. All Rights Reserved.</p>
+                                    <p>Copyright@ 2025 <a href="{{route('home')}}">Cleanin</a>. All Rights Reserved.</p>
                                 </div>
 
                                 <ul class="site-footer__bottom-menu">
-                                    <li><a href="#">Setting & Privacy </a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Support</a></li>
+                                    @if(Route::has('privacy'))
+                                        <li><a href="{{route('privacy')}}">Setting & Privacy </a></li>
+                                    @endif
+                                    @if(Route::has('terms'))
+                                        <li><a href="{{route('terms')}}">Terms & Conditions</a></li>
+                                    @endif
+                                    <li><a href="{{route('contact')}}">Support</a></li>
                                 </ul>
 
                             </div>
@@ -501,27 +386,26 @@
                 <i class="fa fa-times"></i>
             </span>
             <div class="logo-box">
-                <a href="#" aria-label="logo image">
-                    <img src="{{asset('assets/images/resources/logo-2.png')}}" alt="Logo" />
+                <a href="{{route('home')}}" aria-label="logo image">
+                    <img src="assets/images/resources/logo-2.png" alt="Logo" />
                 </a>
             </div>
             <div class="mobile-nav__container"></div>
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="icon-envelope"></i>
-                    <a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a>
+                    <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
                 </li>
                 <li>
                     <i class="icon-phone-call"></i>
-                    <a href="tel:9389249642">9389249642</a>
+                    <a href="tel:{{$setting->mobile}}">{{$setting->mobile}}</a>
                 </li>
             </ul>
             <div class="mobile-nav__top">
                 <div class="mobile-nav__social">
-                    <a href="#" class="icon-facebook-app-symbol"></a>
-                    <a href="#" class="icon-linkedin"></a>
-                    <a href="#" class="icon-instagram"></a>
-                    <a href="#" class="icon-github"></a>
+                    <a href="{{$setting->facebook}}" class="icon-facebook-app-symbol"></a>
+                    <a href="{{$setting->twitter}}" class="icon-twitter-1"></a>
+                    <a href="{{$setting->instagram}}" class="icon-instagram"></a>
                 </div>
             </div>
         </div>
@@ -533,7 +417,8 @@
         </button>
         <form action="#" method="post">
             <div class="search-popup__group">
-                <input type="text" name="search-field" id="searchField" placeholder="Search Here..." required>
+                <input type="text" name="search-field" id="searchField" placeholder="Search Here..."
+                    required>
                 <button type="submit" aria-label="search products" title="search products">
                     <i class="icon-search-interface-symbol"></i>
                 </button>
@@ -556,7 +441,7 @@
                     <div class="sidebar-info-contents">
                         <div class="content-inner">
                             <div class="logo">
-                                <a href="#"><img src="assets/images/resources/logo-3.png"
+                                <a href="{{route('home')}}"><img src="assets/images/resources/logo-3.png"
                                         alt="" /></a>
                             </div>
                             <div class="content-box">
@@ -598,32 +483,29 @@
                                 <h4>Contact Info</h4>
                                 <ul>
                                     <li>
-                                        <span class="icon-location"></span> 88 broklyn street, New York
+                                        <span class="icon-location"></span> {{$setting->short_address}}
                                     </li>
                                     <li>
                                         <span class="icon-phone-call"></span>
-                                        <a href="tel:9389249642">+9389249642</a>
+                                        <a href="tel:{{$setting->mobile}}">{{$setting->mobile}}</a>
                                     </li>
                                     <li>
                                         <span class="icon-envelope"></span>
-                                        <a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a>
+                                        <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="thm-social-link1">
                                 <ul class="social-box">
                                     <li>
-                                        <a href="#"><i class="icon-facebook-app-symbol"
+                                        <a href="{{$setting->facebook}}"><i class="icon-facebook-app-symbol"
                                                 aria-hidden="true"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="icon-twitter-1" aria-hidden="true"></i></a>
+                                        <a href="{{$setting->twitter}} "><i class="icon-twitter-1" aria-hidden="true"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="icon-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="icon-pinterest" aria-hidden="true"></i></a>
+                                        <a href="{{$setting->instagram}}"><i class="icon-instagram" aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -673,6 +555,6 @@
 </body>
 
 
-<!-- Mirrored from php.unicktheme.com/cleanin/about-1.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2025 10:41:19 GMT -->
+<!-- Mirrored from php.unicktheme.com/cleanin/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2025 10:34:51 GMT -->
 
 </html>
