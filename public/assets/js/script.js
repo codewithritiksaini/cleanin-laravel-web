@@ -1753,3 +1753,53 @@
     //===Nice Select===
     $("select:not(.ignore)").niceSelect();
 })(jQuery);
+
+
+
+{/* <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> */}
+
+
+let ajaxUrl = $('meta[name="message-store-url"]').attr('content');
+
+$('#contactForm').on('submit', function(e){
+    e.preventDefault();
+    let form = $(this);
+    let btn = $('#submitBtn');
+
+    btn.prop('disabled', true).text('Sending...');
+
+    $.ajax({
+        url: ajaxUrl,
+        method: "POST",
+        data: form.serialize(),
+        dataType: "json",
+        success: function(response){
+            btn.prop('disabled', false).text('Submit Now');
+            if(response.success){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message
+                });
+                form[0].reset();
+            }
+        },
+        error: function(xhr){
+            btn.prop('disabled', false).text('Submit Now');
+            let errorMsg = '';
+            if(xhr.status === 422){
+                let errors = xhr.responseJSON.errors;
+                $.each(errors, function(key, value){
+                    errorMsg += value[0] + '\n';
+                });
+            } else {
+                errorMsg = 'Something went wrong. Please try again.';
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMsg
+            });
+        }
+    });
+});

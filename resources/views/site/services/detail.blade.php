@@ -1,26 +1,26 @@
 @extends('layout.site')
 
 @section('content')
-    <!--Start Services Details-->
-
-       <section class="page-header">
+    <!--Start Page Header-->
+        <section class="page-header">
             <div class="page-header__bg" style="background-image: url({{ asset('assets/images/backgrounds/page-header-bg.jpg') }})"></div>
             <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/main-slider-v4-shape1.png') }}" alt=""></div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h2 class="wow fadeInDown" data-wow-duration="1500ms">{{ $blog->name }}</h2>
+                    <h2 class="wow fadeInDown" data-wow-duration="1500ms">{{ $service->name }}</h2>
                     <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
                         <li><a href="{{route('home')}}">Home</a></li>
 
                         <li><span class="icon-right-arrow1"></span></li>
-                        <li><a href="{{ route('blogs') }}">blogs</a></li>
+                        <li><a href="{{ route('services') }}">services</a></li>
                         <li><span class="icon-right-arrow1"></span></li>
-                        <li>{{ $blog->name }}</li>
+                        <li>{{ $service->name }}</li>
                     </ul>
                 </div>
             </div>
         </section>
     <!--End Page Header-->
+    <!--Start Services Details-->
       <section class="services-details">
         <div class="container">
           <div class="row">
@@ -29,55 +29,19 @@
               <div class="services-details__content">
                 <div class="services-details__content-img1">
                   <img
-                    src="assets/images/services/services-details-img1.jpg"
+                    src="{{asset('storage/services/'. $service->image[0])}}"
                     alt=""
                   />
                 </div>
 
-
                 <div class="services-details__content-text1">
-                  <h2>House Cleaning</h2>
+                  <h2>{{ $service->title }}</h2>
                   <p class="text1">
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, as opposed to
-                    using 'Content here, content here', making it look like
-                    readable English. Many desktop publishing packages and web
-                    page editors now use Lorem Ipsum as their default model
-                    text, and a search for 'lorem ipsum' will uncover many web
-                    sites still in their infancy.
+                    {{$service->description}}
                   </p>
                   <p class="text2">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining.
+                    {{$service->content}}
                   </p>
-                </div>
-
-                <div class="services-details__content-img2">
-                  <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                      <div class="services-details__content-img2-single">
-                        <img
-                          src="assets/images/services/services-details-img2.jpg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                      <div class="services-details__content-img2-single">
-                        <img
-                          src="assets/images/services/services-details-img3.jpg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="services-details__content-text2">
@@ -96,7 +60,7 @@
                       <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="services-details__content-text2-bottom-img">
                           <img
-                            src="assets/images/services/services-details-img4.jpg"
+                            src="{{asset('assets/images/services/services-details-img4.jpg')}}"
                             alt=""
                           />
                         </div>
@@ -277,12 +241,14 @@
                   <div class="title-box">
                     <h2>Search</h2>
                   </div>
-                  <form action="#" class="sidebar__search-form">
-                    <input type="search" placeholder="Search.." />
-                    <button type="submit">
-                      <span class="icon-search-interface-symbol"></span>
-                    </button>
-                  </form>
+                  <form action="{{ route('services') }}" method="GET" class="sidebar__search-form">
+                        <input type="hidden" name="type" value="services"> <!-- ya blogs -->
+                        <input type="search" name="q" placeholder="Search.." />
+                        <button type="submit">
+                            <span class="icon-search-interface-symbol"></span>
+                        </button>
+                    </form>
+
                 </div>
                 <!--End Sidebar Single-->
 
@@ -293,70 +259,69 @@
                   </div>
 
                   <ul class="sidebar__categories-list">
-                    <li>
-                      <a class="active" href="#"
-                        >House Cleaning <span class="icon-right-arrow1"></span
+                    @foreach ($items as $item)
+                        <li>
+                      <a class="active" href="{{ route('services.details', $item->slug) }}"
+                        >{{$item->title}}<span class="icon-right-arrow1"></span
                       ></a>
                     </li>
-                    <li>
-                      <a href="office-cleaning.html"
-                        >Office Cleaning <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="commercial-cleaning.html"
-                        >Commercial Cleaning
-                        <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="residential-cleaning.html"
-                        >Residential Cleaning
-                        <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="window-cleaning.html"
-                        >Window Cleaning <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="carpet-cleaning.html"
-                        >Carpet Cleaning <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="floor-cleaning.html"
-                        >Floor Cleaning <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="car-cleaning.html"
-                        >Car Cleaning <span class="icon-right-arrow1"></span
-                      ></a>
-                    </li>
+                    @endforeach
                   </ul>
                 </div>
                 <!--End Sidebar Single-->
 
-                <!--Start Sidebar Single-->
-                <div class="sidebar__single sidebar__download">
+                <!--Start Sidebar form-->
+                <div class="sidebar__single sidebar__search">
                   <div class="title-box">
-                    <h2>Download</h2>
+                    <h2>Quick Enquiry</h2>
                   </div>
+                    <form id="contactForm" class="contact-form-validated contact-page__form" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="text" name="name" placeholder="Name" required="">
+                                    <div class="icon"><span class="icon-people"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="email" name="email" placeholder="Email" required="">
+                                    <div class="icon"><span class="icon-envelope"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="text" name="Phone" placeholder="Phone" required="">
+                                    <div class="icon"><span class="icon-phone-call"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <div class="select-box">
+                                        <select name="subject" class="selectmenu wide" required>
+                                            <option value="{{$service->name}}" selected>{{$service->name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
-                  <ul class="sidebar__download-list">
-                    <li>
-                      <a href="#"
-                        >Download Application <span class="icon-download"></span
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Download Brochure <span class="icon-download"></span
-                      ></a>
-                    </li>
-                  </ul>
+                            <div class="col-xl-12">
+                                <div class="input-box">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                    <div class="icon style2"><span class="icon-pen"></span></div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="contact-page__form-btn">
+                                    <button style="width:100%" id="submitBtn" type="submit" class="thm-btn">
+                                        Submit Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <!--End Sidebar Single-->
 
@@ -373,10 +338,10 @@
                   </div>
                   <div class="sidebar__contact-text">
                     <p>Call Us Anytime</p>
-                    <h2><a href="tel:1234567890">+111 875 74885</a></h2>
+                    <h2><a href="tel:+91{{$setting->mobile}}">+91 {{$setting->mobile}}</a></h2>
                   </div>
                   <div class="sidebar__contact-btn">
-                    <a class="thm-btn" href="contact-1.html"
+                    <a class="thm-btn" href="{{Route('contact')}}"
                       >Contact Us
                       <i class="icon-next"></i>
                       <span class="hover-btn hover-bx"></span>
@@ -502,206 +467,5 @@
       </section>
       <!--End Cta One -->
 
-      <!--Start Site Footer-->
-      <footer class="site-footer">
-        <div class="shape1 float-bob-x">
-          <img src="assets/images/shapes/footer-v1-shape1.png" alt="" />
-        </div>
-        <div class="shape2 scale">
-          <img src="assets/images/shapes/footer-v1-shape2.png" alt="" />
-        </div>
-        <div class="shape3 scale">
-          <img src="assets/images/shapes/footer-v1-shape2.png" alt="" />
-        </div>
-        <!--Start Site Footer Top-->
-        <div class="site-footer__top">
-          <div class="container">
-            <div class="row">
-              <div
-                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay=".0s"
-              >
-                <div class="footer-widget__single footer-widget__about">
-                  <div class="site-footer__logo">
-                    <a href="index.html"
-                      ><img src="assets/images/resources/logo-2.png" alt=""
-                    /></a>
-                  </div>
 
-                  <div class="footer-widget__about-text">
-                    <p>
-                      We use natural and eco-friendly cleaning products and have
-                      a customer satisfaction guarantee.
-                    </p>
-                  </div>
-
-                  <div class="footer-widget__about-social-links">
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><span class="icon-facebook-app-symbol"></span
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#"><span class="icon-twitter-1"></span></a>
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><span class="icon-linkedin-big-logo"></span
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#"><span class="icon-instagram"></span></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay=".1s"
-              >
-                <div class="footer-widget__single footer-widget__services">
-                  <div class="title-box">
-                    <h2>Services</h2>
-                    <div class="line"></div>
-                  </div>
-
-                  <ul class="footer-widget__services-list">
-                    <li>
-                      <a href="house-cleaning.html"
-                        ><span class="icon-right-chevron"></span> House
-                        Cleaning</a
-                      >
-                    </li>
-                    <li>
-                      <a href="window-cleaning.html"
-                        ><span class="icon-chevron"></span> Window Cleaning</a
-                      >
-                    </li>
-                    <li>
-                      <a href="house-cleaning.html"
-                        ><span class="icon-right-chevron"></span> Room
-                        Cleaning</a
-                      >
-                    </li>
-                    <li>
-                      <a href="residential-cleaning.html"
-                        ><span class="icon-right-chevron"></span> Kitchen
-                        Cleaning</a
-                      >
-                    </li>
-                    <li>
-                      <a href="residential-cleaning.html"
-                        ><span class="icon-right-chevron"></span> Toilet
-                        Cleaning</a
-                      >
-                    </li>
-                    <li>
-                      <a href="commercial-cleaning.html"
-                        ><span class="icon-right-chevron"></span> Outdoor
-                        Cleaning</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay=".2s"
-              >
-                <div class="footer-widget__single footer-widget__contact">
-                  <div class="title-box">
-                    <h2>Official info:</h2>
-                    <div class="line"></div>
-                  </div>
-
-                  <ul class="footer-widget__contact-list">
-                    <li>
-                      <div class="icon-box">
-                        <span class="icon-placeholder"></span>
-                      </div>
-
-                      <div class="text-box">
-                        <p>
-                          3060 Commercial Street Road <br />
-                          Fratton, Australia
-                        </p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="icon-box">
-                        <span class="icon-phone-call"></span>
-                      </div>
-
-                      <div class="text-box">
-                        <p><a href="tel:1234567890">+817 895 74555</a></p>
-                        <p><a href="tel:1234567890">+817 895 74555</a></p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="icon-box">
-                        <span class="icon-envelope"></span>
-                      </div>
-
-                      <div class="text-box">
-                        <p>
-                          <a href="mailto:yourmail@email.com"
-                            >help24/7@cleanin.com</a
-                          >
-                        </p>
-                        <p>
-                          <a href="mailto:yourmail@email.com"
-                            >help24/7@cleanin.com</a
-                          >
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay=".3s"
-              >
-                <div class="footer-widget__single footer-widget__newsletter">
-                  <div class="title-box">
-                    <h2>Newsletter</h2>
-                    <div class="line"></div>
-                  </div>
-
-                  <div class="footer-widget__newsletter-text">
-                    <p>
-                      Subscribe our newsletter to get our latest update & news
-                    </p>
-                  </div>
-
-                  <div class="footer-one__subscribe-form">
-                    <form class="subscribe-form" action="#">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Your E-mail"
-                      />
-                      <button type="submit" class="thm-btn">
-                        Subscribe
-                        <i class="icon-next"></i>
-                        <span class="hover-btn hover-bx"></span>
-                        <span class="hover-btn hover-bx2"></span>
-                        <span class="hover-btn hover-bx3"></span>
-                        <span class="hover-btn hover-bx4"></span>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--End Site Footer Top-->
-@endsection
+     @endsection

@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('name');
-            $table->string('slug')->unique();
-            $table->json('image'); // Store multiple image names in JSON format
-            $table->text('description');
-            $table->longText('content');
-            $table->unsignedTinyInteger('rating')->nullable(); // Rating from 1 to 5
-            $table->unsignedInteger('position')->default(0); // Used for sorting order
-            $table->boolean('status')->default(0);
+            $table->string('company')->nullable();
+            $table->string('position')->nullable();
+            $table->string('image')->nullable();
+            $table->string('rating')->nullable();
+            $table->longText('testimonial');
+            $table->tinyInteger('status')->default(1)->comment('1:Enable, 0:Disable');
             $table->timestamps();
+
         });
     }
 

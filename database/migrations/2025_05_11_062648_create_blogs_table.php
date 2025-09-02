@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->json('image'); // Store multiple image names in JSON format
+            $table->string('image')->nullable(); // ✅ single image store
             $table->text('description');
             $table->longText('content');
             $table->boolean('status')->default(0);

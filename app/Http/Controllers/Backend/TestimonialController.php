@@ -4,139 +4,108 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\Testimonial;
 
 class TestimonialController extends Controller
 {
-
+    // Show all testimonials
     public function index()
     {
         $items = Testimonial::latest()->paginate(10);
-        $title = 'Testimonial';
+        $title = 'Testimonials';
         return view('admin.testimonials.index', compact('items','title'));
     }
 
+    // Show create form
     public function create()
     {
-        $title = 'Testimonial';
-        return view('admin.testimonials.create',compact('title'));
+        $title = 'Add Testimonial';
+        return view('admin.testimonials.create', compact('title'));
     }
 
+    // Store testimonial
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'name' => 'required',
-            'description' => 'required',
-            'content' => 'required',
-            'image' => 'required|array',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048'
+            'name'        => 'required|string|max:255',
+            'company'     => 'nullable|string|max:255',
+            'position'    => 'nullable|string|max:255',
+            'image'       => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'rating'      => 'nullable|numeric|min:1|max:5',
+            'testimonial' => 'required|string',
+            'status'      => 'required|in:0,1',
         ]);
 
-        $images = [];
-        foreach ($request->file('image') as $file) {
-            $random = rand(1000, 9999); 
-            $date = date('Y-m-d');      
-            $extension = $file->getClientOriginalExtension();
-            $name = "testimonial_{$random}_{$date}." . $extension;
+            $data = $request->only(['name', 'company', 'position', 'rating', 'testimonial', 'status', 'image']);
 
-            $file->move(public_path('storage/testimonials'), $name);
-            $images[] = $name;
+        // Upload image
+        if ($request->hasFile('image')) {
+            $fileName = 'testimonial_' . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('storage/testimonials'), $fileName);
+            $data['image'] = $fileName;
         }
 
-        Testimonial::create([
-            'title' => $request->title,
-            'name' => $request->name,
-            'slug' => $request->slug ?? Str::slug($request->name),
-            'image' => $images,
-            'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status === 'active' ? 1 : 0,
-        ]);
+        Testimonial::create($data);
 
         return redirect()->route('testimonials.index')->with('success', 'Testimonial created successfully!');
     }
 
+    // Show edit form
     public function edit($id)
     {
         $item = Testimonial::findOrFail($id);
-        $title = 'Testimonial';
+        $title = 'Edit Testimonial';
         return view('admin.testimonials.edit', compact('item','title'));
     }
 
+    // Update testimonial
     public function update(Request $request, $id)
     {
         $item = Testimonial::findOrFail($id);
 
         $request->validate([
-            'title' => 'required',
-            'name' => 'required',
-            'description' => 'required',
-            'content' => 'required',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048'
+            'name'        => 'required|string|max:255',
+            'company'     => 'nullable|string|max:255',
+            'position'    => 'nullable|string|max:255',
+            'image'       => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'rating'      => 'nullable|numeric|min:1|max:5',
+            'testimonial' => 'required|string',
+            'status'      => 'required|in:0,1',
         ]);
 
-        $images = $item->image;
+        $data = $request->only(['name', 'company', 'position', 'rating', 'testimonial', 'status']);
 
+        // Replace image if new uploaded
         if ($request->hasFile('image')) {
-            if (is_array($images)) {
-                foreach ($images as $img) {
-                    $path = public_path('storage/testimonials/' . $img);
-                    if (file_exists($path)) {
-                        unlink($path);
-                    }
-                }
+            if ($item->image && file_exists(public_path('storage/testimonials/' . $item->image))) {
+                unlink(public_path('storage/testimonials/' . $item->image));
             }
 
-            
-            $images = [];
-            foreach ($request->file('image') as $file) {
-                $random = rand(1000, 9999);
-                $date = date('Y-m-d');
-                $extension = $file->getClientOriginalExtension();
-                $name = "testimonial_{$random}_{$date}." . $extension;
-
-                $file->move(public_path('storage/testimonials'), $name);
-                $images[] = $name;
-            }
+            $fileName = 'testimonial_' . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('storage/testimonials'), $fileName);
+            $data['image'] = $fileName;
         }
 
-        $item->update([
-            'title' => $request->title,
-            'name' => $request->name,
-            'slug' => $request->slug ?? Str::slug($request->name),
-            'image' => $images,
-            'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status === 'active' ? 1 : 0,
-        ]);
+        $item->update($data);
 
         return redirect()->route('testimonials.index')->with('success', 'Testimonial updated successfully!');
     }
 
-
+    // Delete testimonial
     public function destroy($id)
     {
         $item = Testimonial::findOrFail($id);
 
-        // Delete associated images
-        if (is_array($item->image)) {
-            foreach ($item->image as $img) {
-                $path = public_path('storage/testimonials/' . $img);
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-            }
+        if ($item->image && file_exists(public_path('storage/testimonials/' . $item->image))) {
+            unlink(public_path('storage/testimonials/' . $item->image));
         }
 
-        // Delete database record
         $item->delete();
 
         return redirect()->route('testimonials.index')->with('success', 'Testimonial deleted successfully!');
     }
 
-
+    // Toggle status
     public function changeStatus($id)
     {
         $item = Testimonial::find($id);
@@ -146,16 +115,15 @@ class TestimonialController extends Controller
             $item->save();
 
             return response()->json([
-                'status' => 'success',
-                'message' => 'Testimonial status updated successfully.',
+                'status'     => 'success',
+                'message'    => 'Testimonial status updated successfully.',
                 'new_status' => $item->status
             ]);
         }
 
         return response()->json([
-            'status' => 'error',
+            'status'  => 'error',
             'message' => 'Testimonial not found.'
         ]);
     }
-
 }

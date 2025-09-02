@@ -12,69 +12,78 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Cleanin HTML 5 Template " />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="message-store-url" content="{{ route('message.store') }}">
+
+    <?php
+        if (View::hasSection('meta')) {
+            echo View::yieldContent('meta');
+        }
+    ?>
+
 
     <!-- Fonts -->
     <link
         href="../../fonts.googleapis.com/css2314a.css?family=Exo:ital,wght@0,100..900;1,100..900&amp;family=Heebo:wght@100..900&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/01-bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/02-animate.min.css" />
-    <link rel="stylesheet" href="assets/css/03-custom-animate.css" />
-    <link rel="stylesheet" href="assets/css/05-flaticon.css" />
-    <link rel="stylesheet" href="assets/css/06-font-awesome-all.css" />
-    <link rel="stylesheet" href="assets/css/07-jarallax.css" />
-    <link rel="stylesheet" href="assets/css/08-jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/css/09-nice-select.css" />
-    <link rel="stylesheet" href="assets/css/10-odometer.min.css" />
-    <link rel="stylesheet" href="assets/css/11-owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/12-owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/css/13-jquery-ui.css" />
-    <link rel="stylesheet" href="assets/css/twentytwenty.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/01-bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/02-animate.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/03-custom-animate.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/05-flaticon.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/06-font-awesome-all.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/07-jarallax.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/08-jquery.magnific-popup.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/09-nice-select.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/10-odometer.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/11-owl.carousel.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/12-owl.theme.default.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/13-jquery-ui.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/twentytwenty.css')}}" />
 
 
-    <link rel="stylesheet" href="assets/css/module-css/01-slider.css" />
-    <link rel="stylesheet" href="assets/css/module-css/02-about.css" />
-    <link rel="stylesheet" href="assets/css/module-css/03-services.css" />
-    <link rel="stylesheet" href="assets/css/module-css/04-testimonial.css" />
-    <link rel="stylesheet" href="assets/css/module-css/05-team.css" />
-    <link rel="stylesheet" href="assets/css/module-css/06-blog.css" />
-    <link rel="stylesheet" href="assets/css/module-css/07-contact.css" />
-    <link rel="stylesheet" href="assets/css/module-css/08-counter.css" />
-    <link rel="stylesheet" href="assets/css/module-css/09-error.css" />
-    <link rel="stylesheet" href="assets/css/module-css/10-faq.css" />
-    <link rel="stylesheet" href="assets/css/module-css/11-footer.css" />
-    <link rel="stylesheet" href="assets/css/module-css/12-page-header.css" />
-    <link rel="stylesheet" href="assets/css/module-css/13-shop.css" />
-    <link rel="stylesheet" href="assets/css/module-css/14-video.css" />
-    <link rel="stylesheet" href="assets/css/module-css/award.css" />
-    <link rel="stylesheet" href="assets/css/module-css/before-and-after.css" />
-    <link rel="stylesheet" href="assets/css/module-css/brand.css">
-    <link rel="stylesheet" href="assets/css/module-css/client.css">
-    <link rel="stylesheet" href="assets/css/module-css/coming-soon.css">
-    <link rel="stylesheet" href="assets/css/module-css/contact-info.css">
-    <link rel="stylesheet" href="assets/css/module-css/cost-calculator.css">
-    <link rel="stylesheet" href="assets/css/module-css/cta.css">
-    <link rel="stylesheet" href="assets/css/module-css/download-app.css">
-    <link rel="stylesheet" href="assets/css/module-css/feature.css">
-    <link rel="stylesheet" href="assets/css/module-css/gallery.css">
-    <link rel="stylesheet" href="assets/css/module-css/google-map.css">
-    <link rel="stylesheet" href="assets/css/module-css/history.css">
-    <link rel="stylesheet" href="assets/css/module-css/newsletter.css">
-    <link rel="stylesheet" href="assets/css/module-css/office-location.css">
-    <link rel="stylesheet" href="assets/css/module-css/pricing.css">
-    <link rel="stylesheet" href="assets/css/module-css/privacy.css">
-    <link rel="stylesheet" href="assets/css/module-css/project.css">
-    <link rel="stylesheet" href="assets/css/module-css/skill.css">
-    <link rel="stylesheet" href="assets/css/module-css/sliding-text.css">
-    <link rel="stylesheet" href="assets/css/module-css/why-choose.css">
-    <link rel="stylesheet" href="assets/css/module-css/working-process.css">
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/01-slider.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/02-about.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/03-services.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/04-testimonial.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/05-team.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/06-blog.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/07-contact.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/08-counter.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/09-error.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/10-faq.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/11-footer.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/12-page-header.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/13-shop.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/14-video.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/award.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/before-and-after.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/brand.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/client.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/coming-soon.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/contact-info.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/cost-calculator.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/cta.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/download-app.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/feature.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/gallery.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/google-map.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/history.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/newsletter.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/office-location.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/pricing.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/privacy.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/project.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/skill.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/sliding-text.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/why-choose.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/module-css/working-process.css')}}" />
 
 
-    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}" />
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}" />
 </head>
 
 <body class="custom-cursor">
@@ -84,11 +93,11 @@
 
 
     <!--Start Preloader-->
-    <div class="loader js-preloader">
+    {{-- <div class="loader js-preloader">
         <div></div>
         <div></div>
         <div></div>
-    </div>
+    </div> --}}
     <!--End Preloader-->
 
     <div class="page-wrapper"><!--Start Main Header One-->
@@ -247,26 +256,13 @@
                                 </div>
 
                                 <ul class="footer-widget__services-list">
-                                    <li><a href="house-cleaning.html"><span class="icon-right-chevron"></span> House
-                                            Cleaning</a>
-                                    </li>
-                                    <li><a href="window-cleaning.html"><span class="icon-chevron"></span> Window
-                                            Cleaning</a></li>
-                                    <li><a href="house-cleaning.html"><span class="icon-right-chevron"></span> Room
-                                            Cleaning</a>
-                                    </li>
-                                    <li><a href="residential-cleaning.html"><span class="icon-right-chevron"></span>
-                                            Kitchen
-                                            Cleaning</a>
-                                    </li>
-                                    <li><a href="residential-cleaning.html"><span class="icon-right-chevron"></span>
-                                            Toilet
-                                            Cleaning</a>
-                                    </li>
-                                    <li><a href="commercial-cleaning.html"><span class="icon-right-chevron"></span>
-                                            Outdoor
-                                            Cleaning</a>
-                                    </li>
+                                    @foreach (\App\Models\Service::where('status', 1)->inRandomOrder()->take(5)->get() as $service)
+                                        <li>
+                                            <a href="{{ route('services.details', $service->slug) }}">
+                                                <span class="icon-right-chevron"></span> {{ $service->title }}
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -516,41 +512,44 @@
         </div>
     </div>
     <!-- End sidebar widget content -->
-    <script src="assets/js/jquery-latest.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/jquery.circle-progress.min.js"></script>
-    <script src="assets/js/jquery.event.move.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/knob.js"></script>
-    <script src="assets/js/marquee.min.js"></script>
-    <script src="assets/js/twentytwenty.js"></script>
-    <script src="assets/js/typed-2.0.11.js"></script>
-    <script src="assets/js/wNumb.min.js"></script>
-    <script src="assets/js/curved-text/jquery.circleType.js"></script>
-    <script src="assets/js/curved-text/jquery.fittext.js"></script>
-    <script src="assets/js/curved-text/jquery.lettering.min.js"></script>
-    <script src="assets/js/gsap/gsap.js"></script>
-    <script src="assets/js/gsap/ScrollTrigger.js"></script>
-    <script src="assets/js/gsap/SplitText.js"></script>
+    <script src="{{asset('assets/js/jquery-latest.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.circle-progress.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.event.move.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/js/swiper.min.js')}}"></script>
+    <script src="{{asset('assets/js/knob.js')}}"></script>
+    <script src="{{asset('assets/js/marquee.min.js')}}"></script>
+    <script src="{{asset('assets/js/twentytwenty.js')}}"></script>
+    <script src="{{asset('assets/js/typed-2.0.11.js')}}"></script>
+    <script src="{{asset('assets/js/wNumb.min.js')}}"></script>
+    <script src="{{asset('assets/js/curved-text/jquery.circleType.js')}}"></script>
+    <script src="{{asset('assets/js/curved-text/jquery.fittext.js')}}"></script>
+    <script src="{{asset('assets/js/curved-text/jquery.lettering.min.js')}}"></script>
+    <script src="{{asset('assets/js/gsap/gsap.js')}}"></script>
+    <script src="{{asset('assets/js/gsap/ScrollTrigger.js')}}"></script>
+    <script src="{{asset('assets/js/gsap/SplitText.js')}}"></script>
 
 
-    <script src="assets/js/01-bootstrap.bundle.min.js"></script>
-    <script src="assets/js/02-countdown.min.js"></script>
-    <script src="assets/js/03-jquery.appear.min.js"></script>
-    <script src="assets/js/04-jquery.nice-select.min.js"></script>
-    <script src="assets/js/05-owl.carousel.min.js"></script>
-    <script src="assets/js/06-jarallax.min.js"></script>
-    <script src="assets/js/07-odometer.min.js"></script>
-    <script src="assets/js/08-jquery-ui.js"></script>
-    <script src="assets/js/09-jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/10-wow.js"></script>
-    <script src="assets/js/11-isotope.js"></script>
-    <script src="assets/js/12-jquery-sidebar-content.js"></script>
+    <script src="{{asset('assets/js/01-bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/02-countdown.min.js')}}"></script>
+    <script src="{{asset('assets/js/03-jquery.appear.min.js')}}"></script>
+    <script src="{{asset('assets/js/04-jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('assets/js/05-owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/06-jarallax.min.js')}}"></script>
+    <script src="{{asset('assets/js/07-odometer.min.js')}}"></script>
+    <script src="{{asset('assets/js/08-jquery-ui.js')}}"></script>
+    <script src="{{asset('assets/js/09-jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/10-wow.js')}}"></script>
+    <script src="{{asset('assets/js/11-isotope.js')}}"></script>
+    <script src="{{asset('assets/js/12-jquery-sidebar-content.js')}}"></script>
+
+    <!-- Include jQuery & SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <!-- template js -->
-    <script src="assets/js/script.js"></script>
+    <script src="{{asset('assets/js/script.js')}}"></script>
 
 </body>
 

@@ -7,9 +7,16 @@ use Illuminate\Support\Str;
 
 class Testimonial extends Model
 {
+
     protected $fillable = [
-        'title', 'name', 'slug', 'image', 'description', 'content', 'status'
-    ];    
+        'name',
+        'company',
+        'position',
+        'image',
+        'rating',
+        'testimonial',
+        'status',
+    ];
 
     protected $casts = [
         'image' => 'array',
@@ -19,16 +26,16 @@ class Testimonial extends Model
     {
         parent::boot();
 
-        static::creating(function ($Testimonial) {
-            if (empty($Testimonial->slug)) {
-                $Testimonial->slug = Str::slug($Testimonial->name);
-            }
-        });
+        // static::creating(function ($Testimonial) {
+        //     if (empty($Testimonial->slug)) {
+        //         $Testimonial->slug = Str::slug($Testimonial->name);
+        //     }
+        // });
 
-        static::updating(function ($Testimonial) {
-            if (empty($Testimonial->slug)) {
-                $Testimonial->slug = Str::slug($Testimonial->name);
-            }
-        });
+        // static::updating(function ($Testimonial) {
+        //     if (empty($Testimonial->slug)) {
+        //         $Testimonial->slug = Str::slug($Testimonial->name);
+        //     }
+        // });
     }
 }

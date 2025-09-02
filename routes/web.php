@@ -21,34 +21,30 @@ use App\Http\Controllers\Backend\{
 // Frontend Controllers
 use App\Http\Controllers\Site\{
     MessageController as SiteMessageController,
+    HomeController as SiteHomeController,
+    ServicesController,
+    BlogController,
+    AboutController,
 };
 
-Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
-Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
-Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('/', [SiteHomeController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('site.index');
-})->name('home');
+// Route::get('/about-us', function () {
+//     return view('site.about.about');
+// })->name('about');
 
-Route::get('/about-us', function () {
-    return view('site.about.about');
-})->name('about');
+Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 
-Route::get('/services', function () {
-    return view('site.services.index');
-})->name('services');
 
-// Route::get('/pages', function () {
-//     return view('site.pages.index');
-// })->name('pages');
+//  Route::get('/about-us',[AboutController::class,'index'])->name('about-us');
+//  Route::get('/about-us/{id}',[AboutController::class, 'detail'])->name('about-us.details');
 
-// Route::get('/blogs', function () {
-//     return view('site.blogs.index');
-// })->name('blogs ');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/services/{slug}', [ServicesController::class, 'detail'])->name('services.details');
 
-Route::get('/blogs', [App\Http\Controllers\Site\BlogController::class, 'index'])->name('blogs');
-Route::get('/blogs/{id}', [App\Http\Controllers\Site\BlogController::class, 'show'])->name('blogs.details');
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.details');
 
 Route::get('/projects', function () {
     return view('site.projects.index');
@@ -68,6 +64,13 @@ Route::get('/message', function () {
 
 Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
 
+Route::post('/services/submit', [MessageController::class, 'servicesSubmit'])->name('services.submit');
+Route::post('/about/submit', [MessageController::class, 'aboutSubmit'])->name('about.submit');
+
+// login Routes
+Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
+Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 
 // Admin Dashboard Route
@@ -196,6 +199,8 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
         Route::put('/{id}', [AdminProjectController::class, 'update'])->name('projects.update');
         Route::delete('/{id}', [AdminProjectController::class, 'destroy'])->name('projects.destroy');
     });
+
+
 
     // Blogs Routes
     Route::group(['prefix' => 'blogs'], function () {

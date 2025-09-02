@@ -9,50 +9,48 @@ use App\Models\Blog;
 
 class BlogController extends Controller
 {
-
     public function index()
     {
-        $items = Blog::latest()->paginate(10);
+        $items = Blog::latest()->paginate(2);
         $title = 'Blog';
-        return view('admin.blogs.index', compact('items','title'));
+        return view('admin.blogs.index', compact('items', 'title'));
     }
 
     public function create()
     {
         $title = 'Blog';
-        return view('admin.blogs.create',compact('title'));
+        return view('admin.blogs.create', compact('title'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'name' => 'required',
+            'title'       => 'required',
+            'name'        => 'required',
             'description' => 'required',
-            'content' => 'required',
-            'image' => 'required|array',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048'
+            'content'     => 'required',
+            'image'       => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
         ]);
 
-        $images = [];
-        foreach ($request->file('image') as $file) {
-            $random = rand(1000, 9999); 
-            $date = date('Y-m-d');      
-            $extension = $file->getClientOriginalExtension();
-            $name = "blog_{$random}_{$date}." . $extension;
+        $imageName = null;
+        if ($request->hasFile('image')) {
+            $random     = rand(1000, 9999);
+            $date       = date('Y-m-d');
+            $extension  = $request->file('image')->getClientOriginalExtension();
+            $imageName  = "blog_{$random}_{$date}." . $extension;
 
-            $file->move(public_path('storage/blogs'), $name);
-            $images[] = $name;
+            // save in public/storage/blogs
+            $request->file('image')->move(public_path('storage/blogs'), $imageName);
         }
 
         Blog::create([
-            'title' => $request->title,
-            'name' => $request->name,
-            'slug' => $request->slug ?? Str::slug($request->name),
-            'image' => $images,
+            'title'       => $request->title,
+            'name'        => $request->name,
+            'slug'        => $request->slug ?? Str::slug($request->name),
+            'image'       => $imageName,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status === 'active' ? 1 : 0,
+            'content'     => $request->content,
+            'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
         return redirect()->route('blogs.index')->with('success', 'Blog created successfully!');
@@ -60,9 +58,9 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $item = Blog::findOrFail($id);
+        $item  = Blog::findOrFail($id);
         $title = 'Blog';
-        return view('admin.blogs.edit', compact('item','title'));
+        return view('admin.blogs.edit', compact('item', 'title'));
     }
 
     public function update(Request $request, $id)
@@ -70,63 +68,54 @@ class BlogController extends Controller
         $item = Blog::findOrFail($id);
 
         $request->validate([
-            'title' => 'required',
-            'name' => 'required',
+            'title'       => 'required',
+            'name'        => 'required',
             'description' => 'required',
-            'content' => 'required',
-            'image.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048'
+            'content'     => 'required',
         ]);
 
-        $images = $item->image;
+        $imageName = $item->image;
 
         if ($request->hasFile('image')) {
-            if (is_array($images)) {
-                foreach ($images as $img) {
-                    $path = public_path('storage/blogs/' . $img);
-                    if (file_exists($path)) {
-                        unlink($path);
-                    }
+            // delete old image
+            if ($imageName) {
+                $oldPath = public_path('storage/blogs/' . $imageName);
+                if (file_exists($oldPath)) {
+                    unlink($oldPath);
                 }
             }
 
-            
-            $images = [];
-            foreach ($request->file('image') as $file) {
-                $random = rand(1000, 9999);
-                $date = date('Y-m-d');
-                $extension = $file->getClientOriginalExtension();
-                $name = "blog_{$random}_{$date}." . $extension;
+            // upload new image
+            $random     = rand(1000, 9999);
+            $date       = date('Y-m-d');
+            $extension  = $request->file('image')->getClientOriginalExtension();
+            $imageName  = "blog_{$random}_{$date}." . $extension;
 
-                $file->move(public_path('storage/blogs'), $name);
-                $images[] = $name;
-            }
+            $request->file('image')->move(public_path('storage/blogs'), $imageName);
         }
 
         $item->update([
-            'title' => $request->title,
-            'name' => $request->name,
-            'slug' => $request->slug ?? Str::slug($request->name),
-            'image' => $images,
+            'title'       => $request->title,
+            'name'        => $request->name,
+            'slug'        => $request->slug ?? Str::slug($request->name),
+            'image'       => $imageName,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status === 'active' ? 1 : 0,
+            'content'     => $request->content,
+            'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully!');
     }
 
-
     public function destroy($id)
     {
         $item = Blog::findOrFail($id);
 
-        // Delete associated images
-        if (is_array($item->image)) {
-            foreach ($item->image as $img) {
-                $path = public_path('storage/blogs/' . $img);
-                if (file_exists($path)) {
-                    unlink($path);
-                }
+        // Delete associated image
+        if ($item->image) {
+            $path = public_path('storage/blogs/' . $item->image);
+            if (file_exists($path)) {
+                unlink($path);
             }
         }
 
@@ -135,7 +124,6 @@ class BlogController extends Controller
 
         return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully!');
     }
-
 
     public function changeStatus($id)
     {
@@ -146,16 +134,15 @@ class BlogController extends Controller
             $item->save();
 
             return response()->json([
-                'status' => 'success',
-                'message' => 'Blog status updated successfully.',
+                'status'     => 'success',
+                'message'    => 'Blog status updated successfully.',
                 'new_status' => $item->status
             ]);
         }
 
         return response()->json([
-            'status' => 'error',
+            'status'  => 'error',
             'message' => 'Blog not found.'
         ]);
     }
-
 }

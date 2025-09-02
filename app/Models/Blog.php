@@ -9,13 +9,9 @@ class Blog extends Model
 {
     protected $fillable = [
         'title', 'name', 'slug', 'image', 'description', 'content', 'status'
-    ];    
-
-    protected $casts = [
-        'image' => 'array',
     ];
 
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
 

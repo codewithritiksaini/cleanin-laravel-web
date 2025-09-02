@@ -57,20 +57,20 @@
                             @foreach ($items as $key => $item)
                                 <tr class="intro-x">
                                     <td class="text-center">{{ $key + 1 }}</td>
-                        
+
                                     <td class="text-center; align-items-center">
                                         @if ($item->image)
-                                        <img class="rounded" src="{{ asset('storage/services/' . $item->image[0]) }}" 
+                                        <img class="rounded" src="{{ asset('storage/services/' . $item->image[0]) }}"
                                             alt="{{ $item->title }}" style="width: 100px">
                                         @else
                                             <span>No Image</span>
                                         @endif
                                     </td>
-                        
+
                                     <td class="text-center">{{ $item->title }}</td>
-                        
+
                                     <td class="text-center">{{ Str::limit($item->description, 100) }}</td>
-                                    
+
                                     <td class="text-center">
                                         <div class="mt-4 masterx-validation">
                                             <label for="status"
@@ -82,7 +82,7 @@
                                             </select>
                                         </div>
                                     </td>
-                        
+
                                     <td class="w-56 text-center">
                                         <div class="flex items-center justify-center">
                                             <a class="mr-3 flex items-center" href="{{ route('services.edit', $item->id) }}">
@@ -98,13 +98,13 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                        
+
                         {{-- Hidden delete form --}}
                         <form id="delete-form" method="POST" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>
-                        
+
                         {{-- JS function --}}
                         <script>
                             function callDelete(element) {
@@ -115,8 +115,8 @@
                                 }
                             }
                         </script>
-                        
-                        
+
+
                     </table>
                 </div>
                 <!-- END: Data List -->
@@ -124,8 +124,8 @@
                 <div>
                     {{ $items->links('vendor.pagination.custom') }}
                 </div>
-                
-                                                
+
+
             </div>
             <!-- END: Pagination -->
         </div>

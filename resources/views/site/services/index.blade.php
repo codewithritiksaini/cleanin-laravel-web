@@ -1,1050 +1,325 @@
 @extends('layout.site')
+
 @section('content')
 
+<!--Start Page Header-->
 <section class="page-header">
-
-
-    <div class="page-header__bg" style="background-image: url({{asset('assets/images/backgrounds/page-header-bg.jpg')}})">
-    </div>
-    <div class="shape1 float-bob-x"><img src="{{asset('assets/images/shapes/main-slider-v4-shape1.png')}}" alt="">
-    </div>
+    <div class="page-header__bg" style="background-image: url({{ asset('assets/images/backgrounds/page-header-bg.jpg') }})"></div>
+    <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/main-slider-v4-shape1.png') }}" alt=""></div>
     <div class="container">
         <div class="page-header__inner">
-            <h2 class="wow fadeInDown" data-wow-duration="1500ms">
-                Services</h2>
+            <h2 class="wow fadeInDown" data-wow-duration="1500ms">services</h2>
             <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+
                 <li><span class="icon-right-arrow1"></span></li>
-                <li>Services                </li>
+                <li>services</li>
             </ul>
         </div>
     </div>
 </section>
 <!--End Page Header-->
-        <!--Start Services One-->
-        <div class="services-one services-one--services">
-            <div class="container">
+    <!--Start Services Details-->
+      <section class="services-details">
+        <div class="container">
+          <div class="row">
+            <!--Start Services Details Content-->
+            <div class="col-xl-8">
+              <div class="container">
                 <div class="row">
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-house-2"></span>
+                    @foreach($services as $service)
+                        <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+                            <div class="blog-three__single">
+                                <div class="blog-three__single-img">
+                                    @if(!empty($service->image))
+                                        <img src="{{ isset($service->image[0]) && !empty($service->image[0]) ? asset('storage/services/' . $service->image[0]) : asset('public/services-details-img1.jpg') }}" alt="">
+                                    @endif
+                                    <div class="date-box">
+                                        <p>{{ $service->created_at->format('d') }}</p>
+                                        <span>{{ $service->created_at->format('M') }}</span>
+                                    </div>
+                                    <ul class="blog-three__tag">
+                                        <li><a href="#">Blog {{ $loop->index + 1 }}</a></li>
+                                    </ul>
                                 </div>
-                                <h2><a href="house-cleaning.html">House Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
 
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                                </div>
-                            </div>
+                                <div class="blog-three__single-content">
+                                    <ul class="meta-box">
+                                        <li>
+                                            <div class="icon"><span class="icon-people"></span></div>
+                                            <div class="text-box"><p><a href="#">By Admin</a></p></div>
+                                        </li>
+                                        <li>
+                                            <div class="icon"><span class="fa fa-eye"></span></div>
+                                            <div class="text-box"><p><a href="#">{{ \DB::table('views')->where('service_id', $service->id)->value('count') ?? 0 }}</a></p></div>
+                                        </li>
+                                    </ul>
+                                    <h2>
+                                        <a href="{{ route('services.details', $service->slug) }}">
+                                            {{ $service->title }}
+                                        </a>
+                                    </h2>
+                                    <p>{{ Str::limit($service->description, 150) }}</p>
 
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
-                        </div>
-                    </div>
-                    <!--End Services One Single-->
+                                    <div class="btn-box">
+                                        <a href="{{ route('services.details', $service->slug) }}">Read More <span
 
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-house"></span>
-                                </div>
-                                <h2><a href="house-cleaning.html">Office Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
+                                            class="icon-plus"></span></a>
 
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                                </div>
-                            </div>
-
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
-                        </div>
-                    </div>
-                    <!--End Services One Single-->
-
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-window-cleaning"></span>
-                                </div>
-                                <h2><a href="house-cleaning.html">Window Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
-
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Pagination -->
+                <div class="row">
+                    <div class="col-xl-12 text-center mt-5">
+                        <div class="blog-one__pagination d-inline-block">
+                            {{ $services->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
-                    <!--End Services One Single-->
+                </div>
 
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-carpet-1"></span>
-                                </div>
-                                <h2><a href="house-cleaning.html">Carpet Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
-
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                                </div>
-                            </div>
-
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
-                        </div>
-                    </div>
-                    <!--End Services One Single-->
-
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-vacuum-cleaner"></span>
-                                </div>
-                                <h2><a href="house-cleaning.html">Floor Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
-
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                                </div>
-                            </div>
-
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
-                        </div>
-                    </div>
-                    <!--End Services One Single-->
-
-                    <!--Start Services One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="services-one__single">
-                            <div class="services-one__single-inner text-center">
-                                <div class="services-one__single-icon">
-                                    <span class="icon-toilet"></span>
-                                </div>
-                                <h2><a href="house-cleaning.html">Toilet Cleaning</a></h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.</p>
-
-                                <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                                </div>
-                            </div>
-
-                            <div class="shadow-one"></div>
-                            <div class="shadow-two"></div>
-                        </div>
-                    </div>
-                    <!--End Services One Single-->
                 </div>
             </div>
+            <!--Start Services Details Content-->
+
+            <!--Start Sidebar-->
+            <div class="col-xl-4">
+              <div class="sidebar">
+                <!--Start Sidebar Single-->
+                <div class="sidebar__single sidebar__search">
+                  <div class="title-box">
+                    <h2>Search</h2>
+                  </div>
+                  <form action="{{ route('services') }}" method="GET" class="sidebar__search-form">
+                        <input type="hidden" name="type" value="services"> <!-- ya blogs -->
+                        <input type="search" name="q" placeholder="Search.." />
+                        <button type="submit">
+                            <span class="icon-search-interface-symbol"></span>
+                        </button>
+                    </form>
+
+                </div>
+                <!--End Sidebar Single-->
+
+                <!--Start Sidebar Single-->
+                <div class="sidebar__single sidebar__categories">
+                  <div class="title-box">
+                    <h2>Our Services</h2>
+                  </div>
+
+                  <ul class="sidebar__categories-list">
+                    @foreach ($items as $item)
+                        <li>
+                      <a class="active" href="{{ route('services.details', $item->slug) }}"
+                        >{{$item->title}}<span class="icon-right-arrow1"></span
+                      ></a>
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
+                <!--End Sidebar Single-->
+
+                <!--Start Sidebar form-->
+                <div class="sidebar__single sidebar__search">
+                  <div class="title-box">
+                    <h2>Quick Enquiry</h2>
+                  </div>
+                    <form id="contactForm" class="contact-form-validated contact-page__form" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="text" name="name" placeholder="Name" required="">
+                                    <div class="icon"><span class="icon-people"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="email" name="email" placeholder="Email" required="">
+                                    <div class="icon"><span class="icon-envelope"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <input type="text" name="Phone" placeholder="Phone" required="">
+                                    <div class="icon"><span class="icon-phone-call"></span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <div class="input-box">
+                                    <div class="select-box">
+                                        <select name="subject" class="selectmenu wide" required>
+                                            <option value="" selected>Select Service</option>
+                                            @foreach ($services as $sname)
+                                                <option value="{{ $sname->id }}">{{ $sname->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="input-box">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                    <div class="icon style2"><span class="icon-pen"></span></div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="contact-page__form-btn">
+                                    <button style="width:100%" id="submitBtn" type="submit" class="thm-btn">
+                                        Submit Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--End Sidebar Single-->
+
+                <!--Start Sidebar Single-->
+                <div class="sidebar__single sidebar__contact">
+                  <div
+                    class="sidebar__contact-bg"
+                    style="
+                      background-image: url(assets/images/services/sidebar-contact-bg.jpg);
+                    "
+                  ></div>
+                  <div class="sidebar__contact-icon">
+                    <span class="icon-phone-call"></span>
+                  </div>
+                  <div class="sidebar__contact-text">
+                    <p>Call Us Anytime</p>
+                    <h2><a href="tel:+91{{$setting->mobile}}">+91 {{$setting->mobile}}</a></h2>
+                  </div>
+                  <div class="sidebar__contact-btn">
+                    <a class="thm-btn" href="{{Route('contact')}}"
+                      >Contact Us
+                      <i class="icon-next"></i>
+                      <span class="hover-btn hover-bx"></span>
+                      <span class="hover-btn hover-bx2"></span>
+                      <span class="hover-btn hover-bx3"></span>
+                      <span class="hover-btn hover-bx4"></span>
+                    </a>
+                  </div>
+                </div>
+                <!--End Sidebar Single-->
+              </div>
+            </div>
+            <!--End Sidebar-->
+          </div>
         </div>
-        <!--End Services One-->
+      </section>
+      <!--End Services Details-->
 
-        <!--Start Counter One-->
-        <section class="counter-one counter-one--two">
-            <div class="shape1 scale"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape2 float-bob-x"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape3 rotated-style2"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape4 float-bob-y"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape5 rotated-style2"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape6 float-bob-x"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="shape7 scale"><img src="{{asset('assets/images/shapes/counter-v2-shape1.png')}}" alt=""></div>
-            <div class="container">
-                <div class="row">
-                    <!--Start Counter One Single-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
-                        data-wow-duration="1500ms">
-                        <div class="counter-one__single">
-                            <div class="counter-one__single-inner">
-                                <div class="counter-one__single-icon">
-                                    <span class="icon-trophy"></span>
-                                </div>
-
-                                <div class="counter-one__single-content">
-                                    <div class="count-box">
-                                        <h2 class="count-text" data-stop="655" data-speed="1500">00</h2>
-                                        <span class="k">k</span>
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <p>Awards Win</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Counter One Single-->
-
-                    <!--Start Counter One Single-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="0ms"
-                        data-wow-duration="1500ms">
-                        <div class="counter-one__single">
-                            <div class="counter-one__single-inner">
-                                <div class="counter-one__single-icon">
-                                    <span class="icon-verification"></span>
-                                </div>
-
-                                <div class="counter-one__single-content">
-                                    <div class="count-box">
-                                        <h2 class="count-text" data-stop="415" data-speed="1500">00</h2>
-                                        <span class="k">k</span>
-                                    </div>
-                                    <p>Completed Project</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Counter One Single-->
-
-                    <!--Start Counter One Single-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
-                        data-wow-duration="1500ms">
-                        <div class="counter-one__single">
-                            <div class="counter-one__single-inner">
-                                <div class="counter-one__single-icon">
-                                    <span class="icon-customer-review"></span>
-                                </div>
-
-                                <div class="counter-one__single-content">
-                                    <div class="count-box">
-                                        <h2 class="count-text" data-stop="898" data-speed="1500">00</h2>
-                                        <span class="k">k</span>
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <p>Happy Clients</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Counter One Single-->
-
-                    <!--Start Counter One Single-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="0ms"
-                        data-wow-duration="1500ms">
-                        <div class="counter-one__single style2">
-                            <div class="counter-one__single-inner">
-                                <div class="counter-one__single-icon">
-                                    <span class="icon-project-plan"></span>
-                                </div>
-
-                                <div class="counter-one__single-content">
-                                    <div class="count-box">
-                                        <h2 class="count-text" data-stop="558" data-speed="1500">00</h2>
-                                        <span class="k">k</span>
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <p>Finish The Job</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Counter One Single-->
+      <!--Start Brand One-->
+      <section class="brand-one brand-one--two about">
+        <div class="container">
+          <div class="brand-one__inner">
+            <div class="brand-one__carousel owl-carousel owl-theme">
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
-            </div>
-        </section>
-        <!--End Counter One-->
+              </div>
+              <!--End Brand One Single-->
 
-        <!--Start Pricing Plan One-->
-        <section class="pricing-plan-one">
-            <div class="pricing-plan-one__pattern"
-                style="background-image: url({{asset('assets/images/pattern/pricing-v1-pattern.png')}});"></div>
-            <div class="container">
-                <div class="sec-title sec-title-animation animation-style2">
-                    <div class="sec-title__tagline">
-                        <div class="icon-box">
-                            <span class="icon-household"></span>
-                        </div>
-
-                        <div class="text title-animation">
-                            <h4>Pricing Plan</h4>
-                        </div>
-                    </div>
-                    <h2 class="sec-title__title title-animation">We are offering the best <br> pricing to help you!
-                    </h2>
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
+              </div>
+              <!--End Brand One Single-->
 
-                <div class="pricing-plan-one__tab tabs-box">
-                    <ul class="tab-buttons clearfix">
-                        <li data-tab="#weekly" class="tab-btn active-btn">
-                            <h3>Weekly</h3>
-                        </li>
-                        <li data-tab="#monthly" class="tab-btn">
-                            <h3>Monthly</h3>
-                        </li>
-                        <li data-tab="#yearly" class="tab-btn">
-                            <h3>Yearly</h3>
-                        </li>
-                    </ul>
-                    <div class="tabs-content">
-                        <!--Start Single Tab Content-->
-                        <div class="tab active-tab" id="weekly">
-                            <div class="pricing-plan-one__single-tab">
-                                <div class="pricing-plan-one__single-tab-inner">
-                                    <div class="row">
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Basic Plan</h3>
-                                                        </div>
-                                                        <h2>$215.5</h2>
-                                                        <p>Per Week</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>1 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Standard Plan</h3>
-                                                        </div>
-                                                        <h2>$315.5</h2>
-                                                        <p>Per Week</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Premium Plan</h3>
-                                                        </div>
-                                                        <h2>$515.5</h2>
-                                                        <p>Per Week</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>5 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-
-                        <!--Start Single Tab Content-->
-                        <div class="tab" id="monthly">
-                            <div class="pricing-plan-one__single-tab">
-                                <div class="pricing-plan-one__single-tab-inner">
-                                    <div class="row">
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Basic Plan</h3>
-                                                        </div>
-                                                        <h2>$315.5</h2>
-                                                        <p>Per Month</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>1 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Standard Plan</h3>
-                                                        </div>
-                                                        <h2>$415.5</h2>
-                                                        <p>Per Month</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Premium Plan</h3>
-                                                        </div>
-                                                        <h2>$615.5</h2>
-                                                        <p>Per Month</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>5 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-
-                        <!--Start Single Tab Content-->
-                        <div class="tab" id="yearly">
-                            <div class="pricing-plan-one__single-tab">
-                                <div class="pricing-plan-one__single-tab-inner">
-                                    <div class="row">
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Basic Plan</h3>
-                                                        </div>
-                                                        <h2>$215.5</h2>
-                                                        <p>Per Year</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>1 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Standard Plan</h3>
-                                                        </div>
-                                                        <h2>$315.5</h2>
-                                                        <p>Per Year</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>2 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-
-                                        <!--Start Single Pricing Plan One-->
-                                        <div class="col-xl-4 col-lg-4">
-                                            <div class="pricing-plan-one__single">
-                                                <div class="pricing-plan-one__single-inner">
-                                                    <div class="table-header text-center">
-                                                        <div class="category-wrapper">
-                                                            <h3>Premium Plan</h3>
-                                                        </div>
-                                                        <h2>$515.5</h2>
-                                                        <p>Per Year</p>
-                                                    </div>
-
-                                                    <div class="table-content">
-                                                        <ul>
-                                                            <li>
-                                                                <p>20% Off All Service</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>4 Bedroom Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>5 Carpet Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p>Kitchen Cleaning</p>
-                                                            </li>
-                                                            <li>
-                                                                <p> 24/7 Supports</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="table-footer">
-                                                        <a class="thm-btn" href="pricing.html">Choose Package
-                                                            <i class="icon-next"></i>
-                                                            <span class="hover-btn hover-bx"></span>
-                                                            <span class="hover-btn hover-bx2"></span>
-                                                            <span class="hover-btn hover-bx3"></span>
-                                                            <span class="hover-btn hover-bx4"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Single Pricing Plan One-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-                    </div>
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
-            </div>
-        </section>
-        <!--End Pricing Plan One-->
+              </div>
+              <!--End Brand One Single-->
 
-        <!--Start Testimonial Three-->
-        <section class="testimonial-three">
-            <div class="testimonial-three__pattern"><img src="{{asset('assets/images/pattern/testimonial-v3-pattern.png')}}" alt="">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <!--Start Testimonial Three Left-->
-                    <div class="col-xl-4">
-                        <div class="testimonial-three__left">
-                            <div class="sec-title sec-title-animation animation-style2">
-                                <div class="sec-title__tagline">
-                                    <div class="icon-box">
-                                        <span class="icon-household"></span>
-                                    </div>
-
-                                    <div class="text title-animation">
-                                        <h4>Testimonials</h4>
-                                    </div>
-                                </div>
-                                <h2 class="sec-title__title title-animation">Our Customer’s Feedback</h2>
-                            </div>
-                            <div class="testimonial-three__reviews">
-                                <ul class="testimonial-three__reviews-list">
-                                    <li>
-                                        <div class="testimonial-three__reviews-img">
-                                            <img src="{{asset('assets/images/resources/satisfied-partner-img1.jpg')}}" alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="testimonial-three__reviews-img">
-                                            <img src="{{asset('assets/images/resources/satisfied-partner-img2.jpg')}}" alt="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="testimonial-three__reviews-img">
-                                            <img src="{{asset('assets/images/resources/satisfied-partner-img3.jpg')}}" alt="">
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <div class="testimonial-three__reviews-content">
-                                    <div class="rating-box">
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                    </div>
-                                    <div class="testimonial-three__reviews-count-box">
-                                        <p class="odometer" data-count="250">00</p><span>K+ reviews</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Testimonial Three Left-->
-
-                    <!--Start Testimonial Three Right-->
-                    <div class="col-xl-8">
-                        <div class="testimonial-three__right">
-                            <div class="testimonial-three__carousel owl-carousel owl-theme">
-                                <!--Start Testimonial Three Single-->
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__single-inner">
-                                        <div class="testimonial-three__single-top">
-                                            <div class="rating-box">
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                            </div>
-
-                                            <div class="icon-box">
-                                                <span class="icon-quotation"></span>
-                                            </div>
-                                        </div>
-
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable
-                                            content of a page when looking at its layout.
-                                        </p>
-
-                                        <div class="testimonial-three__single-bottom">
-                                            <div class="img-box">
-                                                <img src="assets/images/testimonial/testimonial-v3-img1.jpg" alt="">
-                                            </div>
-                                            <div class="author-info">
-                                                <h2>David Cooper</h2>
-                                                <p>Customer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Testimonial Three Single-->
-
-                                <!--Start Testimonial Three Single-->
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__single-inner">
-                                        <div class="testimonial-three__single-top">
-                                            <div class="rating-box">
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                            </div>
-
-                                            <div class="icon-box">
-                                                <span class="icon-quotation"></span>
-                                            </div>
-                                        </div>
-
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable
-                                            content of a page when looking at its layout.
-                                        </p>
-
-                                        <div class="testimonial-three__single-bottom">
-                                            <div class="img-box">
-                                                <img src="{{asset('assets/images/testimonial/testimonial-v3-img2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="author-info">
-                                                <h2>Parker Jimenez</h2>
-                                                <p>Customer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Testimonial Three Single-->
-
-                                <!--Start Testimonial Three Single-->
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__single-inner">
-                                        <div class="testimonial-three__single-top">
-                                            <div class="rating-box">
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                            </div>
-
-                                            <div class="icon-box">
-                                                <span class="icon-quotation"></span>
-                                            </div>
-                                        </div>
-
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable
-                                            content of a page when looking at its layout.
-                                        </p>
-
-                                        <div class="testimonial-three__single-bottom">
-                                            <div class="img-box">
-                                                <img src="{{asset('assets/images/testimonial/testimonial-v3-img1.jpg')}}" alt="">
-                                            </div>
-                                            <div class="author-info">
-                                                <h2>David Cooper</h2>
-                                                <p>Customer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Testimonial Three Single-->
-
-                                <!--Start Testimonial Three Single-->
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__single-inner">
-                                        <div class="testimonial-three__single-top">
-                                            <div class="rating-box">
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                                <a href="#"><i class="icon-star"></i></a>
-                                            </div>
-
-                                            <div class="icon-box">
-                                                <span class="icon-quotation"></span>
-                                            </div>
-                                        </div>
-
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable
-                                            content of a page when looking at its layout.
-                                        </p>
-
-                                        <div class="testimonial-three__single-bottom">
-                                            <div class="img-box">
-                                                <img src="{{asset('assets/images/testimonial/testimonial-v3-img2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="author-info">
-                                                <h2>Parker Jimenez</h2>
-                                                <p>Customer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Testimonial Three Single-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Testimonial Three Right-->
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
-            </div>
-        </section>
-        <!--End Testimonial Three-->
+              </div>
+              <!--End Brand One Single-->
 
-        <!--Start Brand One-->
-        <section class="brand-one brand-one--two about">
-            <div class="container">
-                <div class="brand-one__inner">
-                    <div class="brand-one__carousel owl-carousel owl-theme">
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-
-                        <!--Start Brand One Single-->
-                        <div class="brand-one__single">
-                            <div class="brand-one__single-inner">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/brand/brand-1-1.png')}}" alt="">
-                                    <img src="{{asset('assets/images/brand/brand-1-2.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!--End Brand One Single-->
-                    </div>
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
-            </div>
-        </section>
-        <!--End Brand One-->
+              </div>
+              <!--End Brand One Single-->
 
-        <!--Start Cta One -->
-        <section class="cta-one">
-            <div class="shape1"></div>
-            <div class="cta-one__bg" style="background-image: url({{asset('assets/images/backgrounds/cta-v1-bg.jpg')}});">
-            </div>
-            <div class="container clearfix">
-                <div class="cta-one__inner">
-                    <div class="cta-one__content">
-                        <div class="text-box">
-                            <p>Quality Services provider</p>
-                            <h2>Need Our services?</h2>
-                        </div>
-
-                        <div class="btn-box">
-                            <a class="thm-btn" href="contact-1.html">get free quote
-                                <i class="icon-next"></i>
-                                <span class="hover-btn hover-bx"></span>
-                                <span class="hover-btn hover-bx2"></span>
-                                <span class="hover-btn hover-bx3"></span>
-                                <span class="hover-btn hover-bx4"></span>
-                            </a>
-                        </div>
-                    </div>
+              <!--Start Brand One Single-->
+              <div class="brand-one__single">
+                <div class="brand-one__single-inner">
+                  <a href="#">
+                    <img src="assets/images/brand/brand-1-1.png" alt="" />
+                    <img src="assets/images/brand/brand-1-2.png" alt="" />
+                  </a>
                 </div>
+              </div>
+              <!--End Brand One Single-->
             </div>
-        </section>
-        <!--End Cta One -->
-@endsection
+          </div>
+        </div>
+      </section>
+      <!--End Brand One-->
+
+      <!--Start Cta One -->
+      <section class="cta-one">
+        <div class="shape1"></div>
+        <div
+          class="cta-one__bg"
+          style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg)"
+        ></div>
+        <div class="container clearfix">
+          <div class="cta-one__inner">
+            <div class="cta-one__content">
+              <div class="text-box">
+                <p>Quality Services provider</p>
+                <h2>Need Our services?</h2>
+              </div>
+
+              <div class="btn-box">
+                <a class="thm-btn" href="contact-1.html"
+                  >get free quote
+                  <i class="icon-next"></i>
+                  <span class="hover-btn hover-bx"></span>
+                  <span class="hover-btn hover-bx2"></span>
+                  <span class="hover-btn hover-bx3"></span>
+                  <span class="hover-btn hover-bx4"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Cta One -->
+
+     @endsection

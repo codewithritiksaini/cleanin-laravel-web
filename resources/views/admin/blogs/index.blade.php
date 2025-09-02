@@ -30,7 +30,7 @@
                 <!-- BEGIN: Data List -->
                 <div class="intro-y col-span-12 overflow-auto">
                     <table data-tw-merge="" class="w-full text-left -mt-2 border-separate border-spacing-y-[10px]"
-                        id="data-table-ajax" data-table-url="https://www.ritiksaini.in/admin/ajax/load-service-table">
+                        id="data-table-ajax" data-table-url="{{ route('blogs.index') }}">
                         <thead data-tw-merge="" class="">
                             <tr data-tw-merge="" class="">
                                 <th
@@ -57,20 +57,37 @@
                             @foreach ($items as $key => $item)
                                 <tr class="intro-x">
                                     <td class="text-center">{{ $key + 1 }}</td>
-                        
-                                    <td class="text-center; align-items-center">
+
+                                    {{-- <td class="text-center; align-items-center">
                                         @if ($item->image && count($item->image) > 0)
-                                        <img class="rounded" src="{{ asset('storage/blogs/' . $item->image[0]) }}" 
+                                        <img class="rounded" src="{{ asset('storage/blogs/' . $item->image) }}"
                                             alt="{{ $item->title }}" style="width: 100px">
                                         @else
                                             <span>No Image</span>
                                         @endif
+                                    </td> --}}
+                                    {{-- <td class="text-center align-items-center">
+                                            @if(!empty($item->image))
+                                                <img class="rounded" src="{{ asset('uploads/'.$item->image) }}" alt="{{ $item->title }}" style="width: 300px">
+                                            @else
+                                                <span>No Image</span>
+                                            @endif
+                                        </td> --}}
+                                    <td class="text-center align-items-center">
+                                        @if(!empty($item->image))
+                                            <img class="rounded" src="{{ asset('storage/blogs/'.$item->image) }}"
+                                                alt="{{ $item->title }}" style="width: 120px; height: auto;">
+                                        @else
+                                            <span>No Image</span>
+                                        @endif
                                     </td>
-                        
+
+
+
                                     <td class="text-center">{{ $item->title }}</td>
-                        
+
                                     <td class="text-center">{{ Str::limit($item->description, 100) }}</td>
-                                    
+
                                     <td class="text-center">
                                         <div class="mt-4 masterx-validation">
                                             <label for="status"
@@ -82,7 +99,7 @@
                                             </select>
                                         </div>
                                     </td>
-                        
+
                                     <td class="w-56 text-center">
                                         <div class="flex items-center justify-center">
                                             <a class="mr-3 flex items-center" href="{{ route('blogs.edit', $item->id) }}">
@@ -98,13 +115,13 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                        
+
                         {{-- Hidden delete form --}}
                         <form id="delete-form" method="POST" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>
-                        
+
                         {{-- JS function --}}
                         <script>
                             function callDelete(element) {
@@ -115,8 +132,8 @@
                                 }
                             }
                         </script>
-                        
-                        
+
+
                     </table>
                 </div>
                 <!-- END: Data List -->
@@ -124,8 +141,8 @@
                 <div>
                     {{ $items->links('vendor.pagination.custom') }}
                 </div>
-                
-                                                
+
+
             </div>
             <!-- END: Pagination -->
         </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Login</title>
@@ -72,7 +72,7 @@
     <div class="login-container">
         <h2>Admin Login</h2>
 
-        @if(session('error'))
+        @if (session('error'))
             <p class="error-message">{{ session('error') }}</p>
         @endif
 
@@ -93,3 +93,187 @@
     </div>
 </body>
 </html>
+
+
+ --}}
+
+
+
+@extends('layout.site')
+
+@section('content')
+    <!--End Page Header-->
+    <!--Start Login One-->
+    <section class="login-one">
+        <div class="container">
+            <div class="login-one__form">
+                <div class="inner-title text-center">
+                    <h2>Login Here</h2>
+                </div>
+
+                <!-- ✅ Form Start -->
+                <form id="login-one__form" action="{{ route('login.submit') }}" method="POST">
+                    @csrf
+
+                    <div class="row">
+                        <!-- Username -->
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="text" name="username" placeholder="Username..." required>
+                                </div>
+                            </div>
+                        </div>
+
+                                                <!-- Password -->
+                                <div class="col-xl-12">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <input type="text" name="password" id="formPassword" placeholder="Password..." required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <button class="thm-btn" type="submit" data-loading-text="Please wait...">
+                                    Login Here
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Remember & Forget -->
+                        <div class="remember-forget">
+                            <div class="checked-box1">
+                                <input type="checkbox" name="remember" id="saveinfo">
+                                <label for="saveinfo">
+                                    <span></span>
+                                    Remember me
+                                </label>
+                            </div>
+                            {{-- <div class="forget">
+                            <a href="{{ route('password.request') }}">Forget password?</a>
+                        </div> --}}
+                        </div>
+                    </div>
+                </form>
+                <!-- ✅ Form End -->
+
+            </div>
+        </div>
+    </section>
+
+    <!--End Login One-->
+
+    <!--Start Brand One-->
+    <section class="brand-one brand-one--two about">
+        <div class="container">
+            <div class="brand-one__inner">
+                <div class="brand-one__carousel owl-carousel owl-theme">
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+
+                    <!--Start Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__single-inner">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--End Brand One Single-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Brand One-->
+
+    <!--Start Cta One -->
+    <section class="cta-one">
+        <div class="shape1"></div>
+        <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
+        </div>
+        <div class="container clearfix">
+            <div class="cta-one__inner">
+                <div class="cta-one__content">
+                    <div class="text-box">
+                        <p>Quality Services provider</p>
+                        <h2>Need Our services?</h2>
+                    </div>
+
+                    <div class="btn-box">
+                        <a class="thm-btn" href="contact-1.html">get free quote
+                            <i class="icon-next"></i>
+                            <span class="hover-btn hover-bx"></span>
+                            <span class="hover-btn hover-bx2"></span>
+                            <span class="hover-btn hover-bx3"></span>
+                            <span class="hover-btn hover-bx4"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Cta One -->
+
+    <!--Start Site Footer-->
+@endsection

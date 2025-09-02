@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
@@ -9,7 +10,7 @@ class MessageController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = \Validator::make($request->all(), [
             'name'    => 'required|string|max:100',
             'email'   => 'required|email',
             'Phone'   => 'required|string|max:15',
@@ -17,8 +18,32 @@ class MessageController extends Controller
             'message' => 'required|string',
         ]);
 
-        Message::create($request->all());
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ], 422);
+        }
 
-return redirect()->back()->with('success', 'Message sent successfully!');
+        try {
+            Message::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile' => $request->Phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Message sent successfully!'
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'errors' => ['exception' => [$e->getMessage()]]
+            ], 500);
+        }
     }
 }

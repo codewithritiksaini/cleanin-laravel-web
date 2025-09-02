@@ -1,6 +1,13 @@
 @extends('layout.site')
 
 @section('content')
+<style>
+    .blog-one__pagination {
+    display: flex;
+    justify-content: center;
+}
+
+</style>
 
 <!--Start Page Header-->
 <section class="page-header">
@@ -8,11 +15,12 @@
     <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/main-slider-v4-shape1.png') }}" alt=""></div>
     <div class="container">
         <div class="page-header__inner">
-            <h2 class="wow fadeInDown" data-wow-duration="1500ms">Blog 01</h2>
+            <h2 class="wow fadeInDown" data-wow-duration="1500ms">Blog</h2>
             <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
                 <li><a href="{{ url('/') }}">Home</a></li>
+                
                 <li><span class="icon-right-arrow1"></span></li>
-                <li>Blog 01</li>
+                <li>Blog</li>
             </ul>
         </div>
     </div>
@@ -29,7 +37,7 @@
                         <div class="blog-one__single">
                             <div class="blog-one__single-img">
                                 @if(!empty($blog->image))
-                                    <img src="{{ asset('uploads/blogs/' . $blog->image) }}" alt="{{ $blog->title }}">
+                                    <img src="{{ asset('storage/blogs/' . $blog->image) }}" alt="{{ $blog->title }}">
                                 @else
                                     <img src="{{ asset('assets/images/blog/default.jpg') }}" alt="Default Blog Image">
                                 @endif
@@ -44,7 +52,7 @@
                                     <ul class="meta-box">
                                         <li>
                                             <div class="icon"><span class="icon-people"></span></div>
-                                            <div class="text-box"><p><a href="#">By Admin</a></p></div>
+                                            <div class="text-box"><p><a href="{{route('about')}}">By Admin</a></p></div>
                                         </li>
                                         <li>
                                             <div class="icon"><span class="icon-conversation"></span></div>
@@ -77,13 +85,14 @@
         </div>
 
         <!-- Pagination -->
-        <ul class="styled-pagination text-center clearfix">
-            <li class="arrow prev active"><a href="#"><span class="icon-right-arrow"></span></a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li class="arrow next"><a href="#"><span class="icon-right-arrow1"></span></a></li>
-        </ul>
+        <div class="row">
+            <div class="col-xl-12 text-center">
+                <div class="blog-one__pagination d-inline-block">
+                    {{ $blogs->links('pagination::bootstrap-4') }}
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 <!--End Blog One-->
@@ -121,7 +130,7 @@
                 </div>
 
                 <div class="btn-box">
-                    <a class="thm-btn" href="{{ url('contact-1.html') }}">
+                    <a class="thm-btn" href="">
                         get free quote
                         <i class="icon-next"></i>
                         <span class="hover-btn hover-bx"></span>
