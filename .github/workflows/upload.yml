@@ -23,9 +23,6 @@ jobs:
           extensions: mbstring, bcmath, intl
           tools: composer
 
-      - name: Install PHP dependencies
-        run: composer install --no-dev --optimize-autoloader
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -44,8 +41,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage"
-          target: ${{ secrets.DEPLOY_PATH }}
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess"
+          target: "domains/test.rikkisaini.in/public_html/"
           overwrite: true
 
       - name: Run Laravel commands on server
@@ -56,7 +53,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ${{ secrets.DEPLOY_PATH }}
+            cd "domains/test.rikkisaini.in/public_html/"
+
+            # Create .env file from GitHub secret
+            echo "${{ secrets.ENV_CONTENT }}" > .env
 
             # Ensure storage & cache directories exist
             mkdir -p bootstrap/cache
@@ -64,24 +64,23 @@ jobs:
             mkdir -p storage/logs
             chmod -R 775 storage bootstrap/cache
 
-            # Install dependencies
+            # Install PHP deps (server environment)
             composer install --no-dev --optimize-autoloader
 
-            # Run migrations & safe seeder
+            # Run migrations & seeder (safe mode)
             php artisan migrate --force
             php artisan db:seed --force || true
 
-            # Clear caches
+            # Recreate storage symlink
+            rm -rf public/storage
+            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+
+            # Clear & rebuild caches
             php artisan config:clear
             php artisan cache:clear
             php artisan route:clear
             php artisan view:clear
 
-            # Force remove and create symlink
-            rm -rf public/storage
-            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
-
-            # Optimize caches
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
