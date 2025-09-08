@@ -12,6 +12,7 @@
                 <div class="page-header__inner">
                     <h2 class="wow fadeInDown" data-wow-duration="1500ms">
                         About us</h2>
+
                     <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
                 <li><a href="{{ url('/') }}">Home</a></li>
                         <li><span class="icon-right-arrow1"></span></li>
@@ -94,6 +95,7 @@
                                     <p>{{ $about->content }}</p>
                             </div>
 
+                            {{--  --}}
 
                     <div class="about-one__content-list">
                       <ul>
