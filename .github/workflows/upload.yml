@@ -34,6 +34,12 @@ jobs:
       - name: Build assets
         run: npm run build
 
+      # ✅ Create .env file locally from GitHub secret
+      - name: Create .env file
+        run: |
+          echo "${{ secrets.ENV_CONTENT }}" > .env
+
+      # ✅ Upload all files + .env via SCP
       - name: Deploy to Hostinger via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -41,7 +47,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess"
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess,.env"
           target: "domains/test.rikkisaini.in/public_html/"
           overwrite: true
 
@@ -54,9 +60,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd "domains/test.rikkisaini.in/public_html/"
-
-            # Create .env file from GitHub secret
-            echo "${{ secrets.ENV_CONTENT }}" > .env
 
             # Ensure storage & cache directories exist
             mkdir -p bootstrap/cache
