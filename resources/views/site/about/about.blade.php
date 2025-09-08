@@ -96,31 +96,21 @@
 
 
                     <div class="about-one__content-list">
-                        <ul>
-                            <li>
-                                <div class="icon-box">
-                                    <span class="icon-window-cleaner"></span>
-                                </div>
+                      <ul>
+                                @foreach($services->take(2) as $service)
+                                    <li>
+                                        <div class="icon-box">
+                                            <span class=""><img style="width: 50px" src="{{asset('storage/services/' . $service->image[0])}}" alt=""></span>
+                                        </div>
 
-                                <div class="content-box">
-                                    <h3>Commercial Cleaning</h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the
-                                        majority have suffered alteration in some form,</p>
-                                </div>
-                            </li>
+                                        <div class="content-box">
+                                            <h3>{{ $service['title'] ?? $service->title }}</h3>
+                                            <p>{{ $service['description'] ?? $service->description }}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
 
-                            <li>
-                                <div class="icon-box">
-                                    <span class="icon-cleaning"></span>
-                                </div>
-
-                                <div class="content-box">
-                                    <h3>Residential Cleaning </h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the
-                                        majority have suffered alteration in some form,</p>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
 
                     <div class="about-one__content-btn">
@@ -166,248 +156,31 @@
         </div>
 
         <div class="services-one__inner">
-            <div class="services-one__carousel owl-carousel owl-theme thm-dot-style1">
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-house-2"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">House Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
+                <div class="services-one__carousel owl-carousel owl-theme thm-dot-style1">
+                    <!--Start Services One Single-->
+                    @foreach ($services as $service)
+                        <div class="services-one__single">
+                            <div class="services-one__single-inner text-center">
+                                <div class="services-one__single-icon">
+                                    <span class="icon-house-2"></span>
+                                </div>
+                                <h2><a href="{{ route('services.details', $service->slug) }}">{{ $service->title }}</a>
+                                </h2>
+                                <p>{{ Str::limit($service->description, 120) }}</p>
 
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
+                                <div class="services-one__single-btn">
+                                    <a href="{{ route('services.details', $service->slug) }}">Read more <span
+                                            class="icon-plus"></span></a>
+                                </div>
+                            </div>
 
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
+                            <div class="shadow-one"></div>
+                            <div class="shadow-two"></div>
+                        </div>
+                    @endforeach
+                    <!--End Services One Single-->
                 </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-house"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Office Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-window-cleaning"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Window Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-cleaning-service"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Kitchen Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-toilet"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Toilet Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-carpet-1"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Carpet Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-house-2"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">House Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-house"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Office Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-window-cleaning"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Window Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-cleaning-service"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Kitchen Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-toilet"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Toilet Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
-
-                <!--Start Services One Single-->
-                <div class="services-one__single">
-                    <div class="services-one__single-inner text-center">
-                        <div class="services-one__single-icon">
-                            <span class="icon-carpet-1"></span>
-                        </div>
-                        <h2><a href="house-cleaning.html">Carpet Cleaning</a></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
-
-                        <div class="services-one__single-btn">
-                            <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="shadow-one"></div>
-                    <div class="shadow-two"></div>
-                </div>
-                <!--End Services One Single-->
             </div>
-        </div>
     </div>
 </div>
 <!--End Services One-->
@@ -843,7 +616,7 @@
                                 <a href="#"><i class="icon-star"></i></a>
                                 <a href="#"><i class="icon-star"></i></a>
                                 <a href="#"><i class="icon-star"></i></a>
-                            
+
 
 
                             </div>

@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="stricky-header stricky-header__one stricked-menu main-menu">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header --><!--Start Main Slider One-->
+        <div class="sticky-header__content"></div>
+        <!-- /.sticky-header__content -->
+    </div>
+    <!-- /.stricky-header -->
+    <!--Start Main Slider One-->
     <section class="main-slider-one">
         <div class="main-slider__carousel owl-carousel owl-theme">
             <!--Start Main Slider One Single-->
@@ -24,7 +27,7 @@
                         </div>
 
                         <div class="main-slider-one__btn">
-                            <a class="thm-btn" href="contact-1.html">Take Our Service
+                            <a class="thm-btn" href="">Take Our Service
                                 <i class="icon-next"></i>
                                 <span class="hover-btn hover-bx"></span>
                                 <span class="hover-btn hover-bx2"></span>
@@ -219,7 +222,7 @@
                         </div>
 
                         <div class="about-one__content-btn">
-                            <a class="thm-btn" href="about-1.html">Read More
+                            <a class="thm-btn" href="{{ route('about') }}">Read More
                                 <i class="icon-next"></i>
                                 <span class="hover-btn hover-bx"></span>
                                 <span class="hover-btn hover-bx2"></span>
@@ -267,11 +270,13 @@
                                 <div class="services-one__single-icon">
                                     <span class="icon-house-2"></span>
                                 </div>
-                                <h2><a href="house-cleaning.html">{{ $service->title }}</a></h2>
+                                <h2><a href="{{ route('services.details', $service->slug) }}">{{ $service->title }}</a>
+                                </h2>
                                 <p>{{ Str::limit($service->description, 120) }}</p>
 
                                 <div class="services-one__single-btn">
-                                    <a href="house-cleaning.html">Read more <span class="icon-plus"></span></a>
+                                    <a href="{{ route('services.details', $service->slug) }}">Read more <span
+                                            class="icon-plus"></span></a>
                                 </div>
                             </div>
 
@@ -284,503 +289,7 @@
             </div>
         </div>
     </div>
-    <!--End Services One--><!--Start Project One-->
-    <section class="project-one">
-        <div class="project-one__top">
-            <div class="container">
-                <div class="project-one__top-inner">
-                    <div class="sec-title sec-title-animation animation-style2">
-                        <div class="sec-title__tagline">
-                            <div class="icon-box">
-                                <span class="icon-household"></span>
-                            </div>
-
-                            <div class="text title-animation">
-                                <h4>Our Successful Project</h4>
-                            </div>
-                        </div>
-                        <h2 class="sec-title__title title-animation">Keep your vision to our latest <br> projects.
-                        </h2>
-                    </div>
-
-
-                    <div class="project-one__top-btn">
-                        <a class="thm-btn" href="{{ route('projects.index') }}">View All Projects
-                            <i class="icon-next"></i>
-                            <span class="hover-btn hover-bx"></span>
-                            <span class="hover-btn hover-bx2"></span>
-                            <span class="hover-btn hover-bx3"></span>
-                            <span class="hover-btn hover-bx4"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="project-one__inner">
-                <div class="project-one__carousel owl-carousel owl-theme thm-dot-style1">
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="assets/images/project/project-v1-img4.jpg" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img4.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img5.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img5.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img1.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Floor Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img1.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img2.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Office Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img2.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img3.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Kitchen Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup"
-                                        href="{{ asset('assets/images/project/project-v1-img3.jpg') }}"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="{{ asset('assets/images/project/project-v1-img4.jpg') }}" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">House Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup" href="assets/images/project/project-v1-img4.jpg"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-
-                    <!--Start Project One Single-->
-                    <div class="project-one__single">
-                        <div class="project-one__single-img">
-                            <div class="inner">
-                                <img src="assets/images/project/project-v1-img5.jpg" alt="#">
-                            </div>
-
-                            <div class="project-one__single-content">
-                                <div class="text-box">
-                                    <h2><a href="projects-details.html">Window Cleaning</a></h2>
-                                    <p>Los Angeles, USA</p>
-                                </div>
-
-                                <div class="icon-box">
-                                    <a class="img-popup" href="assets/images/project/project-v1-img5.jpg"><span
-                                            class="icon-plus"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Project One Single-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Project One--><!--Start Video One-->
+    <!--Start Video One-->
     <section class="video-one">
         <div class="shape1 float-bob-x"><img src="assets/images/shapes/video-v1-shape1.png" alt=""></div>
         <div class="shape2 float-bob-x"><img src="assets/images/shapes/video-v1-shape2.png" alt=""></div>
@@ -912,452 +421,35 @@
 
             <div class="team-one__carousel owl-carousel owl-theme thm-dot-style1">
 
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img1.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img5.jpg" alt="#">
+                 <!--Start Team One Single-->
+                @foreach ($teams as $team)
+                    <div class="team-one__single">
+                        <div class="team-one__single-inner">
+                            <div class="team-one__single-img">
+                                <img src="{{ asset('storage/teams/' . $team->image) }}" alt="">
                             </div>
 
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Michale</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
+                            <div class="team-one__single-content">
+                                <div class="img-box">
+                                    <img src="{{ asset('storage/teams/' . $team->image) }}" alt="#">
+                                </div>
 
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
+                                <div class="text-box">
+                                    <h2><a href="team-details.html">{{ $team->name }}</a></h2>
+                                    <p>{{ $team->position }}</p>
+                                </div>
 
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img2.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img6.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Mike Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
+                                <div class="social-links">
+                                    <a href="{{ $team->facebook }}"><span class="icon-facebook-app-symbol"></span></a>
+                                    <a href="{{ $team->twitter }}"><span class="icon-twitter-1"></span></a>
+                                    <a href="{{ $team->instagram }}"><span class="icon-instagram"></span></a>
+                                    <a href="{{ $team->whatsapp }}"><span class="fab fa-whatsapp"></span></a>
+                                </div>
+                            <a href="{{ route('services.details', $service->slug) }}">Read more <span class="icon-plus"></span></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img3.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img7.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Mike</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img4.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img8.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Michale Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img1.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img5.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Michale</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img2.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img6.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Mike Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img3.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img7.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Mike</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img4.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img8.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Michale Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img1.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img5.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Michale</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img2.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img6.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Mike Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img3.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img7.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Mike</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img4.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img8.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Michale Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img1.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img5.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Michale</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img2.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img6.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Mike Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img3.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img7.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Robert Mike</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Team One Single-->
-
-                <!--Start Team One Single-->
-                <div class="team-one__single">
-                    <div class="team-one__single-inner">
-                        <div class="team-one__single-img">
-                            <img src="assets/images/team/team-v1-img4.jpg" alt="">
-                        </div>
-
-                        <div class="team-one__single-content">
-                            <div class="img-box">
-                                <img src="assets/images/team/team-v1-img8.jpg" alt="#">
-                            </div>
-
-                            <div class="text-box">
-                                <h2><a href="team-details.html">Michale Hussy</a></h2>
-                                <p>Window Cleaner</p>
-                            </div>
-
-                            <div class="social-links">
-                                <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                                <a href="#"><span class="icon-twitter-1"></span></a>
-                                <a href="#"><span class="icon-instagram"></span></a>
-                                <a href="#"><span class="icon-pinterest"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!--End Team One Single-->
             </div>
         </div>
@@ -1521,222 +613,18 @@
                     <div class="testimonial-one__carousel owl-carousel owl-theme">
 
                         <!--Start Testimonial One Single-->
-                        {{-- <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img1.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Savannah Nguyen</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img2.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Dwayne Johnson</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img3.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>John D. Alexon</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img1.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Savannah Nguyen</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img2.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Dwayne Johnson</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img3.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>John D. Alexon</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="{{ asset('assets/images/testimonial/testimonial-v1-img1.jpg') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Savannah Nguyen</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div>
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
-                        <div class="testimonial-one__single text-center">
-                            <div class="testimonial-one__single-img">
-                                <img src="assets/images/testimonial/testimonial-v1-img2.jpg" alt="">
-                            </div>
-                            <div class="testimonial-one__single-inner">
-                                <h2>Dwayne Johnson</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form.</p>
-
-                                <div class="rating-box">
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                    <a href="#"><i class="icon-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="icon-box">
-                                <span class="icon-quotation-up"></span>
-                            </div>
-                        </div> --}}
-                        <!--End Testimonial One Single-->
-
-                        <!--Start Testimonial One Single-->
                         @foreach ($testimonials as $item)
                             <div class="testimonial-one__single text-center">
                                 <div class="testimonial-one__single-img">
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
+                                    <img src="{{ asset('storage/testimonials/' . $item->image) }}"
+                                        alt="{{ $item->name }}">
                                 </div>
                                 <div class="testimonial-one__single-inner">
                                     <h2>{{ $item->name }}</h2>
-                                    <p>{{ $item->message }}</p>
+                                    <p>{{ $item->testimonial }}</p>
 
                                     <div class="rating-box">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $item->rating)
-                                                <a href="#"><i class="icon-star"></i></a>
-                                            @else
-                                                <a href="#"><i class="icon-star-empty"></i></a>
-                                            @endif
-                                        @endfor
+                                        Rating {!! $item->rating !!}
                                     </div>
                                 </div>
                                 <div class="icon-box">
@@ -1752,172 +640,8 @@
             </div>
         </div>
     </section>
-    <!--End Testimonial One--><!--Start Why Choose One-->
-    <section class="why-choose-one">
-        <div class="why-choose-one__bg"
-            style="background-image: url({{ asset('assets/images/backgrounds/why-choose-v1-bg.jpg') }});
-    ">
-        </div>
-        <div class="shape1"></div>
-        <div class="shape2"></div>
-        <div class="shape3 scale"><img src="{{ asset('assets/images/shapes/why-choose-v1-shape1.png') }}"
-                alt=""></div>
-        <div class="shape4 float-bob-x"><img src="{{ asset('assets/images/shapes/why-choose-v1-shape1.png') }}"
-                alt=""></div>
-        <div class="shape5 float-bob-y"><img src="{{ asset('assets/images/shapes/why-choose-v1-shape1.png') }}"
-                alt=""></div>
-        <div class="container">
-            <div class="why-choose-one__inner">
-                <div class="sec-title sec-title-animation animation-style2">
-                    <div class="sec-title__tagline">
-                        <div class="icon-box">
-                            <span class="icon-household"></span>
-                        </div>
-
-                        <div class="text title-animation">
-                            <h4>Why Choose us?</h4>
-                        </div>
-                    </div>
-                    <h2 class="sec-title__title title-animation">We Will Make Absolutely Any <br> Place Clean, Neat
-                        & Tidy.</h2>
-                </div>
-
-                <div class="why-choose-one__tab tab-box">
-                    <ul class="tabs-button-box clearfix">
-                        <li data-tab="#mission" class="tab-btn-item active-btn">
-                            <h3><span class="icon-target"></span> Our Mission</h3>
-                        </li>
-                        <li data-tab="#vision" class="tab-btn-item">
-                            <h3><span class="icon-achievement"></span> Our Vision</h3>
-                        </li>
-                        <li data-tab="#philosophy" class="tab-btn-item">
-                            <h3><span class="icon-cleaning-service"></span> Our Philosophy</h3>
-                        </li>
-                    </ul>
-
-                    <div class="tabs-content tabs-content-box">
-                        <!--Start Single Tab Content-->
-                        <div class="tab tab-active" id="mission">
-                            <div class="why-choose-one__single-tab">
-                                <div class="why-choose-one__single-tab-inner">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-img">
-                                                <div class="inner">
-                                                    <img src="{{ asset('assets/images/resources/why-choose-v1-img1.jpg') }}"
-                                                        alt="#">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-content">
-                                                <h2>Our Two-Part Satisfaction Guarantee!</h2>
-                                                <p>It is a long established fact that a reader will be distracted by
-                                                    the readable content of a page when looking at its layout. The
-                                                    point
-                                                    of using Lorem Ipsum is that it has a more-or-less normal
-                                                    distribution of letters, as opposed.</p>
-                                                <div class="btn-box">
-                                                    <a class="thm-btn" href="contact-1.html">View Terms of Service
-                                                        <i class="icon-next"></i>
-                                                        <span class="hover-btn hover-bx"></span>
-                                                        <span class="hover-btn hover-bx2"></span>
-                                                        <span class="hover-btn hover-bx3"></span>
-                                                        <span class="hover-btn hover-bx4"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-
-                        <!--Start Single Tab Content-->
-                        <div class="tab" id="vision">
-                            <div class="why-choose-one__single-tab">
-                                <div class="why-choose-one__single-tab-inner">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-img">
-                                                <div class="inner">
-                                                    <img src="{{ asset('assets/images/resources/why-choose-v1-img2.jpg') }}"
-                                                        alt="#">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-content">
-                                                <h2>Expert Cleaning Team </h2>
-                                                <p>It is a long established fact that a reader will be distracted by
-                                                    the readable content of a page when looking at its layout. The
-                                                    point
-                                                    of using Lorem Ipsum is that it has a more-or-less normal
-                                                    distribution of letters, as opposed.</p>
-                                                <div class="btn-box">
-                                                    <a class="thm-btn" href="contact-1.html">View Terms of Service
-                                                        <i class="icon-next"></i>
-                                                        <span class="hover-btn hover-bx"></span>
-                                                        <span class="hover-btn hover-bx2"></span>
-                                                        <span class="hover-btn hover-bx3"></span>
-                                                        <span class="hover-btn hover-bx4"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-
-                        <!--Start Single Tab Content-->
-                        <div class="tab" id="philosophy">
-                            <div class="why-choose-one__single-tab">
-                                <div class="why-choose-one__single-tab-inner">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-img">
-                                                <div class="inner">
-                                                    <img src="{{ asset('assets/images/resources/why-choose-v1-img3.jpg') }}"
-                                                        alt="#">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="why-choose-one__single-tab-content">
-                                                <h2>24/7 Online Support </h2>
-                                                <p>It is a long established fact that a reader will be distracted by
-                                                    the readable content of a page when looking at its layout. The
-                                                    point
-                                                    of using Lorem Ipsum is that it has a more-or-less normal
-                                                    distribution of letters, as opposed.</p>
-                                                <div class="btn-box">
-                                                    <a class="thm-btn" href="contact-1.html">View Terms of Service
-                                                        <i class="icon-next"></i>
-                                                        <span class="hover-btn hover-bx"></span>
-                                                        <span class="hover-btn hover-bx2"></span>
-                                                        <span class="hover-btn hover-bx3"></span>
-                                                        <span class="hover-btn hover-bx4"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Single Tab Content-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Why Choose One--><!--Start Working Process One-->
+    <!--End Testimonial One-->
+<!--Start Working Process One-->
     <section class="working-process-one">
         <div class="shape2 float-bob-y"><img src="assets/images/shapes/working-process-v1-shape1.png" alt="">
         </div>
@@ -1992,81 +716,8 @@
             </div>
         </div>
     </section>
-    <!--End Working Process One--><!--Start Brand One-->
-    <section class="brand-one">
-        <div class="container">
-            <div class="brand-one__inner">
-                <div class="brand-one__carousel owl-carousel owl-theme">
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="assets/images/brand/brand-1-1.png" alt="">
-                                <img src="assets/images/brand/brand-1-2.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Brand One--><!--Start Blog One-->
+    <!--End Working Process One-->
+    <!--Start Blog One-->
     <section class="blog-one">
         <div class="container">
             <div class="sec-title text-center sec-title-animation animation-style1">
@@ -2084,51 +735,54 @@
 
             <div class="row">
                 @foreach ($blogs as $blog)
-                <!--Start Blog One Single-->
-                <div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img">
-                            <img src="{{ asset('storage/blogs/' . $blog->image) }}" alt="{{ $blog->title }}">
-                        </div>
-
-                        <div class="blog-one__single-content">
-                            <div class="date-box">
-                                <p>{{ $blog->created_at->format('d-M-y') }}</p>
+                    <!--Start Blog One Single-->
+                    <div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="blog-one__single">
+                            <div class="blog-one__single-img">
+                                <img src="{{ asset('storage/blogs/' . $blog->image) }}" alt="{{ $blog->title }}">
                             </div>
-                            <div class="blog-one__single-content-inner">
-                                <ul class="meta-box">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-people"></span>
-                                        </div>
 
-                                        <div class="text-box">
-                                            <p><a href="{{Route('about')}}">By Admin</a></p>
-                                        </div>
-                                    </li>
+                            <div class="blog-one__single-content">
+                                <div class="date-box">
+                                    <p>{{ $blog->created_at->format('d-M-y') }}</p>
+                                </div>
+                                <div class="blog-one__single-content-inner">
+                                    <ul class="meta-box">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-people"></span>
+                                            </div>
 
-                                    <li>
-                                        <div class="icon">
-                                            <span class="fa fa-eye"></span>
-                                        </div>
+                                            <div class="text-box">
+                                                <p><a href="{{ Route('about') }}">By Admin</a></p>
+                                            </div>
+                                        </li>
 
-                                        <div class="text-box">
-                                            <p><a href="#">Views: {{ \DB::table('views')->where('blog_id', $blog->id)->value('count') ?? 0 }}</a></p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="fa fa-eye"></span>
+                                            </div>
 
-                                <h2><a href="{{ route('blogs.details', $blog->id) }}">{{ $blog->name }}</a>
-                                </h2>
-                                <p>{{ Str::limit($blog->description, 100) }}</p>
+                                            <div class="text-box">
+                                                <p><a href="#">Views:
+                                                        {{ \DB::table('views')->where('blog_id', $blog->id)->value('count') ?? 0 }}</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
 
-                                <div class="btn-box">
-                                    <a href="{{ route('blogs.details', $blog->id) }}">Read More <span class="icon-plus"></span></a>
+                                    <h2><a href="{{ route('blogs.details', $blog->slug) }}">{{ $blog->name }}</a>
+                                    </h2>
+                                    <p>{{ Str::limit($blog->description, 100) }}</p>
+
+                                    <div class="btn-box">
+                                        <a href="{{ route('blogs.details', $blog->slug) }}">Read More <span
+                                                class="icon-plus"></span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

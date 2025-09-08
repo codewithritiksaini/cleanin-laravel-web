@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\{
     VideoController as AdminVideoController,
     BannerController as AdminBannerController,
     AboutController as AdminAboutController,
+    TeamController as AdminTeamController,
     SettingController,
     AdminEnquiryController,
     AdminController,
@@ -25,69 +26,64 @@ use App\Http\Controllers\Site\{
     ServicesController,
     BlogController,
     AboutController,
+    TeamController,
 };
 
-Route::get('/', [SiteHomeController::class, 'index'])->name('home');
+    Route::get('/', [SiteHomeController::class, 'index'])->name('home');
 
-// Route::get('/about-us', function () {
-//     return view('site.about.about');
-// })->name('about');
+    // Route::get('/about-us', function () {
+    //     return view('site.about.about');
+    // })->name('about');
 
-Route::get('/about-us', [AboutController::class, 'index'])->name('about');
-
-
-//  Route::get('/about-us',[AboutController::class,'index'])->name('about-us');
-//  Route::get('/about-us/{id}',[AboutController::class, 'detail'])->name('about-us.details');
-
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
-Route::get('/services/{slug}', [ServicesController::class, 'detail'])->name('services.details');
+    Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.details');
-
-Route::get('/projects', function () {
-    return view('site.projects.index');
-})->name('projects');
-
-Route::get('/contact-us', function () {
-    return view('site.Contact.index');
-})->name('contact');
-
-Route::get('/test', function () {
-    return view('admin.message');
-})->name('test');
-
-Route::get('/message', function () {
-    return view('site.message');
-})->name('message');
-
-Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
-
-Route::post('/services/submit', [MessageController::class, 'servicesSubmit'])->name('services.submit');
-Route::post('/about/submit', [MessageController::class, 'aboutSubmit'])->name('about.submit');
-
-// login Routes
-Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
-Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
-Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+        Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
+        Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('teams.details');
 
 
-// Admin Dashboard Route
+
+    Route::get('/services', [ServicesController::class, 'index'])->name('services');
+    Route::get('/services/{slug}', [ServicesController::class, 'detail'])->name('services.details');
+
+
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+    Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.details');
+
+    Route::get('/projects', function () {
+        return view('site.projects.index');
+    })->name('projects');
+
+    Route::get('/contact-us', function () {
+        return view('site.Contact.index');
+    })->name('contact');
+
+    Route::get('/test', function () {
+        return view('admin.message');
+    })->name('test');
+
+    Route::get('/message', function () {
+        return view('site.message');
+    })->name('message');
+
+    Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
+
+    Route::post('/services/submit', [MessageController::class, 'servicesSubmit'])->name('services.submit');
+    Route::post('/about/submit', [MessageController::class, 'aboutSubmit'])->name('about.submit');
+
+    // login Routes
+    Route::get('/login', [AdminController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminController::class, 'login'])->name('login.submit');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
+
+// Admin Route
 
 Route::prefix('admin')->middleware('admin')->group(function () {
 
 
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
-
-
-################################################################################################################endregion
-
-
-
-    // Method 1:
 
     // Services Routes Direct Using Prifix
 
@@ -99,63 +95,6 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
         Route::put('/{id}', [AdminServiceController::class, 'update'])->name('services.update');
         Route::delete('/{id}', [AdminServiceController::class, 'destroy'])->name('services.destroy');
     });
-
-
-        // Method 2:
-
-        // SERVICE ROUTE WITH CONTROLLER METHOD
-
-        // Route::controller(AdminServiceController::class)->prefix('services')->group(function () {
-        //     Route::get('/', 'index')->name('services.index');
-        //     Route::get('/create', 'create')->name('services.create');
-        //     Route::post('/', 'store')->name('services.store');
-        //     Route::get('/{id}/edit', 'edit')->name('services.edit');
-        //     Route::put('/{id}', 'update')->name('services.update');
-        //     Route::delete('/{id}', 'destroy')->name('services.destroy');
-        // });
-
-
-        // Method 3:
-
-        // Route With Array For Passing Controller and prifix Values
-
-        // Route::group([
-        //     'prefix' => 'services',
-        //     'controller' => AdminServiceController::class
-        // ], function () {
-        //     Route::get('/', 'index')->name('services.index');
-        //     Route::get('/create', 'create')->name('services.create');
-        //     Route::post('/', 'store')->name('services.store');
-        //     Route::get('/{id}/edit', 'edit')->name('services.edit');
-        //     Route::put('/{id}', 'update')->name('services.update');
-        //     Route::delete('/{id}', 'destroy')->name('services.destroy');
-        // });
-
-
-
-        // Method 4:
-
-        // Using Resource Route -> es route se automatic 7 route ban jate hai ,
-        // esmein jo route ki naming hoti hai vo default hoti hai ,
-        //  ye naming url base hoti hai jo url hoga uske naam se hi naming chalegi
-        // eg : yahan services url hai to esmein naming automatic
-
-            // HTTP Method    URL	            Controller Method	Route Name
-            // GET     	/services	            index	        services.index
-            // GET     	/services/create	    create	        services.create
-            // POST        /services	            store	        services.store
-            // GET     	/services/{id}	         show	        services.show
-            // GET     	/services/{id}/edit	     edit	        services.edit
-            // PUT/PATCH   /services/{id}	        update	        services.update
-            // DELETE      /services/{id}	        destroy	    services.destroy
-
-
-        // Route::resource('services', AdminServiceController::class);
-
-
-################################################################################################################endregion
-
-
 
 
 
@@ -239,6 +178,15 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
         Route::post('/', [SettingController::class, 'update'])->name('settings.update');
     });
 
+
+    //route team
+    Route::get('/teams', [AdminTeamController::class, 'index'])->name('teams.index');
+    Route::get('/teams/create', [AdminTeamController::class, 'create'])->name('teams.create');
+    Route::post('/teams', [AdminTeamController::class, 'store'])->name('teams.store');
+    Route::get('/teams/{id}/edit', [AdminTeamController::class, 'edit'])->name('teams.edit');
+    Route::put('/teams/{id}', [AdminTeamController::class, 'update'])->name('teams.update');
+    Route::delete('/teams/{id}', [AdminTeamController::class, 'destroy'])->name('teams.destroy');
+
 });
 
-Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');
+    Route::get('/admin/ajax/change-service-status/{id}', [AdminServiceController::class, 'changeStatus'])->name('services.status');

@@ -13,9 +13,9 @@ class BlogController extends BaseController
         return view('site.blogs.index', compact('blogs'));
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $blog = Blog::where('id', $id)->where('status', 1)->firstOrFail();
+        $blog = Blog::where('slug', $slug)->where('status', 1)->firstOrFail();
 
         // increment blog view count
         $this->incrementView('blog', $blog->id);

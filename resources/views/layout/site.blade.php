@@ -511,6 +511,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- End sidebar widget content -->
     <script src="{{asset('assets/js/jquery-latest.js')}}"></script>
     <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
