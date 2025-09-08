@@ -14,11 +14,14 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('admins')->insert([
-            'username'   => 'admin',
-            'password'   => Hash::make('12345678'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-    }
+        Admin::updateOrCreate(
+            ['username' => 'admin'], // unique field check
+            [
+                'password'   => Hash::make('12345678'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                    ]
+                );
+        }
 }
+

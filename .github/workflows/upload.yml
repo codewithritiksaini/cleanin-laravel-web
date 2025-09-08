@@ -20,7 +20,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: mbstring, bcmath, intl
+          extensions: mbstring, bcmath, intl, pdo, mysql
           tools: composer
 
       - name: Setup Node.js
@@ -29,7 +29,7 @@ jobs:
           node-version: '20'
 
       - name: Install NPM dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build assets
         run: npm run build
@@ -56,24 +56,24 @@ jobs:
           script: |
             cd "domains/test.rikkisaini.in/public_html/"
 
-            # Ensure storage & cache directories exist
+            echo "---- Fixing permissions ----"
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/{cache,sessions,views}
             mkdir -p storage/logs
             chmod -R 775 storage bootstrap/cache
 
-            # Install PHP deps (server environment)
+            echo "---- Installing PHP dependencies ----"
             composer install --no-dev --optimize-autoloader
 
-            # Run migrations & seeder (safe mode)
+            echo "---- Running migrations ----"
             php artisan migrate --force
             php artisan db:seed --force || true
 
-            # Recreate storage symlink
+            echo "---- Recreating storage symlink ----"
             rm -rf public/storage
             ln -s $(pwd)/storage/app/public $(pwd)/public/storage
 
-            # Clear & rebuild caches
+            echo "---- Clearing & caching configs ----"
             php artisan config:clear
             php artisan cache:clear
             php artisan route:clear
@@ -82,3 +82,5 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+            echo "✅ Deployment Completed Successfully!"
