@@ -144,5 +144,10 @@ class BlogController extends Controller
             'status'  => 'error',
             'message' => 'Blog not found.'
         ]);
+
+        // return response()->json([
+        //     'status'  => 'error',
+        //     'message' => 'Blog not found.'
+        // ]);
     }
 }
