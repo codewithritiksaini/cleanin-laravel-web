@@ -95,7 +95,7 @@
                                     <p>{{ $about->content }}</p>
                             </div>
 
-                            {{--  --}}
+
 
                     <div class="about-one__content-list">
                       <ul>
