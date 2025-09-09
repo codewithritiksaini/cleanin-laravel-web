@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('name');
+            $table->string('keywords')->nullable();
             $table->string('slug')->unique();
             $table->string('image')->nullable(); // ✅ single image store
             $table->text('description');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

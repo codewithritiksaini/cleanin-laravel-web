@@ -38,6 +38,7 @@ use App\Http\Controllers\Site\{
     Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 
 
+
         Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
         Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('teams.details');
 
@@ -48,7 +49,7 @@ use App\Http\Controllers\Site\{
 
 
     Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-    Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.details');
+    Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.details');
 
     Route::get('/projects', function () {
         return view('site.projects.index');

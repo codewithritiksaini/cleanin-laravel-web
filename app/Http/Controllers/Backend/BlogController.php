@@ -27,6 +27,7 @@ class BlogController extends Controller
         $request->validate([
             'title'       => 'required',
             'name'        => 'required',
+            'keywords'    => 'required',
             'description' => 'required',
             'content'     => 'required',
             'image'       => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
@@ -46,6 +47,7 @@ class BlogController extends Controller
         Blog::create([
             'title'       => $request->title,
             'name'        => $request->name,
+            'keywords'   => $request->keywords,
             'slug'        => $request->slug ?? Str::slug($request->name),
             'image'       => $imageName,
             'description' => $request->description,
@@ -72,6 +74,7 @@ class BlogController extends Controller
             'name'        => 'required',
             'description' => 'required',
             'content'     => 'required',
+            'keywords'    => 'required',
         ]);
 
         $imageName = $item->image;
@@ -97,6 +100,7 @@ class BlogController extends Controller
         $item->update([
             'title'       => $request->title,
             'name'        => $request->name,
+            'keywords'   => $request->keywords,
             'slug'        => $request->slug ?? Str::slug($request->name),
             'image'       => $imageName,
             'description' => $request->description,

@@ -29,9 +29,7 @@
               <div class="services-details__content">
                 <div class="services-details__content-img1">
                   <img
-                    src="{{asset('storage/services/'. $service->image[0])}}"
-                    alt=""
-                  />
+                    src="{{asset('storage/services/'. $service->image[0])}}" alt=""/>
                 </div>
 
                 <div class="services-details__content-text1">

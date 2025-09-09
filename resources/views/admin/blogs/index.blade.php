@@ -42,6 +42,12 @@
                                 <th
                                     class="font-medium px-5 py-3 dark:border-darkmode-300 whitespace-nowrap border-b-0 text-center">
                                     POST TITLE</th>
+
+                                <th
+
+                                    class="font-medium px-5 py-3 dark:border-darkmode-300 whitespace-nowrap border-b-0 text-center">
+                                    Keywords</th>
+
                                 <th
                                     class="font-medium px-5 py-3 dark:border-darkmode-300 whitespace-nowrap border-b-0 text-center">
                                     POST DESCRIPTION</th>
@@ -85,6 +91,7 @@
 
 
                                     <td class="text-center">{{ $item->title }}</td>
+                                    <td class="text-center">{{ $item->keywords }}</td>
 
                                     <td class="text-center">{{ Str::limit($item->description, 100) }}</td>
 

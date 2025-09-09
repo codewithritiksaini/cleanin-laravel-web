@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Blog;
+
 use App\Models\Testimonial;
 use App\Models\Team;
 
@@ -37,5 +38,7 @@ class HomeController extends BaseController
         $testimonials = Testimonial::where('status', 1)->latest()->get();
         return view('frontend.testimonials', compact('testimonials'));
     }
+
+
 
 }
