@@ -48,10 +48,11 @@
                         </div>
 
                         <div class="social-links">
-                            <a href="#"><span class="icon-facebook-app-symbol"></span></a>
-                            <a href="#"><span class="icon-twitter-1"></span></a>
-                            <a href="#"><span class="icon-instagram"></span></a>
-                            <a href="#"><span class="icon-pinterest"></span></a>
+                            <a href="{{ $setting->facebook }}"><span class="icon-facebook-app-symbol"></span></a>
+                            <a href="{{ $setting->twitter }}"><span class="icon-twitter-1"></span></a>
+                            <a href="{{ $setting->instagram }}"><span class="icon-instagram"></span></a>
+                            <a href="{{ $setting->whatsapp }}"><span class="fab fa-whatsapp"></span></a>
+                            {{-- <a href="{{ $setting->pinterest }}"><span class="icon-pinterest"></span></a> --}}
                         </div>
                     </div>
                 </div>
@@ -83,7 +84,7 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                     <div class="input-box">
-                                        <input type="text" name="subject" placeholder="Subject" required>
+                                        <input type="text" name="subject" value="{{request('subject')}}" placeholder="Subject" required>
                                         <div class="icon"><span class="icon-chat"></span></div>
                                     </div>
                                 </div>
@@ -119,7 +120,7 @@
                                 </div>
                                 <div class="content">
                                     <h2>Location</h2>
-                                    <p>280 Granite Run Drive <br> SuiteHobert, LA 90010, USA.</p>
+                                    <p>{{$setting->short_address}}x </p>
                                 </div>
                             </li>
 
@@ -140,8 +141,7 @@
                                 <div class="content">
                                     <h2>Email</h2>
                                     <p>
-                                        <a href="mailto:support@cleanin.com">support@cleanin.com</a> <br>
-                                        <a href="mailto:support@cleanin.com">support@cleanin.com</a>
+                                        <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
                                     </p>
                                 </div>
                             </li>
@@ -153,8 +153,8 @@
                                 <div class="content">
                                     <h2>Phones</h2>
                                     <p>
-                                        <a href="tel:880123456789">+880 123 456 789</a> <br>
-                                        <a href="tel:880123456789">+880 123 456 789</a>
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
                                     </p>
                                 </div>
                             </li>
@@ -177,106 +177,6 @@
     <!--End Google Map Two-->
 
     <!--Start Brand One-->
-    <section class="brand-one brand-one--two about">
-        <div class="container">
-            <div class="brand-one__inner">
-                <div class="brand-one__carousel owl-carousel owl-theme">
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
 
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
 
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-
-                    <!--Start Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__single-inner">
-                            <a href="#">
-                                <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                                <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--End Brand One Single-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Brand One-->
-
-    <!--Start Cta One -->
-    <section class="cta-one">
-        <div class="shape1"></div>
-        <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
-        </div>
-        <div class="container clearfix">
-            <div class="cta-one__inner">
-                <div class="cta-one__content">
-                    <div class="text-box">
-                        <p>Quality Services provider</p>
-                        <h2>Need Our services?</h2>
-                    </div>
-
-                    <div class="btn-box">
-                        <a class="thm-btn" href="contact-1.html">get free quote
-                            <i class="icon-next"></i>
-                            <span class="hover-btn hover-bx"></span>
-                            <span class="hover-btn hover-bx2"></span>
-                            <span class="hover-btn hover-bx3"></span>
-                            <span class="hover-btn hover-bx4"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Cta One -->
 @endsection

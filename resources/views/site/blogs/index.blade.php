@@ -14,7 +14,7 @@
         <div
           class="page-header__bg"
           style="
-            background-image: url(assets/images/backgrounds/page-header-bg.jpg);
+            background-image: url({{asset('assets/images/backgrounds/page-header-bg.jpg')}});
           "
         ></div>
         <div class="shape1 float-bob-x">
@@ -51,21 +51,21 @@
                         ></div>
                         <div class="blog-list-page__single-content">
                             <ul class="meta-box">
-                            <li>
-                                <div class="icon">
-                                <span class="icon-people"></span>
-                                </div>
+                                        <li>
+                                            <div class="icon">
+                                            <span class="icon-people"></span>
+                                            </div>
 
-                                <div class="text-box">
-                                <p><a href="{{route('about')}}">By Admin</a></p>
-                                </div>
-                            </li>
+                                            <div class="text-box">
+                                            <p><a href="{{route('about')}}">By Admin</a></p>
+                                            </div>
+                                        </li>
 
-                             <li>
-                                <div class="icon"><span class="fa fa-eye"></span></div>
-                                <div class="text-box"><p><a href="#">{{ \DB::table('views')->where('blog_id', $blog->id)->value('count') ?? 0 }}</a></p></div>
-                            </li>
-                            </ul>
+                                        <li>
+                                            <div class="icon"><span class="fa fa-eye"></span></div>
+                                            <div class="text-box"><p><a href="#">Views: &nbsp; {{ \DB::table('views')->where('blog_id', $blog->id)->value('count') ?? 0 }}</a></p></div>
+                                        </li>
+                                    </ul>
 
                             <h2>
                             <a href="{{url('blogs/'.$blog->slug)}}"
@@ -73,7 +73,7 @@
                             >
                             </h2>
                             <p>
-                            {{Str::limit($blog->description, 150)}}
+                            {{Str::limit($blog->description, 190)}}
                             </p>
 
                             <div class="btn-box">
@@ -85,17 +85,7 @@
                         </div>
                     <!--End Blog List-->
                 @endforeach
-                <ul class="styled-pagination clearfix">
-                  <li class="arrow prev active">
-                    <a href="#"><span class="icon-right-arrow"></span></a>
-                  </li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li class="arrow next">
-                    <a href="#"><span class="icon-right-arrow1"></span></a>
-                  </li>
-                </ul>
+
               </div>
             </div>
             <!--End Blog List Page Content-->
@@ -108,12 +98,13 @@
                   <div class="title-box">
                     <h2>Search</h2>
                   </div>
-                  <form action="#" class="sidebar__search-form">
-                    <input type="search" placeholder="Search.." />
-                    <button type="submit">
-                      <span class="icon-search-interface-symbol"></span>
-                    </button>
-                  </form>
+               <form action="{{ route('blogs') }}" method="GET" class="sidebar__search-form">
+                        <input type="hidden" name="type" value="blogs">
+                        <input type="search" name="q" placeholder="Search.." />
+                        <button type="submit">
+                            <span class="icon-search-interface-symbol"></span>
+                        </button>
+                    </form>
                 </div>
                 <!--End Sidebar Single-->
 
@@ -126,8 +117,8 @@
                   <ul class="sidebar__categories-list">
                     @foreach ($items as $item)
                         <li>
-                      <a class="active" href="{{ route('services.details', $item->slug) }}"
-                        >{{$item->title}}<span class="icon-right-arrow1"></span
+                      <a class="active" href="{{ route('blogs.details', $item->slug) }}"
+                        >{{Str::limit($item->title, 32)}}<span class="icon-right-arrow1"></span
                       ></a>
                     </li>
                     @endforeach
@@ -229,21 +220,7 @@
                 <!--End Sidebar Single-->
 
                 <!--Start Sidebar Single-->
-                <div class="sidebar__single sidebar__tags">
-                  <div class="title-box">
-                    <h2>Tags</h2>
-                  </div>
-                  <ul class="sidebar__tags-list">
-                    <li><a href="#">Cleaning</a></li>
-                    <li><a href="#">Moping</a></li>
-                    <li><a href="#">Commercial</a></li>
-                    <li><a href="#">Dusting</a></li>
-                    <li><a href="#">Eco-friendly</a></li>
-                    <li><a href="#">DeepClean</a></li>
-                    <li><a href="#">Window Cleaning</a></li>
-                    <li><a href="#">House Cleaning</a></li>
-                  </ul>
-                </div>
+
                 <!--End Sidebar Single-->
               </div>
             </div>

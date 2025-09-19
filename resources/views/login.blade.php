@@ -246,34 +246,4 @@
         </div>
     </section>
     <!--End Brand One-->
-
-    <!--Start Cta One -->
-    <section class="cta-one">
-        <div class="shape1"></div>
-        <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
-        </div>
-        <div class="container clearfix">
-            <div class="cta-one__inner">
-                <div class="cta-one__content">
-                    <div class="text-box">
-                        <p>Quality Services provider</p>
-                        <h2>Need Our services?</h2>
-                    </div>
-
-                    <div class="btn-box">
-                        <a class="thm-btn" href="contact-1.html">get free quote
-                            <i class="icon-next"></i>
-                            <span class="hover-btn hover-bx"></span>
-                            <span class="hover-btn hover-bx2"></span>
-                            <span class="hover-btn hover-bx3"></span>
-                            <span class="hover-btn hover-bx4"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Cta One -->
-
-    <!--Start Site Footer-->
 @endsection

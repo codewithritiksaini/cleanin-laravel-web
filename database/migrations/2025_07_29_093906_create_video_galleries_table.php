@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('video_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
+             $table->string('title')->nullable();
+            $table->string('description',3000)->nullable();
+            $table->string('video_url')->nullable();
             $table->string('image')->nullable();
-            $table->string('video')->nullable(); // for URL or file path
-            $table->text('description')->nullable();
-            $table->tinyInteger('status')->default(1); // 1 = active, 0 = inactive
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

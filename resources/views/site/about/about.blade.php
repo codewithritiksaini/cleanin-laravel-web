@@ -32,7 +32,7 @@
             <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                 <div class="about-one__img">
                     <div class="about-one__video">
-                        <a href="https://www.youtube.com/watch?v=06dV9txztKY" class="video-popup">
+                        <a href="https://www.youtube.com/watch?v=n0ORkURsIw8" class="video-popup">
                             <div class="about-one__video-icon">
                                 <span class="icon-play-button-arrowhead"></span>
                                 <i class="ripple"></i>
@@ -56,7 +56,7 @@
                             <div class="about-one__img-right">
                                 <div class="about-one__experience">
                                     <div class="count-box">
-                                        <h2 class="count-text" data-stop="30" data-speed="1500">00</h2>
+                                        <h2 class="count-text" data-stop="2" data-speed="1500">00</h2>
                                         <span>+</span>
                                     </div>
                                     <p>Years Of Experience</p>
@@ -352,8 +352,8 @@
                                 </div>
 
                                 <div class="text-box">
-                                    <p>3060 Commercial Street Road <br>
-                                        Fratton, Australia</p>
+                                    <p>{{$setting->short_address}}
+                                        </p>
                                 </div>
                             </li>
 
@@ -363,8 +363,8 @@
                                 </div>
 
                                 <div class="text-box">
-                                    <p><a href="tel:1234567890">+817 895 74555</a></p>
-                                    <p><a href="tel:1234567890">+817 895 74555</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
                                 </div>
                             </li>
 
@@ -374,8 +374,8 @@
                                 </div>
 
                                 <div class="text-box">
-                                    <p><a href="mailto:yourmail@email.com">help24/7@cleanin.com</a></p>
-                                    <p><a href="mailto:yourmail@email.com">help24/7@cleanin.com</a></p>
+                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
+                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -390,7 +390,7 @@
 
 
 <!--Start Testimonial One-->
- <section class="testimonial-one">
+    {{-- <section class="testimonial-one">
         <div class="shape1"><img src="{{ asset('assets/images/shapes/testimonial-v1-shape1.png') }}" alt="">
         </div>
         <div class="container">
@@ -438,113 +438,60 @@
                 </div>
             </div>
         </div>
+    </section> --}}
+  <section class="testimonial-one">
+        <div class="shape1"><img src="{{ asset('assets/images/shapes/testimonial-v1-shape1.png') }}" alt="">
+        </div>
+        <div class="container">
+            <div class="sec-title sec-title-animation animation-style2">
+                <div class="sec-title__tagline">
+                    <div class="icon-box">
+                        <span class="icon-household"></span>
+                    </div>
+
+                    <div class="text title-animation">
+                        <h4>Testimonials</h4>
+                    </div>
+                </div>
+                <h2 class="sec-title__title title-animation">Our Customer’s Feedback</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testimonial-one__carousel owl-carousel owl-theme">
+
+                        <!--Start Testimonial One Single-->
+                        @foreach ($testimonials as $item)
+                            <div class="testimonial-one__single text-center">
+                                <div class="testimonial-one__single-img">
+                                    <img src="{{ asset('storage/testimonials/' . $item->image) }}"
+                                        alt="{{ $item->name }}">
+                                </div>
+                                <div class="testimonial-one__single-inner">
+                                    <h2>{{ $item->name }}</h2>
+                                    <p>{{ $item->testimonial }}</p>
+
+                                   <div class="rating-box">
+                                        Rating {!! $item->rating !!}
+                                    </div>
+                                </div>
+                                <div class="icon-box">
+                                    <span class="icon-quotation-up"></span>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+                        <!--End Testimonial One Single-->
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 <!--End Testimonial One-->
 
 <!--Start Brand One-->
-<section class="brand-one brand-one--two about">
-    <div class="container">
-        <div class="brand-one__inner">
-            <div class="brand-one__carousel owl-carousel owl-theme">
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
 
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
-
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
-
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
-
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
-
-                <!--Start Brand One Single-->
-                <div class="brand-one__single">
-                    <div class="brand-one__single-inner">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/brand/brand-1-1.png') }}" alt="">
-                            <img src="{{ asset('assets/images/brand/brand-1-2.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!--End Brand One Single-->
-            </div>
-        </div>
-    </div>
-</section>
 <!--End Brand One-->
-
-<!--Start Cta One -->
-<section class="cta-one">
-    <div class="shape1"></div>
-    <div class="cta-one__bg" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">
-    </div>
-    <div class="container clearfix">
-        <div class="cta-one__inner">
-            <div class="cta-one__content">
-                <div class="text-box">
-                    <p>Quality Services provider</p>
-                    <h2>Need Our services?</h2>
-                </div>
-
-                <div class="btn-box">
-                    <a class="thm-btn" href="contact-1.html">get free quote
-                        <i class="icon-next"></i>
-                        <span class="hover-btn hover-bx"></span>
-                        <span class="hover-btn hover-bx2"></span>
-                        <span class="hover-btn hover-bx3"></span>
-                        <span class="hover-btn hover-bx4"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End Cta One -->
-
-
 
 @endsection

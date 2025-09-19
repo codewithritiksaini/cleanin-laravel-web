@@ -39,7 +39,7 @@
                                         <span>{{ $service->created_at->format('M') }}</span>
                                     </div>
                                     <ul class="blog-three__tag">
-                                        <li><a href="#">Blog {{ $loop->index + 1 }}</a></li>
+                                        <li><a href="#">Service {{ $loop->index + 1 }}</a></li>
                                     </ul>
                                 </div>
 
@@ -94,7 +94,7 @@
                     <h2>Search</h2>
                   </div>
                   <form action="{{ route('services') }}" method="GET" class="sidebar__search-form">
-                        <input type="hidden" name="type" value="services"> <!-- ya blogs -->
+                        <input type="hidden" name="type" value="services">
                         <input type="search" name="q" placeholder="Search.." />
                         <button type="submit">
                             <span class="icon-search-interface-symbol"></span>
@@ -185,7 +185,7 @@
                   <div
                     class="sidebar__contact-bg"
                     style="
-                      background-image: url(assets/images/services/sidebar-contact-bg.jpg);
+                      background-image: url({{asset('assets/images/services/sidebar-contact-bg.jpg')}});
                     "
                   ></div>
                   <div class="sidebar__contact-icon">
@@ -215,111 +215,6 @@
       </section>
       <!--End Services Details-->
 
-      <!--Start Brand One-->
-      <section class="brand-one brand-one--two about">
-        <div class="container">
-          <div class="brand-one__inner">
-            <div class="brand-one__carousel owl-carousel owl-theme">
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
 
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
-
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
-
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
-
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
-
-              <!--Start Brand One Single-->
-              <div class="brand-one__single">
-                <div class="brand-one__single-inner">
-                  <a href="#">
-                    <img src="assets/images/brand/brand-1-1.png" alt="" />
-                    <img src="assets/images/brand/brand-1-2.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <!--End Brand One Single-->
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--End Brand One-->
-
-      <!--Start Cta One -->
-      <section class="cta-one">
-        <div class="shape1"></div>
-        <div
-          class="cta-one__bg"
-          style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg)"
-        ></div>
-        <div class="container clearfix">
-          <div class="cta-one__inner">
-            <div class="cta-one__content">
-              <div class="text-box">
-                <p>Quality Services provider</p>
-                <h2>Need Our services?</h2>
-              </div>
-
-              <div class="btn-box">
-                <a class="thm-btn" href="contact-1.html"
-                  >get free quote
-                  <i class="icon-next"></i>
-                  <span class="hover-btn hover-bx"></span>
-                  <span class="hover-btn hover-bx2"></span>
-                  <span class="hover-btn hover-bx3"></span>
-                  <span class="hover-btn hover-bx4"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--End Cta One -->
 
      @endsection

@@ -863,7 +863,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{route('videos.index')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -872,8 +872,10 @@
                                     </div>
                                 </a>
                             </li>
+
                         </ul>
                     </li>
+
                     <li>
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon">

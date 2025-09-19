@@ -7,20 +7,39 @@ use Illuminate\Http\Request;
 
 class BlogController extends BaseController
 {
-    public function index()
+    protected $blogs;
+    protected $items;
+
+    public function __construct(Request $request)
     {
-        $items = Service::where('status', 1)->take(9)->get();
-        $blogs = Blog::where('status', 1)->paginate(15);
-        return view('site.blogs.index', compact('blogs', 'items'));
+        $query = $this->applySearchFilter(
+            Blog::where('status', 1),
+            $request,
+            ['title','name','description']
+        );
+
+        $this->blogs = $query->latest()->paginate(8);
+        $this->items = $query->latest()->take(8)->get();
     }
 
-    public function show($slug)
+    public function index()
+    {
+        return view('site.blogs.index', [
+            'blogs' => $this->blogs,
+            'items' => $this->items,
+        ]);
+    }
+
+    public function show(Request $request, $slug)
     {
         $blog = Blog::where('slug', $slug)->where('status', 1)->firstOrFail();
 
-        // increment blog view count
         $this->incrementView('blog', $blog->id);
 
-        return view('site.blogs.detail', compact('blog'));
+        return view('site.blogs.detail', [
+            'blog' => $blog,
+            'blogs' => $this->blogs,
+            'items' => $this->items,
+        ]);
     }
 }

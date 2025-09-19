@@ -41,7 +41,7 @@ class BannerController extends Controller
             $extension = $file->getClientOriginalExtension();
             $name = "banner_{$random}_{$date}." . $extension;
 
-            $file->move(public_path('storage/banners'), $name);
+            $file->move(public_path('storage/banners/'), $name);
             $images[] = $name;
         }
 
@@ -100,7 +100,7 @@ class BannerController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $name = "banner_{$random}_{$date}." . $extension;
 
-                $file->move(public_path('storage/banners'), $name);
+                $file->move(public_path('storage/banners/'), $name);
                 $images[] = $name;
             }
         }

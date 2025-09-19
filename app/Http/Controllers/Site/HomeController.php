@@ -9,6 +9,7 @@ use App\Models\Blog;
 
 use App\Models\Testimonial;
 use App\Models\Team;
+use App\Models\Banner;
 
 class HomeController extends BaseController
 {
@@ -26,10 +27,11 @@ class HomeController extends BaseController
         }
 
         return view('site.home', [
-            'services' => Service::Select('title', 'name', 'slug', 'image', 'description', 'content')->where('status', '1')->latest()->take(6)->get(),
+            'services' => Service::Select('title', 'name', 'slug', 'image', 'description', 'content')->where('status', '1')->latest()->take(12)->get(),
             'blogs' => Blog::where('status', '1')->latest()->take(9)->get(),
             'teams' => Team::latest()->get(),
              'testimonials' => $testimonials,
+             'banners' => Banner::where('status', '1')->latest()->get(),
         ]);
 
     }

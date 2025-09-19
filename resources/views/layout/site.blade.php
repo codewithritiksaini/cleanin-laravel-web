@@ -214,12 +214,38 @@
         </header>
         <!--End Main Header One-->
         @yield('content')
-        <!--End Cta One --><!--Start Site Footer-->
+        <!--Start Cta One -->
+            <section class="cta-one">
+                <div class="shape1"></div>
+                <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
+                </div>
+                <div class="container clearfix">
+                    <div class="cta-one__inner">
+                        <div class="cta-one__content">
+                            <div class="text-box">
+                                <p>Quality Services provider</p>
+                                <h2>Need Our services?</h2>
+                            </div>
+
+                            <div class="btn-box">
+                                <a class="thm-btn" href="{{route('contact', ['subject' => 'Request for Free Quote'])}}">get free quote
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End Cta One --><!--Start Site Footer-->
         <footer class="site-footer">
-            <div class="shape1 float-bob-x"><img src="assets/images/shapes/footer-v1-shape1.png" alt="">
+            <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/footer-v1-shape1.png') }}" alt="">
             </div>
-            <div class="shape2 scale"><img src="assets/images/shapes/footer-v1-shape2.png" alt=""></div>
-            <div class="shape3 scale"><img src="assets/images/shapes/footer-v1-shape2.png" alt=""></div>
+            <div class="shape2 scale"><img src="{{ asset('assets/images/shapes/footer-v1-shape2.png') }}" alt=""></div>
+            <div class="shape3 scale"><img src="{{ asset('assets/images/shapes/footer-v1-shape2.png') }}" alt=""></div>
             <!--Start Site Footer Top-->
             <div class="site-footer__top">
                 <div class="container">
@@ -281,7 +307,7 @@
                                         </div>
 
                                         <div class="text-box">
-                                            <p>{{ $setting->address }}</p>
+                                            <p>{{ $setting->short_address }}</p>
                                         </div>
                                     </li>
 

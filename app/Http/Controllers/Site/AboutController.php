@@ -17,6 +17,10 @@ class AboutController extends Controller
             ->inRandomOrder()
             ->take(6)
             ->get();
+
+               foreach ($testimonials as $testimonial) {
+            $testimonial->rating = renderTestimonialRating($testimonial->rating);
+        }
         return view('site.about.about', [
             'about' => $about,
             'services' => $services, // 👈 services pass kiya
