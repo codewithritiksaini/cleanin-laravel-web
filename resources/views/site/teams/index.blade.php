@@ -44,7 +44,7 @@
 
                             <div class="team-four__single-content">
                                 <h2>
-                                    <a href="{{ route('teams.details', $team->slug) }}">
+                                    <a href="{{ route('team.details', $team->slug) }}">
                                         {{ $team->name }}
                                     </a>
 
@@ -57,7 +57,7 @@
                                     <li><a href="{{ $team->whatsapp }}"><span class="fab fa-whatsapp"></span></a></li>
                                 </ul>
                             </div>
-                         <a href="{{ route('teams.details', $team->slug) }}">Read more <span class="icon-plus"></span></a>
+                         <a href="{{ route('team.details', $team->slug) }}">Read more <span class="icon-plus"></span></a>
 
                         </div>
                     </div>
