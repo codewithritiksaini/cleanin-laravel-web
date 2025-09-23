@@ -63,7 +63,7 @@ jobs:
             cd "domains/cleanin.rikkisaini.in/public_html/"
 
             echo "---- Writing .env file ----"
-            echo "${{ secrets.ENV_CONTENT }}" | sed 's/^/"/;s/$/"/' > .env
+            echo "${{ secrets.ENV_CONTENT }}" > .env
 
             echo "---- Creating storage & cache directories ----"
             mkdir -p bootstrap/cache
