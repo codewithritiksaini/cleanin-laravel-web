@@ -44,8 +44,8 @@ use App\Http\Controllers\Site\{
     Route::get('/privacy-policy', [SiteHomeController::class, 'privacy'])->name('privacy');
     Route::get('/refund-policy', [SiteHomeController::class, 'refund'])->name('refund');
 
-    Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
-    Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('teams.details');
+    Route::get('/teams', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('team.details');
 
 
 

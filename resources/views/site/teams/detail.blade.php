@@ -265,7 +265,7 @@
                                 {{-- Name & Position --}}
                                 <div class="text-box">
                                     <h2>
-                                        <a href="{{ route('teams.details', $team_detail->slug) }}">
+                                        <a href="{{ route('team.details', $team_detail->slug) }}">
                                             {{ $team_detail->name }}
                                         </a>
                                     </h2>
