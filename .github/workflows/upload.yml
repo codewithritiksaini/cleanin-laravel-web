@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      # 2️⃣ Setup PHP (needed for artisan locally if any scripts run)
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -23,20 +25,21 @@ jobs:
           extensions: mbstring, bcmath, intl
           tools: composer
 
+      # 3️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # 4️⃣ Install NPM dependencies
       - name: Install NPM dependencies
         run: npm install
 
+      # 5️⃣ Build assets
       - name: Build assets
         run: npm run build
 
-      - name: Install Composer dependencies (local/CI)
-        run: composer install --no-dev --optimize-autoloader
-
+      # 6️⃣ Deploy code to Hostinger via SCP
       - name: Deploy to Hostinger via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -44,10 +47,11 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./vendor,./storage,./.htaccess"
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess,./vendor"
           target: "domains/cleanin.rikkisaini.in/public_html/"
           overwrite: true
 
+      # 7️⃣ Run Laravel commands on the Hostinger server
       - name: Run Laravel commands on server
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -58,24 +62,27 @@ jobs:
           script: |
             cd "domains/cleanin.rikkisaini.in/public_html/"
 
-            # Create .env file from GitHub secret
+            echo "---- Writing .env file ----"
             echo "${{ secrets.ENV_CONTENT }}" > .env
 
-            # Ensure storage & cache directories exist
+            echo "---- Creating storage & cache directories ----"
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/{cache,sessions,views}
             mkdir -p storage/logs
             chmod -R 775 storage bootstrap/cache
 
-            # Run migrations & seeder (safe mode)
+            echo "---- Installing Composer dependencies on server ----"
+            composer install --no-dev --optimize-autoloader
+
+            echo "---- Running migrations & seeders ----"
             php artisan migrate --force
             php artisan db:seed --force || true
 
-            # Recreate storage symlink
+            echo "---- Recreating storage symlink ----"
             rm -rf public/storage
-            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+            php artisan storage:link || true
 
-            # Clear & rebuild caches
+            echo "---- Clearing & caching configs ----"
             php artisan config:clear
             php artisan cache:clear
             php artisan route:clear
@@ -84,3 +91,5 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+            echo "✅ Deployment Completed Successfully!"
