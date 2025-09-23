@@ -20,7 +20,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: mbstring, bcmath, intl, pdo, mysql
+          extensions: mbstring, bcmath, intl
           tools: composer
 
       - name: Setup Node.js
@@ -29,12 +29,14 @@ jobs:
           node-version: '20'
 
       - name: Install NPM dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build assets
         run: npm run build
 
-      # ✅ Upload project + .env file (storage excluded)
+      - name: Install Composer dependencies (local/CI)
+        run: composer install --no-dev --optimize-autoloader
+
       - name: Deploy to Hostinger via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -42,7 +44,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./.htaccess,./.env"
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./vendor,./storage,./.htaccess"
           target: "domains/cleanin.rikkisaini.in/public_html/"
           overwrite: true
 
@@ -56,24 +58,24 @@ jobs:
           script: |
             cd "domains/cleanin.rikkisaini.in/public_html/"
 
-            echo "---- Fixing permissions ----"
+            # Create .env file from GitHub secret
+            echo "${{ secrets.ENV_CONTENT }}" > .env
+
+            # Ensure storage & cache directories exist
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/{cache,sessions,views}
             mkdir -p storage/logs
-            find storage -type d -exec chmod 775 {} \;
-            find bootstrap/cache -type d -exec chmod 775 {} \;
+            chmod -R 775 storage bootstrap/cache
 
-            echo "---- Installing PHP dependencies ----"
-            composer install --no-dev --optimize-autoloader --prefer-dist
-
-            echo "---- Running migrations ----"
+            # Run migrations & seeder (safe mode)
             php artisan migrate --force
             php artisan db:seed --force || true
 
-            echo "---- Recreating storage symlink ----"
-            php artisan storage:link || true
+            # Recreate storage symlink
+            rm -rf public/storage
+            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
 
-            echo "---- Clearing & caching configs ----"
+            # Clear & rebuild caches
             php artisan config:clear
             php artisan cache:clear
             php artisan route:clear
@@ -82,5 +84,3 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-
-            echo "✅ Deployment Completed Successfully!"
