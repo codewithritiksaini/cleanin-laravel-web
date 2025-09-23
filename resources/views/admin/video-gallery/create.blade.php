@@ -3,91 +3,99 @@
 @section('content')
 
 <div class="intro-y mt-8 flex items-center">
-<h2 class="mr-auto text-lg font-medium">Create {{$title}}</h2>
+    <h2 class="mr-auto text-lg font-medium">Create Video Gallery</h2>
 </div>
 <div class="mt-5 grid grid-cols-12 gap-6">
-<div class="intro-y col-span-12 lg:col-span-12">
-<!-- BEGIN: Input -->
-<form id="request-form" class="forms-sample" action="{{ route('videos.store') }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
-    @csrf
-<div class="preview-component intro-y box mb-4">
-    <div class="p-5">
-        <div class="pb-5"><h3 class="mr-auto text-lg font-medium">Basic Details</h3></div>
-        <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
-            <div class="masterx-validation">
-                <label data-tw-merge="" for="title" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Post Title <small>(Meta)</small><b class="text-danger"> *</b>
-                </label>
-                <input data-tw-merge="" id="title" name="title" type="text" placeholder="Post Title" required
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
+    <div class="intro-y col-span-12 lg:col-span-12">
+        <!-- BEGIN: Input -->
+        <form id="request-form" class="forms-sample"
+              action="{{ route('videos.store') }}"
+              method="POST"
+              enctype="multipart/form-data">
+            @csrf
+            <div class="preview-component intro-y box mb-4">
+                <div class="p-5">
+                    <div class="pb-5">
+                        <h3 class="mr-auto text-lg font-medium">Basic Details</h3>
+                    </div>
+                    <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
 
-            <div class="mt-4 masterx-validation">
-                <label data-tw-merge="" for="slug" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Post Slug<br><small>(If you leave it blank, it will be generated automatically)</small>
-                </label>
-                <input data-tw-merge="" id="slug" name="slug" type="text" placeholder="Post Slug"
-                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
-            <div class="mt-4 masterx-validation">
-                <label data-tw-merge="" for="video" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Video Url <small>(ID Only)</small><b class="text-danger"> *</b>
-                </label>
-                <input data-tw-merge="" id="video" name="video" type="text" placeholder="watch?v=p_CcF1wLPec" required
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
-            <div class="mt-4 masterx-validation">
-                <label data-tw-merge="" for="image"
-                    class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Video Thumbnail<b class="text-danger"> *</b>
-                </label>
-                <input data-tw-merge="" id="image" name="image" type="file"
-                    accept=".jpeg, .jpg, .png, .webp" placeholder="Thumbnail" required
-                    multiple
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
-        </div>
-    </div>
-</div>
+                        {{-- Title --}}
+                        <div class="masterx-validation">
+                            <label for="title" class="inline-block mb-2">
+                                Video Title <b class="text-danger">*</b>
+                            </label>
+                            <input id="title" name="title" type="text" placeholder="Video Title" required
+                                class="w-full text-sm border-slate-200 shadow-sm rounded-md">
+                        </div>
 
-<div class="preview-component intro-y box">
-    <div class="p-5">
-        <div class="pb-5"><h3 class="mr-auto text-lg font-medium">Content</h3></div>
-        <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
-            <div class="masterx-validation">
-                <label data-tw-merge="" for="description"
-                    class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Description <small>(Meta)</small><b class="text-danger"> *</b>
-                </label>
-                <textarea data-tw-merge="" id="description" name="description" rows="4" placeholder="Description" required
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10"></textarea>
-            </div>
-            <div class="mb-4">
-                    <label for="status" class="block mb-2">Status <b style="color:red">*</b></label>
-                    <select name="status" id="status" class="tinyMCE disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select>
+                        {{-- Video File --}}
+                            <div class="mt-4">
+                                <label data-tw-merge="" for="Video"
+                                    class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
+                                    Video
+                                </label>
+                                <input data-tw-merge="" id="Video" name="video_url" type="text"
+                                    value="" placeholder="Video URL" required
+                                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
+                            </div>
+
+
+                        {{-- Thumbnail --}}
+                        <div class="mt-4 masterx-validation">
+                            <label for="thumbnail" class="inline-block mb-2">
+                                Upload Thumbnail <b class="text-danger">*</b>
+                            </label>
+                            <input id="thumbnail" name="image" type="file"
+                                   accept=".jpg, .jpeg, .png, .gif"
+                                   required
+                                   class="w-full text-sm border-slate-200 shadow-sm rounded-md">
+                        </div>
+
+                    </div>
                 </div>
-
-            <div class="text-right">
-                <button data-tw-merge="" type="submit" id="request-btn"
-                    class="transition duration-200 border shadow-sm inline-flex
-                    items-center justify-center py-2 px-5 rounded-md font-medium cursor-pointer focus:ring-4
-                    focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700
-                    dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center
-                    disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mt-5">
-                    <i data-tw-merge="" data-lucide="upload-cloud" class="stroke-1.5 w-5 h-5 mx-auto block"></i> &nbsp; Save
-                </button>
             </div>
 
-        </div>
+            <div class="preview-component intro-y box">
+                <div class="p-5">
+                    <div class="pb-5">
+                        <h3 class="mr-auto text-lg font-medium">Content</h3>
+                    </div>
+                    <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
+
+                        {{-- Description --}}
+                        <div class="masterx-validation">
+                            <label for="description" class="inline-block mb-2">
+                                Description <b class="text-danger">*</b>
+                            </label>
+                            <textarea id="description" name="description" rows="4" placeholder="Description" required
+                                class="w-full text-sm border-slate-200 shadow-sm rounded-md"></textarea>
+                        </div>
+
+                        {{-- Status --}}
+                        <div class="mb-4 mt-4">
+                            <label for="status" class="block mb-2">Status <b class="text-danger">*</b></label>
+                            <select name="status" id="status"
+                                class="w-full text-sm border-slate-200 shadow-sm rounded-md">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        {{-- Submit --}}
+                        <div class="text-right">
+                            <button type="submit" id="request-btn"
+                                class="py-2 px-5 rounded-md font-medium bg-primary text-white border border-primary shadow-sm">
+                                <i data-lucide="upload-cloud" class="w-5 h-5 inline-block"></i> &nbsp; Save
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- END: Input -->
     </div>
 </div>
-</form>
-<!-- END: Input -->
-</div>
-</div>
-</div>
-<!-- END: Content -->
+
 @endsection

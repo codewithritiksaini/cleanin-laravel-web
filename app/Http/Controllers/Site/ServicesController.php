@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\Service;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class ServicesController extends BaseController

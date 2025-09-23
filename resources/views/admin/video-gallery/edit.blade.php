@@ -1,87 +1,126 @@
 @extends('layout.backend')
 
 @section('content')
-
-    <div class="intro-y mt-8 flex items-center">
-<h2 class="mr-auto text-lg font-medium">Edit {{$title}}</h2>
+<div class="intro-y mt-8 flex items-center">
+    <h2 class="mr-auto text-lg font-medium">Edit {{ $title }}</h2>
 </div>
+
 <div class="mt-5 grid grid-cols-12 gap-6">
-<div class="intro-y col-span-12 lg:col-span-12">
-<!-- BEGIN: Input -->
-<form id="request-form" class="forms-sample" action="{{ route('images.update', $item->id) }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
-<div class="preview-component intro-y box mb-4">
-    <div class="p-5">
-        <div class="pb-5"><h3 class="mr-auto text-lg font-medium">Basic Details</h3></div>
-        <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
-            <div class="masterx-validation">
-                <label data-tw-merge="" for="title" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Post Title <small>(Meta)</small><b class="text-danger"> *</b>
-                </label>
-                <input data-tw-merge="" id="title" value="{{ old('title', $item->title) }}" name="title" type="text" placeholder="Post Title"
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
+    <div class="intro-y col-span-12 lg:col-span-12">
 
-            <div class="mt-4 masterx-validation">
-                <label data-tw-merge="" for="slug" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Post Slug<br><small>(If you leave it blank, it will be generated automatically)</small>
-                </label>
-                <input data-tw-merge="" id="slug" value="{{ old('slug', $item->slug) }}" name="slug" type="text" placeholder="Post Slug"
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
+        <!-- BEGIN: Input -->
+        <form id="request-form"
+              action="{{ route('videos.update', $item->id) }}"
+              method="POST"
+              enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <div class="preview-component intro-y box mb-4">
+                <div class="p-5">
+                    <div class="pb-5">
+                        <h3 class="mr-auto text-lg font-medium">Basic Details</h3>
+                    </div>
+
+                    <div class="preview relative">
+                        <!-- Title -->
+                        <div class="masterx-validation">
+                            <label for="title" class="inline-block mb-2">Video Title <b class="text-danger">*</b></label>
+                            <input id="title"
+                                   name="title"
+                                   type="text"
+                                   value="{{ old('title', $item->title) }}"
+                                   placeholder="Video Title"
+                                   class="w-full text-sm border rounded-md shadow-sm">
+                        </div>
+
+                            <!-- Thumbnail -->
+                                            <!-- Image -->
+ <!-- Image -->
+    <div class="mt-4 masterx-validation">
+        <label for="image" class="inline-block mb-2">Image <b class="text-danger">*</b></label>
+        <input id="image"
+               name="image"
+               type="file"
+               accept="image/jpeg,image/jpg,image/png,image/webp"
+               class="w-full text-sm border rounded-md shadow-sm">
+
+        @if($item->image)
+            <div class="mt-3">
+                <p class="mb-1">Current Image:</p>
+                <img src="{{ asset('storage/images/' . $item->image) }}"
+                     alt="Current Image"
+                     class="h-32 rounded-md shadow">
             </div>
-            <div class="mt-4 masterx-validation">
-                <label data-tw-merge="" for="image"
-                    class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Image<b class="text-danger"> *</b>
-                </label>
-                <input data-tw-merge="" id="image" name="image" type="file"
-                    accept=".jpeg, .jpg, .png, .webp" placeholder="Image"
-                    multiple
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-            </div>
-        </div>
+        @endif
     </div>
-</div>
 
-<div class="preview-component intro-y box">
-    <div class="p-5">
-        <div class="pb-5"><h3 class="mr-auto text-lg font-medium">Content</h3></div>
-        <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
-            <div class="masterx-validation">
-                <label data-tw-merge="" for="description"
-                    class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-                    Description <small>(Meta)</small><b class="text-danger"> *</b>
-                </label>
-                <textarea data-tw-merge="" id="description" name="description" rows="4" placeholder="Description"
-                    class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">{{ old('description', $item->description) }}</textarea>
-            </div>
-            <div class="mb-4">
-                    <label for="status" class="block mb-2">Status <b style="color:red">*</b></label>
-                    <select name="status" id="status" class="tinyMCE disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
-                        <option value="active" {{ $item->status ? 'selected' : '' }}>Active</option>
-    <option value="inactive" {{ !$item->status ? 'selected' : '' }}>Inactive</option>
-                    </select>
+
+
+
+                        <!-- Video -->
+                        <div class="mt-4 masterx-validation">
+                            <label for="video_url" class="inline-block mb-2">Video URL <b class="text-danger">*</b></label>
+                            <input id="video_url"
+                                name="video_url"
+                                type="url"
+                                value="{{ old('video_url', $item->video_url) }}"
+                                class="w-full text-sm border rounded-md shadow-sm"
+                                placeholder="Enter YouTube or Vimeo URL">
+
+                            @if($item->video_url)
+                                <div class="mt-3">
+
+                                </div>
+                            @endif
+                        </div>
+
+                    </div>
                 </div>
-
-            <div class="text-right">
-                <button data-tw-merge="" type="submit" id="request-btn"
-                    class="transition duration-200 border shadow-sm inline-flex
-                    items-center justify-center py-2 px-5 rounded-md font-medium cursor-pointer focus:ring-4
-                    focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700
-                    dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center
-                    disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mt-5">
-                    <i data-tw-merge="" data-lucide="upload-cloud" class="stroke-1.5 w-5 h-5 mx-auto block"></i> &nbsp; Save
-                </button>
             </div>
 
-        </div>
+            <!-- Content -->
+            <div class="preview-component intro-y box">
+                <div class="p-5">
+                    <div class="pb-5">
+                        <h3 class="mr-auto text-lg font-medium">Content</h3>
+                    </div>
+
+                    <div class="preview relative">
+                        <!-- Description -->
+                        <div class="masterx-validation">
+                            <label for="description" class="inline-block mb-2">
+                                Description <b class="text-danger">*</b>
+                            </label>
+                            <textarea id="description"
+                                      name="description"
+                                      rows="4"
+                                      placeholder="Description"
+                                      class="w-full text-sm border rounded-md shadow-sm">{{ old('description', $item->description) }}</textarea>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="mt-4">
+                            <label for="status" class="block mb-2">Status <b class="text-danger">*</b></label>
+                            <select id="status" name="status" class="w-full text-sm border rounded-md shadow-sm">
+                                <option value="active" {{ $item->status == 'active' ? 'selected' : '' }}>Active</option>
+                                <option value="inactive" {{ $item->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="text-right">
+                            <button type="submit"
+                                    class="mt-5 py-2 px-5 rounded-md bg-primary text-white shadow">
+                                <i data-lucide="upload-cloud" class="w-5 h-5 inline-block"></i> &nbsp; Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- END: Input -->
+
     </div>
 </div>
-</form>
-<!-- END: Input -->
-</div>
-</div>
-</div>
-<!-- END: Content -->
 @endsection

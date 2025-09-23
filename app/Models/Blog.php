@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Blog extends Model
 {
     protected $fillable = [
-        'title', 'name', 'slug', 'image', 'description', 'content', 'status'
+        'title', 'name', 'slug', 'image', 'description', 'content', 'status', 'keywords'
     ];
 
     protected static function boot()

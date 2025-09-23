@@ -9,25 +9,27 @@
     <!--Start Main Slider One-->
     <section class="main-slider-one">
         <div class="main-slider__carousel owl-carousel owl-theme">
+            @foreach ( $banners as $slider)
+
             <!--Start Main Slider One Single-->
             <div class="main-slider-one__single">
-                <div class="main-slider-one__bg" style="background-image: url(assets/images/slider/slider-v1-img1.jpg);">
+                <div class="main-slider-one__bg" style="background-image: url({{asset('storage/banners/' . $slider->image[0])}});">
                 </div>
                 <div class="container">
                     <div class="main-slider-one__content">
                         <div class="tagline">
-                            <span>Welcome to Cleanin.</span>
+                            <span>{{$slider->title}}</span>
                         </div>
                         <div class="title-box">
-                            <h2>Cleanin a cleaning <br> company.</h2>
+                            <h2>{!!$slider->sub_title!!}</h2>
                         </div>
                         <div class="text-box">
-                            <p>We are committed to the best quality in the field of industrial cleaning, home
-                                and <br> garden cleaning.</p>
+                            <p>{{$slider->description}}</p>
                         </div>
 
                         <div class="main-slider-one__btn">
-                            <a class="thm-btn" href="">Take Our Service
+                            <a class="thm-btn" href="{{ route(\Illuminate\Support\Facades\Route::has($slider->btn_url) ? $slider->btn_url : 'about') }}
+">{{$slider->btn_name}}
                                 <i class="icon-next"></i>
                                 <span class="hover-btn hover-bx"></span>
                                 <span class="hover-btn hover-bx2"></span>
@@ -39,66 +41,7 @@
                 </div>
             </div>
             <!--End Main Slider One Single-->
-
-            <!--Start Main Slider One Single-->
-            <div class="main-slider-one__single">
-                <div class="main-slider-one__bg" style="background-image: url(assets/images/slider/slider-v1-img2.jpg);">
-                </div>
-                <div class="container">
-                    <div class="main-slider-one__content">
-                        <div class="tagline">
-                            <span>Welcome to Cleanin.</span>
-                        </div>
-                        <div class="title-box">
-                            <h2>Best Cleaning Services <br> In Town</h2>
-                        </div>
-                        <div class="text-box">
-                            <p>We are committed to the best quality in the field of industrial cleaning, home
-                                and <br> garden cleaning.</p>
-                        </div>
-                        <div class="main-slider-one__btn">
-                            <a class="thm-btn" href="contact-1.html">Take Our Service
-                                <i class="icon-next"></i>
-                                <span class="hover-btn hover-bx"></span>
-                                <span class="hover-btn hover-bx2"></span>
-                                <span class="hover-btn hover-bx3"></span>
-                                <span class="hover-btn hover-bx4"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Main Slider One Single-->
-
-            <!--Start Main Slider One Single-->
-            <div class="main-slider-one__single">
-                <div class="main-slider-one__bg" style="background-image: url(assets/images/slider/slider-v1-img3.jpg);">
-                </div>
-                <div class="container">
-                    <div class="main-slider-one__content">
-                        <div class="tagline">
-                            <span>Welcome to Cleanin.</span>
-                        </div>
-                        <div class="title-box">
-                            <h2>So Fresh & So Clean... <br> We Promise!</h2>
-                        </div>
-                        <div class="text-box">
-                            <p>We are committed to the best quality in the field of industrial cleaning, home
-                                and <br> garden cleaning.</p>
-                        </div>
-                        <div class="main-slider-one__btn">
-                            <a class="thm-btn" href="contact-1.html">Take Our Service
-                                <i class="icon-next"></i>
-                                <span class="hover-btn hover-bx"></span>
-                                <span class="hover-btn hover-bx2"></span>
-                                <span class="hover-btn hover-bx3"></span>
-                                <span class="hover-btn hover-bx4"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Main Slider One Single-->
+            @endforeach
         </div>
 
         <div class="bubbleContainer">
@@ -121,14 +64,14 @@
     </section>
     <!--End Main Slider One--><!--Start About One-->
     <section class="about-one">
-        <div class="shape1"><img src="assets/images/shapes/about-v1-shape1.png" alt=""></div>
+        <div class="shape1"><img src="{{ asset('assets/images/shapes/about-v1-shape1.png') }}" alt=""></div>
         <div class="container">
             <div class="row">
                 <!--Start About One Img-->
                 <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="about-one__img">
                         <div class="about-one__video">
-                            <a href="https://www.youtube.com/watch?v=06dV9txztKY" class="video-popup">
+                            <a href="hhttps://www.youtube.com/watch?v=n0ORkURsIw8" class="video-popup">
                                 <div class="about-one__video-icon">
                                     <span class="icon-play-button-arrowhead"></span>
                                     <i class="ripple"></i>
@@ -159,7 +102,7 @@
                                     </div>
 
                                     <div class="about-one__img-right-img">
-                                        <img src="assets/images/about/about-v1-img3.jpg" alt="#">
+                                        <img src="{{ asset('assets/images/about/about-v1-img3.jpg') }}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -238,14 +181,14 @@
     </section>
     <!--End About One--><!--Start Services One-->
     <div class="services-one">
-        <div class="shape1 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape2 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape3 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape4 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape5 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape6 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape7 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
-        <div class="shape8 float-bob-y"><img src="assets/images/shapes/services-v1-shape1.png" alt=""></div>
+        <div class="shape1 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape2 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape3 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape4 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape5 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape6 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape7 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape8 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
         <div class="container">
             <div class="sec-title text-center sec-title-animation animation-style1">
                 <div class="sec-title__tagline center">
@@ -289,307 +232,7 @@
             </div>
         </div>
     </div>
-    <!--Start Video One-->
-    <section class="video-one">
-        <div class="shape1 float-bob-x"><img src="assets/images/shapes/video-v1-shape1.png" alt=""></div>
-        <div class="shape2 float-bob-x"><img src="assets/images/shapes/video-v1-shape2.png" alt=""></div>
-        <div class="container">
-            <div class="video-one__inner">
-                <div class="video-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                    style="background-image: url(assets/images/backgrounds/video-v1-bg.jpg);"></div>
-                <div class="video-one__inner-box">
-                    <div class="video-one__box">
-                        <a href="https://www.youtube.com/watch?v=06dV9txztKY" class="video-popup">
-                            <div class="video-one__icon">
-                                <span class="icon-play-button-arrowhead"></span>
-                                <i class="ripple"></i>
-                            </div>
-                        </a>
-                        <span class="border-animation border-1"></span>
-                        <span class="border-animation border-2"></span>
-                        <span class="border-animation border-3"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Video One--><!--Start Counter One-->
-    <section class="counter-one">
-        <div class="container">
-            <div class="row">
-                <!--Start Counter One Single-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="counter-one__single">
-                        <div class="counter-one__single-inner">
-                            <div class="counter-one__single-icon">
-                                <span class="icon-trophy"></span>
-                            </div>
 
-                            <div class="counter-one__single-content">
-                                <div class="count-box">
-                                    <h2 class="count-text" data-stop="500" data-speed="1500">00</h2>
-                                    <span class="k">k</span>
-                                    <span class="plus">+</span>
-                                </div>
-                                <p>Awards Win</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Counter One Single-->
-
-                <!--Start Counter One Single-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="counter-one__single">
-                        <div class="counter-one__single-inner">
-                            <div class="counter-one__single-icon">
-                                <span class="icon-verification"></span>
-                            </div>
-
-                            <div class="counter-one__single-content">
-                                <div class="count-box">
-                                    <h2 class="count-text" data-stop="815" data-speed="1500">00</h2>
-                                    <span class="k">k</span>
-                                </div>
-                                <p>Completed Project</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Counter One Single-->
-
-                <!--Start Counter One Single-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="counter-one__single">
-                        <div class="counter-one__single-inner">
-                            <div class="counter-one__single-icon">
-                                <span class="icon-customer-review"></span>
-                            </div>
-
-                            <div class="counter-one__single-content">
-                                <div class="count-box">
-                                    <h2 class="count-text" data-stop="999" data-speed="1500">00</h2>
-                                    <span class="k">k</span>
-                                    <span class="plus">+</span>
-                                </div>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Counter One Single-->
-
-                <!--Start Counter One Single-->
-                <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="counter-one__single">
-                        <div class="counter-one__single-inner">
-                            <div class="counter-one__single-icon">
-                                <span class="icon-project-plan"></span>
-                            </div>
-
-                            <div class="counter-one__single-content">
-                                <div class="count-box">
-                                    <h2 class="count-text" data-stop="550" data-speed="1500">00</h2>
-                                    <span class="k">k</span>
-                                    <span class="plus">+</span>
-                                </div>
-                                <p>Finish The Job</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Counter One Single-->
-            </div>
-        </div>
-    </section>
-    <!--End Counter One--><!--Start Team One-->
-    <section class="team-one">
-        <div class="container">
-            <div class="sec-title text-center sec-title-animation animation-style1">
-                <div class="sec-title__tagline center">
-                    <div class="icon-box">
-                        <span class="icon-household"></span>
-                    </div>
-
-                    <div class="text title-animation">
-                        <h4>We’ve Awesome Team Members</h4>
-                    </div>
-                </div>
-                <h2 class="sec-title__title title-animation">Meet Our Experienced & <br>
-                    Professional Team</h2>
-            </div>
-
-            <div class="team-one__carousel owl-carousel owl-theme thm-dot-style1">
-
-                 <!--Start Team One Single-->
-                @foreach ($teams as $team)
-                    <div class="team-one__single">
-                        <div class="team-one__single-inner">
-                            <div class="team-one__single-img">
-                                <img src="{{ asset('storage/teams/' . $team->image) }}" alt="">
-                            </div>
-
-                            <div class="team-one__single-content">
-                                <div class="img-box">
-                                    <img src="{{ asset('storage/teams/' . $team->image) }}" alt="#">
-                                </div>
-
-                                <div class="text-box">
-                                    <h2><a href="team-details.html">{{ $team->name }}</a></h2>
-                                    <p>{{ $team->position }}</p>
-                                </div>
-
-                                <div class="social-links">
-                                    <a href="{{ $team->facebook }}"><span class="icon-facebook-app-symbol"></span></a>
-                                    <a href="{{ $team->twitter }}"><span class="icon-twitter-1"></span></a>
-                                    <a href="{{ $team->instagram }}"><span class="icon-instagram"></span></a>
-                                    <a href="{{ $team->whatsapp }}"><span class="fab fa-whatsapp"></span></a>
-                                </div>
-                            <a href="{{ route('services.details', $service->slug) }}">Read more <span class="icon-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                <!--End Team One Single-->
-            </div>
-        </div>
-    </section>
-    <!--End Team One--><!--Start Contact One -->
-    <section class="contact-one">
-        <div class="contact-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-            style="background-image: url({{ asset('assets/images/backgrounds/contact-v1-bg.jpg') }});">
-        </div>
-        <div class="container">
-            <div class="sec-title text-center sec-title-animation animation-style1">
-                <div class="sec-title__tagline center">
-                    <div class="icon-box">
-                        <span class="icon-household"></span>
-                    </div>
-
-                    <div class="text title-animation">
-                        <h4> Contact Us</h4>
-                    </div>
-                </div>
-                <h2 class="sec-title__title title-animation">Feel free to contact with us for <br> any kind of
-                    query.</h2>
-            </div>
-
-            <div class="contact-one__inner">
-                <div class="row">
-                    <!--Start Contact One Form-->
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="contact-one__form">
-                            <form class="contact-form-validated contact-one__form-box"
-                                action="https://php.unicktheme.com/cleanin/assets/inc/sendemail.php" method="post"
-                                novalidate="novalidate">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="text" name="name" placeholder="Name" required="">
-                                            <div class="icon"><span class="icon-people"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="email" name="email" placeholder="Email" required="">
-                                            <div class="icon"><span class="icon-envelope"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <input type="text" name="Phone" placeholder="Phone" required="">
-                                            <div class="icon"><span class="icon-call"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="input-box">
-                                            <div class="select-box">
-                                                <select class="selectmenu wide">
-                                                    <option selected="selected">Subject</option>
-                                                    <option>Subject 01</option>
-                                                    <option>Subject 02</option>
-                                                    <option>Subject 03</option>
-                                                    <option>Subject 04</option>
-                                                    <option>Subject 05</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-12">
-                                        <div class="input-box">
-                                            <textarea name="message" placeholder="Message"></textarea>
-                                            <div class="icon style2"><span class="fa fa-pencil"></span></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-12">
-                                        <div class="contact-page__form-btn">
-                                            <button type="submit" class="thm-btn">
-                                                Send us message
-                                                <i class="icon-next"></i>
-                                                <span class="hover-btn hover-bx"></span>
-                                                <span class="hover-btn hover-bx2"></span>
-                                                <span class="hover-btn hover-bx3"></span>
-                                                <span class="hover-btn hover-bx4"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="result"></div>
-                        </div>
-                    </div>
-                    <!--End Contact One Form-->
-
-                    <!--Start Contact One Contact Info -->
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="contact-one__contact-info">
-                            <div class="title-box">
-                                <h2>Contact Info</h2>
-                            </div>
-
-                            <ul class="contact-one__contact-info-list">
-                                <li class="contact-one__contact-info-list-item">
-                                    <div class="icon-box">
-                                        <span class="icon-placeholder"></span>
-                                    </div>
-
-                                    <div class="text-box">
-                                        <p>3060 Commercial Street Road <br>
-                                            Fratton, Australia</p>
-                                    </div>
-                                </li>
-
-                                <li class="contact-one__contact-info-list-item">
-                                    <div class="icon-box">
-                                        <span class="icon-phone-call"></span>
-                                    </div>
-
-                                    <div class="text-box">
-                                        <p><a href="tel:9389249642">+89389249642</a></p>
-                                        <p><a href="tel:9389249642">+9389249642</a></p>
-                                    </div>
-                                </li>
-
-                                <li class="contact-one__contact-info-list-item">
-                                    <div class="icon-box">
-                                        <span class="icon-mail"></span>
-                                    </div>
-
-                                    <div class="text-box">
-                                        <p><a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a></p>
-                                        <p><a href="mailto:rikkisaini4455@gmail.com">rikkisaini4455@gmail.com</a></p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--End Contact One Contact Info -->
-                </div>
-            </div>
-        </div>
-    </section>
     <!--End Contact One --><!--Start Testimonial One-->
     <section class="testimonial-one">
         <div class="shape1"><img src="{{ asset('assets/images/shapes/testimonial-v1-shape1.png') }}" alt="">
@@ -788,32 +431,129 @@
         </div>
     </section>
 
-    <!--End Blog One-->
-    <!--Start Cta One -->
-    <section class="cta-one">
-        <div class="shape1"></div>
-        <div class="cta-one__bg" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">
-        </div>
-        <div class="container clearfix">
-            <div class="cta-one__inner">
-                <div class="cta-one__content">
-                    <div class="text-box">
-                        <p>Quality Services provider</p>
-                        <h2>Need Our services?</h2>
-                    </div>
 
-                    <div class="btn-box">
-                        <a class="thm-btn" href="contact-1.html">get free quote
-                            <i class="icon-next"></i>
-                            <span class="hover-btn hover-bx"></span>
-                            <span class="hover-btn hover-bx2"></span>
-                            <span class="hover-btn hover-bx3"></span>
-                            <span class="hover-btn hover-bx4"></span>
-                        </a>
-                    </div>
+    <!--End Blog One-->
+
+    <section class="contact-one">
+    <div class="contact-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+        style="background-image: url(assets/images/backgrounds/contact-v1-bg.jpg);">
+    </div>
+    <div class="container">
+        <div class="sec-title text-center sec-title-animation animation-style1">
+            <div class="sec-title__tagline center">
+                <div class="icon-box">
+                    <span class="icon-household"></span>
+                </div>
+
+                <div class="text title-animation">
+                    <h4> Contact Us</h4>
                 </div>
             </div>
+            <h2 class="sec-title__title title-animation">Feel free to contact with us for <br> any kind of
+                query.</h2>
         </div>
-    </section>
-    <!--End Cta One --><!--Start Site Footer-->
+
+        <div class="contact-one__inner">
+            <div class="row">
+                <!--Start Contact One Form-->
+                <div class="col-xl-8 col-lg-8">
+                    <div class="contact-one__form">
+                        <form id="contactForm" class="contact-form-validated contact-one__form-box" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="input-box">
+                                        <input type="text" name="name" placeholder="Name" required="">
+                                        <div class="icon"><span class="icon-people"></span></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="input-box">
+                                        <input type="email" name="email" placeholder="Email" required="">
+                                        <div class="icon"><span class="icon-envelope"></span></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="input-box">
+                                        <input type="text" name="Phone" placeholder="Phone" required="">
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="input-box">
+                                        <input type="text" name="subject" placeholder="subject" required="">
+                                        <div class="icon"><span class="icon-envelope"></span></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="input-box">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                        <div class="icon style2"><span class="fa fa-pencil"></span></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="contact-page__form-btn">
+                                        <button id="submitBtn" type="submit" class="thm-btn">
+                                            Send us message
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="result"></div>
+                    </div>
+                </div>
+                <!--End Contact One Form-->
+
+                <!--Start Contact One Contact Info -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="contact-one__contact-info">
+                        <div class="title-box">
+                            <h2>Contact Info</h2>
+                        </div>
+
+                        <ul class="contact-one__contact-info-list">
+                            <li class="contact-one__contact-info-list-item">
+                                <div class="icon-box">
+                                    <span class="icon-placeholder"></span>
+                                </div>
+
+                                <div class="text-box">
+                                    <p>{{$setting->short_address}}</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-one__contact-info-list-item">
+                                <div class="icon-box">
+                                    <span class="icon-phone-call"></span>
+                                </div>
+
+                                <div class="text-box">
+                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile1}}">{{$setting->mobile1}}</a></p>
+                                </div>
+                            </li>
+
+                            <li class="contact-one__contact-info-list-item">
+                                <div class="icon-box">
+                                    <span class="icon-mail"></span>
+                                </div>
+
+                                <div class="text-box">
+                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
+                                    <p><a href="{{$setting->email1}}">{{$setting->email1}}</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--End Contact One Contact Info -->
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
 @endsection

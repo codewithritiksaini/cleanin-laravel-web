@@ -102,16 +102,8 @@
                 </table>
             </div>
             <!-- END: Data List -->
-            <!-- BEGIN: Pagination -->
-            <div class="intro-y col-span-12 flex flex-wrap items-center sm:flex-row sm:flex-nowrap" style="justify-content: end">
-
-                <select id="table-data-show" onchange="loadAjaxTable()" class="disabled:bg-slate-100 disabled:cursor-not-allowed disabled:dark:bg-darkmode-800/50 [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 transition duration-200 ease-in-out text-sm border-slate-200 shadow-sm rounded-md py-2 px-3 pr-8 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 group-[.form-inline]:flex-1 !box mt-3 w-20 sm:mt-0">
-                    <option value="10">Show</option>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="35">35</option>
-                    <option value="50">50</option>
-                </select>
+            <div>
+                {{ $items->links('vendor.pagination.custom') }}
             </div>
         </div>
         <!-- END: Pagination -->

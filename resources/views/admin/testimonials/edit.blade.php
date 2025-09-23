@@ -75,6 +75,12 @@
                             Save
                         </button>
                     </div>
+                    <div class="text-right">
+        <button type="submit" id="request-btn"
+            class="bg-primary border-primary text-white py-2 px-5 rounded-md shadow-sm mt-5">
+            <i data-lucide="upload-cloud" class="w-5 h-5 inline-block mr-1"></i> Update
+        </button>
+    </div>
 
                 </div>
             </div>

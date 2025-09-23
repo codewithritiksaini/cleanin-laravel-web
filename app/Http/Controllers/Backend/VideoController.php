@@ -11,7 +11,7 @@ class VideoController extends Controller
 {
     public function __construct()
     {
-        view()->share('title', 'video');
+        view()->share('title', 'Video');
     }
 
     public function index()
@@ -30,7 +30,8 @@ class VideoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048'
+            'image' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'video_url' => 'required|url',
         ]);
 
         $imageName = null;
@@ -47,10 +48,11 @@ class VideoController extends Controller
             'slug'        => $request->slug ?? Str::slug($request->title ?? uniqid()),
             'image'       => $imageName,
             'description' => $request->description,
+            'video_url' => $request->video_url,
             'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
-        return redirect()->route('videos.index')->with('success', 'Image created successfully!');
+        return redirect()->route('videos.index')->with('success', 'Video created successfully!');
     }
 
     public function edit($id)
@@ -66,7 +68,8 @@ class VideoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'video_url' => 'required|url',
         ]);
 
         $imageName = $item->image;
@@ -74,7 +77,7 @@ class VideoController extends Controller
         if ($request->hasFile('image')) {
             // delete old image
             $oldPath = public_path('storage/images/' . $item->image);
-            if (file_exists($oldPath)) {
+            if ($item->image && file_exists($oldPath)) {
                 unlink($oldPath);
             }
 
@@ -88,13 +91,15 @@ class VideoController extends Controller
         $item->update([
             'title'       => $request->title,
             'slug'        => $request->slug ?? Str::slug($request->title ?? uniqid()),
-            'image'       => $imageName,
             'description' => $request->description,
+            'image'       => $imageName,
+            'video_url'   => $request->video_url,
             'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
-        return redirect()->route('images.index')->with('success', 'Image updated successfully!');
+        return redirect()->route('videos.index')->with('success', 'Video updated successfully!');
     }
+
 
     public function destroy($id)
     {
@@ -109,7 +114,7 @@ class VideoController extends Controller
 
         $item->delete();
 
-        return redirect()->route('images.index')->with('success', 'Image deleted successfully!');
+        return redirect()->route('videos.index')->with('success', 'Video deleted successfully!');
     }
 
     public function changeStatus($id)
@@ -122,7 +127,7 @@ class VideoController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Image status updated successfully.',
+                'message' => 'Video status updated successfully.',
                 'new_status' => $item->status
             ]);
         }

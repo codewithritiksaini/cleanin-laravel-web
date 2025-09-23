@@ -112,7 +112,7 @@
                                     <i class="icon-clock-1"></i>
                                 </div>
                                 <div class="text">
-                                    <p>8:00 am - 5:00 pm - Sat - Sun</p>
+                                    <p>Wednesday - Sunday | 7:00 AM - 5:00 PM</p>
                                 </div>
                             </li>
 
@@ -137,9 +137,7 @@
 
                         <div class="main-header-one__top-right">
                             <div class="main-header__language-switcher">
-                                <div class="icon">
-                                    <span class="icon-internet"></span>
-                                </div>
+                                <p class="text-white">{{env('APP_NAME')}} A Cleaning Company</p>
                             </div>
                             <div class="header-style1__social-links">
                                 <a target="_blank" href="{{$setting->facebook}}"><i class="icon-facebook-app-symbol"></i></a>
@@ -161,7 +159,7 @@
                             <div class="main-menu__wrapper-inner">
                                 <div class="main-header-one__bottom-left">
                                     <div class="logo-one">
-                                        <a href="{{route('home')}}"><img style="margin:20px; width:100px; height:auto;" src="{{ asset('/'.$setting->dark_logo) }}"
+                                        <a href="{{route('home')}}"><img src="{{ asset('/'.$setting->dark_logo) }}"
                                                 alt=""></a>
                                     </div>
                                 </div>
@@ -214,17 +212,43 @@
         </header>
         <!--End Main Header One-->
         @yield('content')
-        <!--End Cta One --><!--Start Site Footer-->
+        <!--Start Cta One -->
+            <section class="cta-one">
+                <div class="shape1"></div>
+                <div class="cta-one__bg" style="background-image: url({{ asset('assets/images/backgrounds/cta-v1-bg.jpg') }});">
+                </div>
+                <div class="container clearfix">
+                    <div class="cta-one__inner">
+                        <div class="cta-one__content">
+                            <div class="text-box">
+                                <p>Quality Services provider</p>
+                                <h2>Need Our services?</h2>
+                            </div>
+
+                            <div class="btn-box">
+                                <a class="thm-btn" href="{{route('contact', ['subject' => 'Request for Free Quote'])}}">get free quote
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End Cta One --><!--Start Site Footer-->
         <footer class="site-footer">
-            <div class="shape1 float-bob-x"><img src="assets/images/shapes/footer-v1-shape1.png" alt="">
+            <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/footer-v1-shape1.png') }}" alt="">
             </div>
-            <div class="shape2 scale"><img src="assets/images/shapes/footer-v1-shape2.png" alt=""></div>
-            <div class="shape3 scale"><img src="assets/images/shapes/footer-v1-shape2.png" alt=""></div>
+            <div class="shape2 scale"><img src="{{ asset('assets/images/shapes/footer-v1-shape2.png') }}" alt=""></div>
+            <div class="shape3 scale"><img src="{{ asset('assets/images/shapes/footer-v1-shape2.png') }}" alt=""></div>
             <!--Start Site Footer Top-->
             <div class="site-footer__top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".0s">
+                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".0s">
                             <div class="footer-widget__single footer-widget__about">
                                 <div class="site-footer__logo">
                                     <a href="{{route('home')}}"><img src="{{ asset('/'.$setting->light_logo) }}"  style="width:150px; height:auto;"
@@ -248,7 +272,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".1s">
+                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".1s">
                             <div class="footer-widget__single footer-widget__services">
                                 <div class="title-box">
                                     <h2>Services</h2>
@@ -267,7 +291,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".2s">
+                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".2s">
                             <div class="footer-widget__single footer-widget__contact">
                                 <div class="title-box">
                                     <h2>Official info:</h2>
@@ -281,7 +305,7 @@
                                         </div>
 
                                         <div class="text-box">
-                                            <p>{{ $setting->address }}</p>
+                                            <p>{{ $setting->short_address }}</p>
                                         </div>
                                     </li>
 
@@ -311,32 +335,6 @@
                                         </div>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".3s">
-                            <div class="footer-widget__single footer-widget__newsletter">
-                                <div class="title-box">
-                                    <h2>Newsletter</h2>
-                                    <div class="line"></div>
-                                </div>
-
-                                <div class="footer-widget__newsletter-text">
-                                    <p>Subscribe our newsletter to get our latest update & news</p>
-                                </div>
-
-                                <div class="footer-one__subscribe-form">
-                                    <form class="subscribe-form" action="#">
-                                        <input type="email" name="email" placeholder="Your E-mail">
-                                        <button type="submit" class="thm-btn">Subscribe
-                                            <i class="icon-next"></i>
-                                            <span class="hover-btn hover-bx"></span>
-                                            <span class="hover-btn hover-bx2"></span>
-                                            <span class="hover-btn hover-bx3"></span>
-                                            <span class="hover-btn hover-bx4"></span>
-                                        </button>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
