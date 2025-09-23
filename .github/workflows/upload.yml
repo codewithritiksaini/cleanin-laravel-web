@@ -34,7 +34,7 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      # ✅ Upload project + .env file
+      # ✅ Upload project + .env file (storage excluded)
       - name: Deploy to Hostinger via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess,./.env"
+          source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./.htaccess,./.env"
           target: "domains/cleanin.rikkisaini.in/public_html/"
           overwrite: true
 
@@ -60,18 +60,18 @@ jobs:
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/{cache,sessions,views}
             mkdir -p storage/logs
-            chmod -R 775 storage bootstrap/cache
+            find storage -type d -exec chmod 775 {} \;
+            find bootstrap/cache -type d -exec chmod 775 {} \;
 
             echo "---- Installing PHP dependencies ----"
-            composer install --no-dev --optimize-autoloader
+            composer install --no-dev --optimize-autoloader --prefer-dist
 
             echo "---- Running migrations ----"
             php artisan migrate --force
             php artisan db:seed --force || true
 
             echo "---- Recreating storage symlink ----"
-            rm -rf public/storage
-            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+            php artisan storage:link || true
 
             echo "---- Clearing & caching configs ----"
             php artisan config:clear
