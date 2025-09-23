@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           source: "./app,./bootstrap,./config,./database,./public,./resources,./routes,./artisan,./composer.json,./composer.lock,./storage,./.htaccess,./.env"
-          target: "domains/test.rikkisaini.in/public_html/"
+          target: "domains/cleanin.rikkisaini.in/public_html/"
           overwrite: true
 
       - name: Run Laravel commands on server
@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd "domains/test.rikkisaini.in/public_html/"
+            cd "domains/cleanin.rikkisaini.in/public_html/"
 
             echo "---- Fixing permissions ----"
             mkdir -p bootstrap/cache
