@@ -41,11 +41,10 @@
                         </div>
 
                         <div class="contact-page--two__content-text1">
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                here.</p>
-                        </div>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                                as opposed to using 'Content here'.</p>
+                                                </div>
 
                         <div class="social-links">
                             <a href="{{ $setting->facebook }}"><span class="icon-facebook-app-symbol"></span></a>
@@ -143,6 +142,9 @@
                                     <p>
                                         <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
                                     </p>
+                                    <p>
+                                        <a href="mailto:{{ $setting->email1 }}">{{ $setting->email1 }}</a>
+                                    </p>
                                 </div>
                             </li>
 
@@ -154,7 +156,7 @@
                                     <h2>Phones</h2>
                                     <p>
                                     <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
-                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile1}}">{{$setting->mobile1}}</a></p>
                                     </p>
                                 </div>
                             </li>
@@ -170,8 +172,8 @@
     <!--Start Google Map Two-->
     <section class="google-map-two">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6209.242755903148!2d-77.04363602434464!3d38.90977276948481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1394992895496"
-            class="google-map-two__map">
+            src="{{$setting->google_map_url}}"
+            class="google-map-two__map" loading="lazy">
         </iframe>
     </section>
     <!--End Google Map Two-->

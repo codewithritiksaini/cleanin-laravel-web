@@ -34,44 +34,47 @@
                                    class="w-full text-sm border rounded-md shadow-sm">
                         </div>
 
-                        <!-- Thumbnail -->
-                        <div class="mt-4 masterx-validation">
-                            <label for="thumbnail" class="inline-block mb-2">Thumbnail <b class="text-danger">*</b></label>
-                            <input id="thumbnail"
-                                   name="thumbnail"
-                                   type="file"
-                                   accept=".jpeg, .jpg, .png, .gif"
-                                   class="w-full text-sm border rounded-md shadow-sm">
+                            <!-- Thumbnail -->
+                                            <!-- Image -->
+ <!-- Image -->
+    <div class="mt-4 masterx-validation">
+        <label for="image" class="inline-block mb-2">Image <b class="text-danger">*</b></label>
+        <input id="image"
+               name="image"
+               type="file"
+               accept="image/jpeg,image/jpg,image/png,image/webp"
+               class="w-full text-sm border rounded-md shadow-sm">
 
-                            @if($item->thumbnail)
-                                <div class="mt-3">
-                                    <p class="mb-1">Current Thumbnail:</p>
-                                    <img src="{{ asset('storage/thumbnails/' . $item->thumbnail) }}"
-                                         alt="Current Thumbnail"
-                                         class="h-32 rounded-md shadow">
-                                </div>
-                            @endif
-                        </div>
+        @if($item->image)
+            <div class="mt-3">
+                <p class="mb-1">Current Image:</p>
+                <img src="{{ asset('storage/images/' . $item->image) }}"
+                     alt="Current Image"
+                     class="h-32 rounded-md shadow">
+            </div>
+        @endif
+    </div>
+
+
+
 
                         <!-- Video -->
                         <div class="mt-4 masterx-validation">
-                            <label for="video" class="inline-block mb-2">Upload Video <b class="text-danger">*</b></label>
-                            <input id="video"
-                                   name="video"
-                                   type="file"
-                                   accept="video/mp4,video/mkv,video/webm"
-                                   class="w-full text-sm border rounded-md shadow-sm">
+                            <label for="video_url" class="inline-block mb-2">Video URL <b class="text-danger">*</b></label>
+                            <input id="video_url"
+                                name="video_url"
+                                type="url"
+                                value="{{ old('video_url', $item->video_url) }}"
+                                class="w-full text-sm border rounded-md shadow-sm"
+                                placeholder="Enter YouTube or Vimeo URL">
 
-                            @if($item->video)
+                            @if($item->video_url)
                                 <div class="mt-3">
-                                    <p class="mb-1">Current Video:</p>
-                                    <video width="250" controls class="rounded-md shadow">
-                                        <source src="{{ asset('storage/videos/' . $item->video) }}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
+
                                 </div>
                             @endif
                         </div>
+
                     </div>
                 </div>
             </div>

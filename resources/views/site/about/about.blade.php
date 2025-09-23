@@ -364,7 +364,7 @@
 
                                 <div class="text-box">
                                     <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
-                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile1}}">{{$setting->mobile1}}</a></p>
                                 </div>
                             </li>
 
@@ -375,7 +375,7 @@
 
                                 <div class="text-box">
                                     <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
-                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
+                                    <p><a href="{{$setting->email1}}">{{$setting->email1}}</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -389,56 +389,7 @@
 <!--End Contact One -->
 
 
-<!--Start Testimonial One-->
-    {{-- <section class="testimonial-one">
-        <div class="shape1"><img src="{{ asset('assets/images/shapes/testimonial-v1-shape1.png') }}" alt="">
-        </div>
-        <div class="container">
-            <div class="sec-title sec-title-animation animation-style2">
-                <div class="sec-title__tagline">
-                    <div class="icon-box">
-                        <span class="icon-household"></span>
-                    </div>
 
-                    <div class="text title-animation">
-                        <h4>Testimonials</h4>
-                    </div>
-                </div>
-                <h2 class="sec-title__title title-animation">Our Customer’s Feedback</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="testimonial-one__carousel owl-carousel owl-theme">
-
-                        <!--Start Testimonial One Single-->
-                        @foreach ($testimonials as $testimonial)
-                            <div class="testimonial-one__single text-center">
-                                <div class="testimonial-one__single-img">
-                                    <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}"
-                                        alt="{{ $testimonial->name }}">
-                                </div>
-                                <div class="testimonial-one__single-inner">
-                                    <h2>{{ $testimonial->name }}</h2>
-                                    <p>{{ $testimonial->testimonial }}</p>
-
-                                    <div class="rating-box">
-                                        Rating {!! $testimonial->rating !!}
-                                    </div>
-                                </div>
-                                <div class="icon-box">
-                                    <span class="icon-quotation-up"></span>
-                                </div>
-                            </div>
-                        @endforeach
-
-
-                        <!--End Testimonial One Single-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
   <section class="testimonial-one">
         <div class="shape1"><img src="{{ asset('assets/images/shapes/testimonial-v1-shape1.png') }}" alt="">
         </div>

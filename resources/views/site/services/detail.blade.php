@@ -156,8 +156,7 @@
                 <div class="faq-one__content-faq faq-one--services">
                   <div
                     class="accrodion-grp faq-one-accrodion"
-                    data-grp-name="faq-one-accrodion-1"
-                  >
+                    data-grp-name="faq-one-accrodion-1">
                     <div class="accrodion active">
                       <div class="accrodion-title">
                         <h4>Are your cleaning products eco-friendly?</h4>
@@ -166,10 +165,9 @@
                       <div class="accrodion-content">
                         <div class="inner">
                           <p>
-                            It is a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has...
+                             Yes, all of our cleaning products are made using eco-friendly ingredients.
+                            They are safe for the environment, non-toxic, and biodegradable, ensuring
+                              both effective cleaning and sustainability.
                           </p>
                         </div>
                       </div>
@@ -183,10 +181,10 @@
                       <div class="accrodion-content">
                         <div class="inner">
                           <p>
-                            It is a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has...
+                            IWhen our cleaners arrive, simply show them the areas you’d like cleaned,
+            point out any special instructions, and then you can relax.
+            You don’t need to provide any cleaning supplies – we bring our own.
+            If you prefer, you can also step out while we handle the cleaning.
                           </p>
                         </div>
                       </div>
@@ -200,10 +198,10 @@
                       <div class="accrodion-content">
                         <div class="inner">
                           <p>
-                            It is a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has...
+                             The cost of cleaning your house depends on the size of your home,
+            the type of cleaning service you need, and the frequency of service.
+            We offer free estimates, so you’ll always know the price before we begin.
+            Contact us to get a customized quote for your home.
                           </p>
                         </div>
                       </div>
@@ -217,10 +215,11 @@
                       <div class="accrodion-content">
                         <div class="inner">
                           <p>
-                            It is a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has...
+                            Yes, I have experienced a situation where I noticed
+                             a co-worker not following the correct process while completing
+                             a task. Instead of reacting negatively, I calmly approached them
+                             and politely explained the correct way of doing it. I also offered
+                             my support so that the work could be completed properly.php    
                           </p>
                         </div>
                       </div>
@@ -321,7 +320,7 @@
                         </div>
                     </form>
                 </div>
-                <!--End Sidebar Single-->                           
+                <!--End Sidebar Single-->
 
                 <!--Start Sidebar Single-->
                 <div class="sidebar__single sidebar__contact">

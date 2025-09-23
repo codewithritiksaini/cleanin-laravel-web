@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Service;
-use App\Models\Blog;
 
-use App\Models\Testimonial;
-use App\Models\Team;
-use App\Models\Banner;
+use App\Models\{
+    Service, Blog, Testimonial, Team, Banner, Policy, About
+};
 
 class HomeController extends BaseController
 {
@@ -41,6 +39,22 @@ class HomeController extends BaseController
         return view('frontend.testimonials', compact('testimonials'));
     }
 
+     public function term(){
+        return view('site.policies.term',[
+            'content' => Policy::select('term')->first(),
+        ]);
+     }
 
+     public function privacy(){
+        return view('site.policies.privacy',[
+            'content' => Policy::select('privacy')->first(),
+        ]);
+     }
+
+     public function refund(){
+        return view('site.policies.refund',[
+            'content' => Policy::select('refund')->first(),
+        ]);
+     }
 
 }

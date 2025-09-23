@@ -142,8 +142,9 @@
                                 @foreach ($items as $item)
                                     <li>
                                         <a class="active"
-                                            href="{{ route('blogs.details', $item->slug) }}">{{ $item->title }}<span
+                                            href="{{ route('blogs.details', $item->slug) }}">{{Str::limit($item->title, 32)}}<span
                                                 class="icon-right-arrow1"></span></a>
+
                                     </li>
                                 @endforeach
                             </ul>

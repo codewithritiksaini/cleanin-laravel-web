@@ -532,7 +532,7 @@
 
                                 <div class="text-box">
                                     <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
-                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
+                                    <p><a href="tel:+91{{$setting->mobile1}}">{{$setting->mobile1}}</a></p>
                                 </div>
                             </li>
 
@@ -543,7 +543,7 @@
 
                                 <div class="text-box">
                                     <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
-                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
+                                    <p><a href="{{$setting->email1}}">{{$setting->email1}}</a></p>
                                 </div>
                             </li>
                         </ul>

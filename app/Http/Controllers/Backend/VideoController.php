@@ -68,7 +68,7 @@ class VideoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
             'video_url' => 'required|url',
         ]);
 
@@ -77,7 +77,7 @@ class VideoController extends Controller
         if ($request->hasFile('image')) {
             // delete old image
             $oldPath = public_path('storage/images/' . $item->image);
-            if (file_exists($oldPath)) {
+            if ($item->image && file_exists($oldPath)) {
                 unlink($oldPath);
             }
 
@@ -89,15 +89,17 @@ class VideoController extends Controller
         }
 
         $item->update([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
-            'video_url' => 'required|url',
+            'title'       => $request->title,
+            'slug'        => $request->slug ?? Str::slug($request->title ?? uniqid()),
+            'description' => $request->description,
+            'image'       => $imageName,
+            'video_url'   => $request->video_url,
             'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
         return redirect()->route('videos.index')->with('success', 'Video updated successfully!');
     }
+
 
     public function destroy($id)
     {

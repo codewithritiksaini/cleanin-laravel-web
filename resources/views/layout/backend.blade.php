@@ -64,196 +64,12 @@
 <!-- END: Head -->
 
 <body>
-    <div>
-        <div data-tw-backdrop="" aria-hidden="true" tabindex="-1" id="theme-switcher" class="modal group bg-black/60 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
-            <div data-tw-merge="" class="w-[90%] ml-auto h-screen flex flex-col bg-white relative shadow-md transition-[margin-right] duration-[0.6s] -mr-[100%] group-[.show]:mr-0 dark:bg-darkmode-600 sm:w-[460px]">
-                <a class="absolute inset-y-0 left-0 right-auto my-auto -ml-[60px] flex h-8 w-8 items-center justify-center rounded-full border border-white/90 bg-white/5 text-white/90 transition-all hover:rotate-180 hover:scale-105 hover:bg-white/10 focus:outline-none sm:-ml-[105px] sm:h-14 sm:w-14"
-                    data-tw-dismiss="modal" href="javascript:;">
-                    <i data-tw-merge="" data-lucide="x" class="h-3 w-3 stroke-[1] sm:h-8 sm:w-8"></i>
-                </a>
-                <div data-tw-merge="" class="overflow-y-auto flex-1 p-0">
-                    <div class="flex flex-col">
-                        <div class="px-8 pt-6 pb-8">
-                            <div class="text-base font-medium">Themes</div>
-                            <div class="mt-0.5 text-slate-500">Choose your theme</div>
-                            <div class="mt-5 grid grid-cols-2 gap-x-5 gap-y-3.5">
-                                <div>
-                                    <a href="rubick-side-menu-dashboard-overview-1-page.html" class="h-28 cursor-pointer bg-slate-50 box p-1 block border-2 border-theme-1/60">
-                                        <div class="w-full h-full overflow-hidden rounded-md image-fit">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/themes/rubick.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        rubick
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="icewall-side-menu-dashboard-overview-1-page.html" class="h-28 cursor-pointer bg-slate-50 box p-1 block">
-                                        <div class="w-full h-full overflow-hidden rounded-md image-fit">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/themes/icewall.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        icewall
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="tinker-side-menu-dashboard-overview-1-page.html" class="h-28 cursor-pointer bg-slate-50 box p-1 block">
-                                        <div class="w-full h-full overflow-hidden rounded-md image-fit">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/themes/tinker.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        tinker
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="enigma-side-menu-dashboard-overview-1-page.html" class="h-28 cursor-pointer bg-slate-50 box p-1 block">
-                                        <div class="w-full h-full overflow-hidden rounded-md image-fit">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/themes/enigma.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        enigma
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-b border-dashed"></div>
-                        <div class="px-8 pt-6 pb-8">
-                            <div class="text-base font-medium">Layouts</div>
-                            <div class="mt-0.5 text-slate-500">Choose your layout</div>
-                            <div class="mt-5 grid grid-cols-3 gap-x-5 gap-y-3.5">
-                                <div>
-                                    <a href="rubick-side-menu-dashboard-overview-1-page.html" class="h-24 cursor-pointer bg-slate-50 box p-1 block border-2 border-theme-1/60">
-                                        <div class="w-full h-full overflow-hidden rounded-md">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/layouts/side-menu.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        side menu
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="rubick-simple-menu-dashboard-overview-1-page.html" class="h-24 cursor-pointer bg-slate-50 box p-1 block">
-                                        <div class="w-full h-full overflow-hidden rounded-md">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/layouts/simple-menu.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        simple menu
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="rubick-top-menu-dashboard-overview-1-page.html" class="h-24 cursor-pointer bg-slate-50 box p-1 block">
-                                        <div class="w-full h-full overflow-hidden rounded-md">
-                                            <img class="w-full h-full" src="{{asset('backend-assets/dist/images/layouts/top-menu.png') }}" alt="Midone - Admin Dashboard Template">
-                                        </div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        top menu
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-b border-dashed"></div>
-                        <div class="px-8 pt-6 pb-8">
-                            <div class="text-base font-medium">Accent Colors</div>
-                            <div class="mt-0.5 text-slate-500">
-                                Choose your accent color
-                            </div>
-                            <div class="mt-5 grid grid-cols-2 gap-3.5">
-                                <div>
-                                    <a data-theme-color="default" class="h-14 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md">
-                                            <div class="flex items-center h-full gap-1 -mx-2">
-                                                <div class="w-1/2 h-[200%] bg-theme-1 rotate-12 default"></div>
-                                                <div class="w-1/2 h-[200%] bg-theme-2 rotate-12 default"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a data-theme-color="theme-1" class="h-14 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md">
-                                            <div class="flex items-center h-full gap-1 -mx-2">
-                                                <div class="w-1/2 h-[200%] bg-theme-1 rotate-12 theme-1"></div>
-                                                <div class="w-1/2 h-[200%] bg-theme-2 rotate-12 theme-1"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a data-theme-color="theme-2" class="h-14 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md">
-                                            <div class="flex items-center h-full gap-1 -mx-2">
-                                                <div class="w-1/2 h-[200%] bg-theme-1 rotate-12 theme-2"></div>
-                                                <div class="w-1/2 h-[200%] bg-theme-2 rotate-12 theme-2"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a data-theme-color="theme-3" class="h-14 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md">
-                                            <div class="flex items-center h-full gap-1 -mx-2">
-                                                <div class="w-1/2 h-[200%] bg-theme-1 rotate-12 theme-3"></div>
-                                                <div class="w-1/2 h-[200%] bg-theme-2 rotate-12 theme-3"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a data-theme-color="theme-4" class="h-14 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md">
-                                            <div class="flex items-center h-full gap-1 -mx-2">
-                                                <div class="w-1/2 h-[200%] bg-theme-1 rotate-12 theme-4"></div>
-                                                <div class="w-1/2 h-[200%] bg-theme-2 rotate-12 theme-4"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-b border-dashed"></div>
-                        <div class="px-8 pt-6 pb-8">
-                            <div class="text-base font-medium">Appearance</div>
-                            <div class="mt-0.5 text-slate-500">
-                                Choose your appearance
-                            </div>
-                            <div class="mt-5 grid grid-cols-2 gap-3.5">
-                                <div>
-                                    <a data-appearance-mode="light" class="h-12 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md bg-slate-200"></div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        Light
-                                    </div>
-                                </div>
-                                <div>
-                                    <a data-appearance-mode="dark" class="h-12 cursor-pointer bg-slate-50 box p-1 border-slate-300/80 block [&.active]:border-2 [&.active]:border-theme-1/60">
-                                        <div class="h-full overflow-hidden rounded-md bg-slate-900"></div>
-                                    </a>
-                                    <div class="mt-2.5 text-center text-xs capitalize">
-                                        Dark
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="fixed bottom-0 right-0 z-50 flex items-center justify-center mb-5 mr-5 text-white rounded-full shadow-lg cursor-pointer h-14 w-14 bg-theme-1" data-tw-toggle="modal" data-tw-target="#theme-switcher">
-            <i data-tw-merge="" data-lucide="settings" class="stroke-1.5 w-5 h-5 animate-spin"></i>
-        </div>
-    </div>
     <div class="rubick px-5 sm:px-8 py-5 before:content-[''] before:bg-gradient-to-b before:from-theme-1 before:to-theme-2 dark:before:from-darkmode-800 dark:before:to-darkmode-800 before:fixed before:inset-0 before:z-[-1]">
         <!-- BEGIN: Mobile Menu -->
         <div class="mobile-menu group top-0 inset-x-0 fixed bg-theme-1/90 z-[60] border-b border-white/[0.08] dark:bg-darkmode-800/90 md:hidden before:content-[''] before:w-full before:h-screen before:z-10 before:fixed before:inset-x-0 before:bg-black/90 before:transition-opacity before:duration-200 before:ease-in-out before:invisible before:opacity-0 [&.mobile-menu--active]:before:visible [&.mobile-menu--active]:before:opacity-100">
             <div class="flex h-[70px] items-center px-3 sm:px-8">
                 <a class="mr-auto flex" href="#">
-                    <img class="w-6" src="" alt="Midone - Tailwind Admin Dashboard Template">
+                    <img style="width: 120px" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{env('APP_NAME')}} Admin Dashboard Template">
                 </a>
                 <a class="mobile-menu-toggler" href="#">
                     <i data-tw-merge="" data-lucide="bar-chart2" class="stroke-1.5 h-8 w-8 -rotate-90 transform text-white"></i>
@@ -266,7 +82,7 @@
                 <ul class="py-2">
                     <!-- BEGIN: First Child -->
                     <li>
-                        <a class="menu menu--active" href="{{route('dashboard')}}">
+                        <a class="menu {{ request()->routeIs('dashboard*') ? 'menu--active' : '' }}" href="{{ route('dashboard') }}">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="home" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -275,36 +91,47 @@
                             </div>
                         </a>
                     </li>
+
+
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('banners*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
                             <div class="menu__title">
                                 Banner
-                                <div class="menu__sub-icon ">
+                                <div class="menu__sub-icon">
                                     <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-5 h-5"></i>
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('banners*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="javascript:;">
+                                <a class="menu {{ request()->routeIs('banners.index') ? 'menu--active' : '' }}" href="{{ route('banners.index') }}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
-                                        Banner
-                                        <div class="menu__sub-icon ">
-                                        </div>
+                                        Banner List
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu {{ request()->routeIs('banners.create') ? 'menu--active' : '' }}" href="{{ route('banners.create') }}">
+                                    <div class="menu__icon">
+                                        <i data-tw-merge="" data-lucide="plus-circle" class="stroke-1.5 w-5 h-5"></i>
+                                    </div>
+                                    <div class="menu__title">
+                                        Add Banner
                                     </div>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
+
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('about*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -315,16 +142,14 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('about*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="{{route('about.edit')}}">
+                                <a class="menu {{ request()->routeIs('about.edit') ? 'menu--active' : '' }}" href="{{route('about.edit')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         About
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -332,7 +157,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('services*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -343,28 +168,24 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('services*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="{{route('services.create')}}">
+                                <a class="menu {{ request()->routeIs('services.create') ? 'menu--active' : '' }}" href="{{route('services.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                          Add Services
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('services.index')}}">
+                                <a class="menu {{ request()->routeIs('services.index') ? 'menu--active' : '' }}" href="{{route('services.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         services
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -372,7 +193,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('projects*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -383,28 +204,24 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('projects*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="{{route('projects.create')}}">
+                                <a class="menu {{ request()->routeIs('projects.create') ? 'menu--active' : '' }}" href="{{route('projects.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Add Projects
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('projects.index')}}">
+                                <a class="menu {{ request()->routeIs('projects.index') ? 'menu--active' : '' }}" href="{{route('projects.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Projects
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -412,7 +229,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('blogs*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -423,28 +240,24 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('blogs*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="{{route('blogs.create')}}">
+                                <a class="menu {{ request()->routeIs('blogs.create') ? 'menu--active' : '' }}" href="{{route('blogs.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                        Add Blog
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('blogs.index')}}">
+                                <a class="menu {{ request()->routeIs('blogs.index') ? 'menu--active' : '' }}" href="{{route('blogs.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Blog
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -452,7 +265,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs(['images.*','videos.*']) ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -463,28 +276,24 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs(['images.*','videos.*']) ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="javascript:;">
+                                <a class="menu {{ request()->routeIs('images.index') ? 'menu--active' : '' }}" href="{{route('images.index')}}">
+                                    <div class="menu__icon">
+                                        <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
+                                    </div>
+                                    <div class="menu__title">
+                                       Image Gallery
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu {{ request()->routeIs('videos.index') ? 'menu--active' : '' }}" href="{{route('videos.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Video Gallery
-                                        <div class="menu__sub-icon ">
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="menu" href="javascript:;">
-                                    <div class="menu__icon">
-                                        <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
-                                    </div>
-                                    <div class="menu__title">
-                                        Image Gallery
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -492,7 +301,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('testimonials*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -503,28 +312,24 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('testimonials*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="{{route('testimonials.create')}}">
+                                <a class="menu {{ request()->routeIs('testimonials.create') ? 'menu--active' : '' }}" href="{{route('testimonials.create')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                        Add Testimonial
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a class="menu" href="{{route('testimonials.index')}}">
+                                <a class="menu {{ request()->routeIs('testimonials.index') ? 'menu--active' : '' }}" href="{{route('testimonials.index')}}">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Testimonial
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -532,7 +337,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('setting*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -543,16 +348,14 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('setting*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="javascript:;">
+                                <a class="menu {{ request()->routeIs('setting.create') ? 'menu--active' : '' }}" href="javascript:;">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Add Setting
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -560,7 +363,7 @@
                     </li>
 
                     <li>
-                        <a class="menu" href="javascript:;">
+                        <a class="menu {{ request()->routeIs('enquiry*') ? 'menu--active' : '' }}" href="javascript:;">
                             <div class="menu__icon">
                                 <i data-tw-merge="" data-lucide="layout" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -571,16 +374,14 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('enquiry*') ? 'menu__sub-open' : '' }}">
                             <li>
-                                <a class="menu" href="javascript:;">
+                                <a class="menu {{ request()->routeIs('enquiry.index') ? 'menu--active' : '' }}" href="javascript:;">
                                     <div class="menu__icon">
                                         <i data-tw-merge="" data-lucide="activity" class="stroke-1.5 w-5 h-5"></i>
                                     </div>
                                     <div class="menu__title">
                                         Manage Enquiry
-                                        <div class="menu__sub-icon ">
-                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -624,13 +425,13 @@
             <!-- BEGIN: Side Menu -->
             <nav class="side-nav hidden w-[80px] overflow-x-hidden pb-16 pr-5 md:block xl:w-[230px]">
                 <a class="flex items-center pt-4 pl-5 intro-x" href="#">
-                    <img class="w-6" src="" alt="Midone - Tailwind Admin Dashboard Template">
-                    <span class="hidden ml-3 text-lg text-white xl:block"> Rubick </span>
+                    <img style="width: 120px;" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{env('APP_NAME')}} Admin Dashboard Template">
+                    {{-- <span class="hidden ml-3 text-lg text-white xl:block"> {{env(APP_NAME)}} </span> --}}
                 </a>
                 <div class="my-6 side-nav__divider"></div>
                 <ul>
                     <li>
-                        <a href="{{route('dashboard')}}" class="side-menu side-menu--active">
+                        <a href="{{route('dashboard')}}" class="side-menu {{ request()->routeIs('dashboard') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <i data-tw-merge="" data-lucide="home" class="stroke-1.5 w-5 h-5"></i>
                             </div>
@@ -640,7 +441,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('banners.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -651,9 +452,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('banners.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('banners.create')}}" class="side-menu">
+                                <a href="{{route('banners.create')}}" class="side-menu {{ request()->routeIs('banners.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -663,7 +464,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('banners.index')}}" class="side-menu">
+                                <a href="{{route('banners.index')}}" class="side-menu {{ request()->routeIs('banners.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -675,7 +476,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('about.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -686,9 +487,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('about.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('about.edit')}}" class="side-menu">
+                                <a href="{{route('about.edit')}}" class="side-menu {{ request()->routeIs('about.edit') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -700,7 +501,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('services.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -711,9 +512,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('services.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('services.create')}}" class="side-menu">
+                                <a href="{{route('services.create')}}" class="side-menu {{ request()->routeIs('services.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -723,7 +524,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('services.index')}}" class="side-menu">
+                                <a href="{{route('services.index')}}" class="side-menu {{ request()->routeIs('services.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -735,7 +536,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('teams.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -746,9 +547,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('teams.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('teams.create')}}" class="side-menu">
+                                <a href="{{route('teams.create')}}" class="side-menu {{ request()->routeIs('teams.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -758,7 +559,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('teams.index')}}" class="side-menu">
+                                <a href="{{route('teams.index')}}" class="side-menu {{ request()->routeIs('teams.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -770,7 +571,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('projects.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -781,9 +582,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('projects.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('projects.create')}}" class="side-menu">
+                                <a href="{{route('projects.create')}}" class="side-menu {{ request()->routeIs('projects.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -793,7 +594,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('projects.index')}}" class="side-menu">
+                                <a href="{{route('projects.index')}}" class="side-menu {{ request()->routeIs('projects.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -805,7 +606,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;" class="side-menu {{ request()->routeIs('blogs.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                             </div>
@@ -816,9 +617,9 @@
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('blogs.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('blogs.create')}}" class="side-menu">
+                                <a href="{{route('blogs.create')}}" class="side-menu {{ request()->routeIs('blogs.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -828,7 +629,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('blogs.index')}}" class="side-menu">
+                                <a href="{{route('blogs.index')}}" class="side-menu {{ request()->routeIs('blogs.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
@@ -840,127 +641,210 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        {{-- Parent Menu --}}
+                        <a href="javascript:;"
+                        class="side-menu {{ request()->routeIs(['images.*','videos.*']) ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-layout stroke-1.5 w-5 h-5"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                                    <line x1="3" x2="21" y1="9" y2="9"/>
+                                    <line x1="9" x2="9" y1="21" y2="9"/>
+                                </svg>
                             </div>
                             <div class="side-menu__title">
                                 Gallery
-                                <div class="side-menu__sub-icon ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
+                                <div class="side-menu__sub-icon {{ request()->routeIs(['images.*','videos.*']) ? 'transform rotate-180' : '' }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
-                            <li>
-                                <a href="{{route('images.index')}}" class="side-menu">
-                                    <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                                    </div>
-                                    <div class="side-menu__title">
-                                        Image Gallery
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('videos.index')}}" class="side-menu">
-                                    <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                                    </div>
-                                    <div class="side-menu__title">
-                                        Video Gallery
-                                    </div>
-                                </a>
-                            </li>
 
+                        {{-- Submenu --}}
+                        <ul class="{{ request()->routeIs(['images.*','videos.*']) ? 'side-menu__sub-open' : '' }}">
+                            <li>
+                                <a href="{{ route('images.index') }}"
+                                class="side-menu {{ request()->routeIs('images.*') ? 'side-menu--active' : '' }}">
+                                    <div class="side-menu__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-activity stroke-1.5 w-5 h-5"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="side-menu__title">Image Gallery</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('videos.index') }}"
+                                class="side-menu {{ request()->routeIs('videos.*') ? 'side-menu--active' : '' }}">
+                                    <div class="side-menu__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-activity stroke-1.5 w-5 h-5"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="side-menu__title">Video Gallery</div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
+
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        {{-- Parent Menu --}}
+                        <a href="javascript:;"
+                        class="side-menu {{ request()->routeIs('testimonials.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-layout stroke-1.5 w-5 h-5">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                    <line x1="3" x2="21" y1="9" y2="9"></line>
+                                    <line x1="9" x2="9" y1="21" y2="9"></line>
+                                </svg>
                             </div>
                             <div class="side-menu__title">
                                 Testimonial
-                                <div class="side-menu__sub-icon ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
+                                <div class="side-menu__sub-icon {{ request()->routeIs('testimonials.*') ? 'transform rotate-180' : '' }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down stroke-1.5 w-5 h-5">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+
+                        {{-- Submenu --}}
+                        <ul class="{{ request()->routeIs('testimonials.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('testimonials.create')}}" class="side-menu">
+                                <a href="{{ route('testimonials.create') }}"
+                                class="side-menu {{ request()->routeIs('testimonials.create') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-activity stroke-1.5 w-5 h-5">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
                                     </div>
-                                    <div class="side-menu__title">
-                                        add Testimonial
-                                    </div>
+                                    <div class="side-menu__title">Add Testimonial</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('testimonials.index')}}" class="side-menu">
+                                <a href="{{ route('testimonials.index') }}"
+                                class="side-menu {{ request()->routeIs('testimonials.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-activity stroke-1.5 w-5 h-5">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
                                     </div>
-                                    <div class="side-menu__title">
-                                       Testimonial
-                                    </div>
+                                    <div class="side-menu__title">Testimonial</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+
+                    {{-- Settings --}}
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;"
+                        class="side-menu {{ request()->routeIs('settings.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-layout stroke-1.5 w-5 h-5">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                    <line x1="3" x2="21" y1="9" y2="9"></line>
+                                    <line x1="9" x2="9" y1="21" y2="9"></line>
+                                </svg>
                             </div>
                             <div class="side-menu__title">
                                 Settings
-                                <div class="side-menu__sub-icon ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
+                                <div class="side-menu__sub-icon {{ request()->routeIs('settings.*') ? 'transform rotate-180' : '' }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down stroke-1.5 w-5 h-5">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('settings.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{route('settings.edit')}}" class="side-menu">
+                                <a href="{{ route('settings.edit') }}"
+                                class="side-menu {{ request()->routeIs('settings.edit') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-activity stroke-1.5 w-5 h-5">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
                                     </div>
-                                    <div class="side-menu__title">
-                                        add Settings
-                                    </div>
+                                    <div class="side-menu__title">Add Settings</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+
+                    {{-- Enquiry --}}
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="javascript:;"
+                        class="side-menu {{ request()->routeIs('enquiries.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-layout stroke-1.5 w-5 h-5">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                    <line x1="3" x2="21" y1="9" y2="9"></line>
+                                    <line x1="9" x2="9" y1="21" y2="9"></line>
+                                </svg>
                             </div>
                             <div class="side-menu__title">
                                 Enquiry
-                                <div class="side-menu__sub-icon ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
+                                <div class="side-menu__sub-icon {{ request()->routeIs('enquiries.*') ? 'transform rotate-180' : '' }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down stroke-1.5 w-5 h-5">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
                                 </div>
                             </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ request()->routeIs('enquiries.*') ? 'side-menu__sub-open' : '' }}">
                             <li>
-                                <a href="{{ route('enquiries.index') }}" class="side-menu">
+                                <a href="{{ route('enquiries.index') }}"
+                                class="side-menu {{ request()->routeIs('enquiries.index') ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-activity stroke-1.5 w-5 h-5">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
                                     </div>
-                                    <div class="side-menu__title">
-                                        Read Enquiry
-                                    </div>
+                                    <div class="side-menu__title">Read Enquiry</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+
                     <li>
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon">
@@ -975,12 +859,32 @@
                         </a>
                         <ul class="">
                             <li>
-                                <a href="" class="side-menu">
+                                <a href="{{route('policy.update.policy')}}" class="side-menu">
                                     <div class="side-menu__icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                                     </div>
                                     <div class="side-menu__title">
-                                        Add Policy
+                                        Privacy Policy
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('refund.update.policy')}}" class="side-menu">
+                                    <div class="side-menu__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                    </div>
+                                    <div class="side-menu__title">
+                                        Refund Policy
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('policy.update.term')}}" class="side-menu">
+                                    <div class="side-menu__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                    </div>
+                                    <div class="side-menu__title">
+                                        Term & Condition
                                     </div>
                                 </a>
                             </li>

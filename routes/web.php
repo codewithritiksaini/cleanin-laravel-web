@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\{
     SettingController,
     AdminEnquiryController,
     AdminController,
+    PolicyController as AdminPolicyController,
 
 };
 
@@ -29,6 +30,8 @@ use App\Http\Controllers\Site\{
     TeamController,
 };
 
+
+
     Route::get('/', [SiteHomeController::class, 'index'])->name('home');
 
     // Route::get('/about-us', function () {
@@ -37,10 +40,12 @@ use App\Http\Controllers\Site\{
 
     Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 
+    Route::get('/term-and-conditions', [SiteHomeController::class, 'term'])->name('terms');
+    Route::get('/privacy-policy', [SiteHomeController::class, 'privacy'])->name('privacy');
+    Route::get('/refund-policy', [SiteHomeController::class, 'refund'])->name('refund');
 
-
-        Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
-        Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('teams.details');
+    Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
+    Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('teams.details');
 
 
 
@@ -187,6 +192,23 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/teams/{id}/edit', [AdminTeamController::class, 'edit'])->name('teams.edit');
     Route::put('/teams/{id}', [AdminTeamController::class, 'update'])->name('teams.update');
     Route::delete('/teams/{id}', [AdminTeamController::class, 'destroy'])->name('teams.destroy');
+
+
+
+    // Policies
+        Route::group(["prefix" => "policy"], function(){
+            Route::get('terms-and-conditions',[AdminPolicyController::class, 'terms'])->name('policy.update.term');
+            Route::post('terms-and-conditions', [AdminPolicyController::class, 'termsUpdate'])->name('policy.update.term-update');
+
+            //Privacy Policy
+            Route::get('privacy-policy', [AdminPolicyController::class, 'policy'])->name('policy.update.policy');
+            Route::post('privacy-policy', [AdminPolicyController::class, 'policyUpdate'])->name('policy.update.policy-update');
+
+            //Refund Policy
+            Route::get('refund-policy', [AdminPolicyController::class, 'refund'])->name('refund.update.policy');
+            Route::post('refund-policy', [AdminPolicyController::class, 'refundUpdate'])->name('refund.update.refund-update');
+        });
+
 
 });
 
