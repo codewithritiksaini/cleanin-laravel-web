@@ -62,9 +62,6 @@ jobs:
           script: |
             cd "domains/cleanin.rikkisaini.in/public_html/"
 
-            echo "---- Writing .env file ----"
-            echo "${{ secrets.ENV_CONTENT }}" > .env
-
             echo "---- Creating storage & cache directories ----"
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/{cache,sessions,views}
