@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 2️⃣ Setup PHP (needed for artisan locally if any scripts run)
+      # 2️⃣ Setup PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
