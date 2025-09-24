@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
         Admin::updateOrCreate(
             ['username' => 'admin'], // unique field check
             [
-                'password'   => Hash::make('12345678'),
+                'password'   => Hash::make('12345678'), // hashed password
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                     ]
