@@ -9,38 +9,39 @@
     <!--Start Main Slider One-->
     <section class="main-slider-one">
         <div class="main-slider__carousel owl-carousel owl-theme">
-            @foreach ( $banners as $slider)
+            @foreach ($banners as $slider)
+                <!--Start Main Slider One Single-->
+                <div class="main-slider-one__single">
+                    <div class="main-slider-one__bg"
+                        style="background-image: url({{ asset('storage/banners/' . $slider->image[0]) }});">
+                    </div>
+                    <div class="container">
+                        <div class="main-slider-one__content">
+                            <div class="tagline">
+                                <span>{{ $slider->title }}</span>
+                            </div>
+                            <div class="title-box">
+                                <h2>{!! $slider->sub_title !!}</h2>
+                            </div>
+                            <div class="text-box">
+                                <p>{{ $slider->description }}</p>
+                            </div>
 
-            <!--Start Main Slider One Single-->
-            <div class="main-slider-one__single">
-                <div class="main-slider-one__bg" style="background-image: url({{asset('storage/banners/' . $slider->image[0])}});">
-                </div>
-                <div class="container">
-                    <div class="main-slider-one__content">
-                        <div class="tagline">
-                            <span>{{$slider->title}}</span>
-                        </div>
-                        <div class="title-box">
-                            <h2>{!!$slider->sub_title!!}</h2>
-                        </div>
-                        <div class="text-box">
-                            <p>{{$slider->description}}</p>
-                        </div>
-
-                        <div class="main-slider-one__btn">
-                            <a class="thm-btn" href="{{ route(\Illuminate\Support\Facades\Route::has($slider->btn_url) ? $slider->btn_url : 'about') }}
-">{{$slider->btn_name}}
-                                <i class="icon-next"></i>
-                                <span class="hover-btn hover-bx"></span>
-                                <span class="hover-btn hover-bx2"></span>
-                                <span class="hover-btn hover-bx3"></span>
-                                <span class="hover-btn hover-bx4"></span>
-                            </a>
+                            <div class="main-slider-one__btn">
+                                <a class="thm-btn"
+                                    href="{{ route(\Illuminate\Support\Facades\Route::has($slider->btn_url) ? $slider->btn_url : 'about') }}
+">{{ $slider->btn_name }}
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--End Main Slider One Single-->
+                <!--End Main Slider One Single-->
             @endforeach
         </div>
 
@@ -181,14 +182,22 @@
     </section>
     <!--End About One--><!--Start Services One-->
     <div class="services-one">
-        <div class="shape1 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape2 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape3 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape4 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape5 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape6 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape7 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
-        <div class="shape8 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}" alt=""></div>
+        <div class="shape1 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape2 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape3 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape4 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape5 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape6 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape7 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
+        <div class="shape8 float-bob-y"><img src="{{ asset('assets/images/shapes/services-v1-shape1.png') }}"
+                alt=""></div>
         <div class="container">
             <div class="sec-title text-center sec-title-animation animation-style1">
                 <div class="sec-title__tagline center">
@@ -284,7 +293,7 @@
         </div>
     </section>
     <!--End Testimonial One-->
-<!--Start Working Process One-->
+    <!--Start Working Process One-->
     <section class="working-process-one">
         <div class="shape2 float-bob-y"><img src="assets/images/shapes/working-process-v1-shape1.png" alt="">
         </div>
@@ -430,130 +439,185 @@
             </div>
         </div>
     </section>
-
-
-    <!--End Blog One-->
-
-    <section class="contact-one">
-    <div class="contact-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-        style="background-image: url(assets/images/backgrounds/contact-v1-bg.jpg);">
-    </div>
-    <div class="container">
-        <div class="sec-title text-center sec-title-animation animation-style1">
-            <div class="sec-title__tagline center">
-                <div class="icon-box">
-                    <span class="icon-household"></span>
-                </div>
-
-                <div class="text title-animation">
-                    <h4> Contact Us</h4>
-                </div>
+    @if (isset($teams) && $teams->isNotEmpty())
+        <section class="team-four">
+            <div class="team-four__pattern"
+                style="background-image: url({{ asset('assets/images/pattern/team-v4-pattern.png') }});">
             </div>
-            <h2 class="sec-title__title title-animation">Feel free to contact with us for <br> any kind of
-                query.</h2>
-        </div>
-
-        <div class="contact-one__inner">
-            <div class="row">
-                <!--Start Contact One Form-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="contact-one__form">
-                        <form id="contactForm" class="contact-form-validated contact-one__form-box" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="input-box">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                        <div class="icon"><span class="icon-people"></span></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="input-box">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                        <div class="icon"><span class="icon-envelope"></span></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="input-box">
-                                        <input type="text" name="Phone" placeholder="Phone" required="">
-                                        <div class="icon"><span class="icon-call"></span></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="input-box">
-                                        <input type="text" name="subject" placeholder="subject" required="">
-                                        <div class="icon"><span class="icon-envelope"></span></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="input-box">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                        <div class="icon style2"><span class="fa fa-pencil"></span></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-12">
-                                    <div class="contact-page__form-btn">
-                                        <button id="submitBtn" type="submit" class="thm-btn">
-                                            Send us message
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="result"></div>
-                    </div>
-                </div>
-                <!--End Contact One Form-->
-
-                <!--Start Contact One Contact Info -->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="contact-one__contact-info">
-                        <div class="title-box">
-                            <h2>Contact Info</h2>
+            <div class="container">
+                <div class="sec-title text-center sec-title-animation animation-style1">
+                    <div class="sec-title__tagline center">
+                        <div class="icon-box">
+                            <span class="icon-household"></span>
                         </div>
 
-                        <ul class="contact-one__contact-info-list">
-                            <li class="contact-one__contact-info-list-item">
-                                <div class="icon-box">
-                                    <span class="icon-placeholder"></span>
+                        <div class="text title-animation">
+                            <h4>We’ve Awesome Team Members</h4>
+                        </div>
+                    </div>
+                    <h2 class="sec-title__title title-animation">Meet Our Experienced & <br>
+                        Professional Team</h2>
+                </div>
+                <div class="row">
+                    @foreach ($teams as $team)
+                        <!--Start Team Four Single-->
+
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInDown" data-wow-delay=".3s">
+                            <div class="team-four__single text-center">
+                                <div class="team-four__single-img">
+                                    <div class="team-four__single-img-inner">
+                                        <img src="{{ asset('storage/teams/' . $team->image) }} " alt="">
+                                    </div>
                                 </div>
 
-                                <div class="text-box">
-                                    <p>{{$setting->short_address}}</p>
-                                </div>
-                            </li>
+                                <div class="team-four__single-content">
+                                    <h2>
+                                        <a href="{{ route('team.details', $team->slug) }}">
+                                            {{ $team->name }}
+                                        </a>
 
-                            <li class="contact-one__contact-info-list-item">
-                                <div class="icon-box">
-                                    <span class="icon-phone-call"></span>
+                                    </h2>
+                                    <p>{{ $team->position }}</p>
+                                    <ul class="social-links">
+                                        <li><a href="{{ $team->facebook }}"><span
+                                                    class="icon-facebook-app-symbol"></span></a></li>
+                                        <li><a href="{{ $team->twitter }}"><span class="icon-twitter-1"></span></a></li>
+                                        <li><a href="{{ $team->instagram }}"><span class="icon-instagram"></span></a></li>
+                                        <li><a href="{{ $team->whatsapp }}"><span class="fab fa-whatsapp"></span></a></li>
+                                    </ul>
                                 </div>
+                                <a href="{{ route('team.details', $team->slug) }}">Read more <span
+                                        class="icon-plus"></span></a>
 
-                                <div class="text-box">
-                                    <p><a href="tel:+91{{$setting->mobile}}">{{$setting->mobile}}</a></p>
-                                    <p><a href="tel:+91{{$setting->mobile1}}">{{$setting->mobile1}}</a></p>
-                                </div>
-                            </li>
+                            </div>
+                        </div>
+                        <!--End Team Four Single-->
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
 
-                            <li class="contact-one__contact-info-list-item">
-                                <div class="icon-box">
-                                    <span class="icon-mail"></span>
-                                </div>
+    <section class="contact-one">
+        <div class="contact-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+            style="background-image: url(assets/images/backgrounds/contact-v1-bg.jpg);">
+        </div>
+        <div class="container">
+            <div class="sec-title text-center sec-title-animation animation-style1">
+                <div class="sec-title__tagline center">
+                    <div class="icon-box">
+                        <span class="icon-household"></span>
+                    </div>
 
-                                <div class="text-box">
-                                    <p><a href="{{$setting->email}}">{{$setting->email}}</a></p>
-                                    <p><a href="{{$setting->email1}}">{{$setting->email1}}</a></p>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="text title-animation">
+                        <h4> Contact Us</h4>
                     </div>
                 </div>
-                <!--End Contact One Contact Info -->
+                <h2 class="sec-title__title title-animation">Feel free to contact with us for <br> any kind of
+                    query.</h2>
+            </div>
+
+            <div class="contact-one__inner">
+                <div class="row">
+                    <!--Start Contact One Form-->
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="contact-one__form">
+                            <form id="contactForm" class="contact-form-validated contact-one__form-box" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="text" name="name" placeholder="Name" required="">
+                                            <div class="icon"><span class="icon-people"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="email" name="email" placeholder="Email" required="">
+                                            <div class="icon"><span class="icon-envelope"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="text" name="Phone" placeholder="Phone" required="">
+                                            <div class="icon"><span class="icon-call"></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="text" name="subject" placeholder="subject" required="">
+                                            <div class="icon"><span class="icon-envelope"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="input-box">
+                                            <textarea name="message" placeholder="Message"></textarea>
+                                            <div class="icon style2"><span class="fa fa-pencil"></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12">
+                                        <div class="contact-page__form-btn">
+                                            <button id="submitBtn" type="submit" class="thm-btn">
+                                                Send us message
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="result"></div>
+                        </div>
+                    </div>
+                    <!--End Contact One Form-->
+
+                    <!--Start Contact One Contact Info -->
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="contact-one__contact-info">
+                            <div class="title-box">
+                                <h2>Contact Info</h2>
+                            </div>
+
+                            <ul class="contact-one__contact-info-list">
+                                <li class="contact-one__contact-info-list-item">
+                                    <div class="icon-box">
+                                        <span class="icon-placeholder"></span>
+                                    </div>
+
+                                    <div class="text-box">
+                                        <p>{{ $setting->short_address }}</p>
+                                    </div>
+                                </li>
+
+                                <li class="contact-one__contact-info-list-item">
+                                    <div class="icon-box">
+                                        <span class="icon-phone-call"></span>
+                                    </div>
+
+                                    <div class="text-box">
+                                        <p><a href="tel:+91{{ $setting->mobile }}">{{ $setting->mobile }}</a></p>
+                                        <p><a href="tel:+91{{ $setting->mobile1 }}">{{ $setting->mobile1 }}</a></p>
+                                    </div>
+                                </li>
+
+                                <li class="contact-one__contact-info-list-item">
+                                    <div class="icon-box">
+                                        <span class="icon-mail"></span>
+                                    </div>
+
+                                    <div class="text-box">
+                                        <p><a href="{{ $setting->email }}">{{ $setting->email }}</a></p>
+                                        <p><a href="{{ $setting->email1 }}">{{ $setting->email1 }}</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Contact One Contact Info -->
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<br>
-<br>
+    </section>
+    <br>
+    <br>
 @endsection

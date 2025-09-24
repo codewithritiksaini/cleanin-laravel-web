@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="content">
                                     <h2>Location</h2>
-                                    <p>{{$setting->short_address}}x </p>
+                                    <p>{{$setting->short_address}} </p>
                                 </div>
                             </li>
 

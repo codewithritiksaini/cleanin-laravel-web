@@ -44,7 +44,7 @@ use App\Http\Controllers\Site\{
     Route::get('/privacy-policy', [SiteHomeController::class, 'privacy'])->name('privacy');
     Route::get('/refund-policy', [SiteHomeController::class, 'refund'])->name('refund');
 
-    Route::get('/teams', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/teams', [TeamController::class, 'index'])->name('teams');
     Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('team.details');
 
 
@@ -186,12 +186,12 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 
     //route team
-    Route::get('/teams', [AdminTeamController::class, 'index'])->name('teams.index');
-    Route::get('/teams/create', [AdminTeamController::class, 'create'])->name('teams.create');
-    Route::post('/teams', [AdminTeamController::class, 'store'])->name('teams.store');
-    Route::get('/teams/{id}/edit', [AdminTeamController::class, 'edit'])->name('teams.edit');
-    Route::put('/teams/{id}', [AdminTeamController::class, 'update'])->name('teams.update');
-    Route::delete('/teams/{id}', [AdminTeamController::class, 'destroy'])->name('teams.destroy');
+    // Route::get('/teams', [AdminTeamController::class, 'index'])->name('teams.index');
+    // Route::get('/teams/create', [AdminTeamController::class, 'create'])->name('teams.create');
+    // Route::post('/teams', [AdminTeamController::class, 'store'])->name('teams.store');
+    // Route::get('/teams/{id}/edit', [AdminTeamController::class, 'edit'])->name('teams.edit');
+    // Route::put('/teams/{id}', [AdminTeamController::class, 'update'])->name('teams.update');
+    // Route::delete('/teams/{id}', [AdminTeamController::class, 'destroy'])->name('teams.destroy');
 
 
 
