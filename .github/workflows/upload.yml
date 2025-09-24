@@ -78,6 +78,10 @@ jobs:
             rm -rf public/storage
             php artisan storage:link || true
 
+            # Set full permission recursively
+            chmod -R 0777 storage
+            chmod -R 0777 public/storage
+
             echo "---- Clearing & caching configs ----"
             php artisan config:clear
             php artisan cache:clear

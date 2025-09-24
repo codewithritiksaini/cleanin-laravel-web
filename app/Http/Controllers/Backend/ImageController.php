@@ -40,6 +40,9 @@ class ImageController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $imageName = "image_{$random}_{$date}." . $extension;
             $request->file('image')->move(public_path('storage/images'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/images/' . $imageName), 0777);
         }
 
         ImageGallery::create([
@@ -83,6 +86,9 @@ class ImageController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $imageName = "image_{$random}_{$date}." . $extension;
             $request->file('image')->move(public_path('storage/images'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/images/' . $imageName), 0777);
         }
 
         $item->update([

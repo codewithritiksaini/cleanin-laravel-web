@@ -36,12 +36,16 @@ class TestimonialController extends Controller
             'status'      => 'required|in:0,1',
         ]);
 
-            $data = $request->only(['name', 'company', 'position', 'rating', 'testimonial', 'status', 'image']);
+        $data = $request->only(['name', 'company', 'position', 'rating', 'testimonial', 'status', 'image']);
 
         // Upload image
         if ($request->hasFile('image')) {
             $fileName = 'testimonial_' . time() . '.' . $request->image->extension();
             $request->image->move(public_path('storage/testimonials'), $fileName);
+
+            // Full permission set
+            chmod(public_path('storage/testimonials/' . $fileName), 0777);
+
             $data['image'] = $fileName;
         }
 
@@ -83,6 +87,10 @@ class TestimonialController extends Controller
 
             $fileName = 'testimonial_' . time() . '.' . $request->image->extension();
             $request->image->move(public_path('storage/testimonials'), $fileName);
+
+            // Full permission set
+            chmod(public_path('storage/testimonials/' . $fileName), 0777);
+
             $data['image'] = $fileName;
         }
 

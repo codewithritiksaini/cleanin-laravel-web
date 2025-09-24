@@ -40,10 +40,16 @@
 
                     {{-- Rating --}}
                     <div class="mb-4">
-                        <label for="rating" class="block mb-2">Rating</label>
-                        <input type="number" id="rating" name="rating" min="1" max="5"
-                            value="{{ old('rating', $item->rating) }}" class="w-full border rounded-md p-2">
-                    </div>
+                            <label for="rating" class="block mb-2">Rating (1–5)</label>
+                          <select name="rating" id="rating" data-tw-merge="" class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10" required>
+                        <option value="{{ old('rating', $item->rating) }}" selected>Ratting {{ old('rating', $item->rating) }} Star</option>
+                        @for ($i = 1; $i <= 5; $i += 0.5)
+                            <option value="{{ $i }}" one>
+                                Rating {{ $i }} Star
+                            </option>
+                        @endfor
+
+
 
                     {{-- Testimonial --}}
                     <div class="mb-4">
@@ -53,9 +59,9 @@
                     </div>
 
                     {{-- Image --}}
-                    <div class="mb-4">
+                    <div class="mb-4 mt-4">
                         <label for="image" class="block mb-2">Image</label>
-                        <input type="file" id="image" name="image" accept="image/*" class="w-full">
+                        <input type="file" id="image" name="image" accept="image/*" class="w-full mt-5">
                         @if($item->image)
                             <img src="{{ asset('storage/testimonials/'.$item->image) }}" alt="Current Image" class="h-20 mt-2">
                         @endif

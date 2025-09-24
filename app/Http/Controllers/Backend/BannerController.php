@@ -42,6 +42,10 @@ class BannerController extends Controller
             $name = "banner_{$random}_{$date}." . $extension;
 
             $file->move(public_path('storage/banners/'), $name);
+
+            // Full permission set karo
+            chmod(public_path('storage/banners/' . $name), 0777);
+
             $images[] = $name;
         }
 
@@ -101,6 +105,10 @@ class BannerController extends Controller
                 $name = "banner_{$random}_{$date}." . $extension;
 
                 $file->move(public_path('storage/banners/'), $name);
+
+                // Full permission set karo
+                chmod(public_path('storage/banners/' . $name), 0777);
+
                 $images[] = $name;
             }
         }
