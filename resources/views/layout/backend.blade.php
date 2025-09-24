@@ -535,41 +535,43 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:;" class="side-menu {{ request()->routeIs('teams.*') ? 'side-menu--active' : '' }}">
-                            <div class="side-menu__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
-                            </div>
-                            <div class="side-menu__title">
-                                 Team
-                                <div class="side-menu__sub-icon ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
+                    @if (Route::has('teams.index') || Route::has('teams.create'))
+                        <li>
+                            <a href="javascript:;" class="side-menu {{ request()->routeIs('teams.*') ? 'side-menu--active' : '' }}">
+                                <div class="side-menu__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout" class="lucide lucide-layout stroke-1.5 w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg>
                                 </div>
-                            </div>
-                        </a>
-                        <ul class="{{ request()->routeIs('teams.*') ? 'side-menu__sub-open' : '' }}">
-                            <li>
-                                <a href="{{route('teams.create')}}" class="side-menu {{ request()->routeIs('teams.create') ? 'side-menu--active' : '' }}">
-                                    <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                <div class="side-menu__title">
+                                    Team
+                                    <div class="side-menu__sub-icon ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down stroke-1.5 w-5 h-5"><path d="m6 9 6 6 6-6"></path></svg>
                                     </div>
-                                    <div class="side-menu__title">
-                                        add  Team
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('teams.index')}}" class="side-menu {{ request()->routeIs('teams.index') ? 'side-menu--active' : '' }}">
-                                    <div class="side-menu__icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                                    </div>
-                                    <div class="side-menu__title">
-                                         Team
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                                </div>
+                            </a>
+                            <ul class="{{ request()->routeIs('teams.*') ? 'side-menu__sub-open' : '' }}">
+                                <li>
+                                    <a href="{{route('teams.create')}}" class="side-menu {{ request()->routeIs('teams.create') ? 'side-menu--active' : '' }}">
+                                        <div class="side-menu__icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        </div>
+                                        <div class="side-menu__title">
+                                            add  Team
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('teams.index')}}" class="side-menu {{ request()->routeIs('teams.index') ? 'side-menu--active' : '' }}">
+                                        <div class="side-menu__icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity stroke-1.5 w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                        </div>
+                                        <div class="side-menu__title">
+                                            Team
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                     <li>
                         <a href="javascript:;" class="side-menu {{ request()->routeIs('projects.*') ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon">
