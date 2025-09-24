@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\{
-    Service, Blog, Testimonial, Team, Banner, Policy, About
+    Service, Blog, Testimonial, Team, Banner, Policy, About, ImageGallery,
 };
 
 class HomeController extends BaseController
 {
     public  function index()
     {
+        $about = About::where('slug', 'about-us')->first();
         $testimonials = Testimonial::select('name', 'company', 'image', 'testimonial', 'rating', 'position')
             ->where('status', 1)
             ->inRandomOrder()
@@ -28,8 +29,9 @@ class HomeController extends BaseController
             'services' => Service::Select('title', 'name', 'slug', 'image', 'description', 'content')->where('status', '1')->latest()->take(12)->get(),
             'blogs' => Blog::where('status', '1')->latest()->take(9)->get(),
             'teams' => Team::latest()->get(),
-             'testimonials' => $testimonials,
-             'banners' => Banner::where('status', '1')->latest()->get(),
+            'testimonials' => $testimonials,
+            'banners' => Banner::where('status', '1')->latest()->get(),
+            'about' => $about,
         ]);
 
     }
@@ -47,7 +49,7 @@ class HomeController extends BaseController
 
      public function privacy(){
         return view('site.policies.privacy',[
-            'content' => Policy::select('privacy')->first(),
+            'content' => Policy::select('policy')->first(),
         ]);
      }
 
@@ -56,5 +58,16 @@ class HomeController extends BaseController
             'content' => Policy::select('refund')->first(),
         ]);
      }
+
+     public function image()
+    {
+        $galleryImages = ImageGallery::where('status', 'active')->get();
+        return view('site.galleries.image', compact('galleryImages'));
+    }
+
+    public function video(){
+        return view('site.galleries.video',);
+    }
+
 
 }

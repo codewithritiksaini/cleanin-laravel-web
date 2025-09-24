@@ -2,30 +2,20 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home One || Cleanin || Cleanin PHP Template</title>
-    <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Cleanin HTML 5 Template " />
+    <!-- Favicon Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/'.$setting->favicon) }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/'.$setting->favicon) }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/'.$setting->favicon) }}" />
+    <link rel="manifest" href="{{ asset('assets/images/favicons/site.webmanifest') }}" />
+    @yield('meta')
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="message-store-url" content="{{ route('message.store') }}">
 
-    <?php
-        if (View::hasSection('meta')) {
-            echo View::yieldContent('meta');
-        }
-    ?>
-
-
     <!-- Fonts -->
-    <link
-        href="../../fonts.googleapis.com/css2314a.css?family=Exo:ital,wght@0,100..900;1,100..900&amp;family=Heebo:wght@100..900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Heebo:wght@100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('assets/css/01-bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/02-animate.min.css')}}" />
@@ -40,8 +30,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/12-owl.theme.default.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/13-jquery-ui.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/twentytwenty.css')}}" />
-
-
     <link rel="stylesheet" href="{{asset('assets/css/module-css/01-slider.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/module-css/02-about.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/module-css/03-services.css')}}" />
@@ -78,12 +66,24 @@
     <link rel="stylesheet" href="{{asset('assets/css/module-css/sliding-text.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/module-css/why-choose.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/module-css/working-process.css')}}" />
-
-
     <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}" />
     <!-- template styles -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}" />
+    <style>
+        /* Hide the button by default */
+        #btn_login_mobile {
+            display: none;
+        }
+
+        /* Show the button only in mobile view (example for screens less than or equal to 768px) */
+        @media (max-width: 768px) {
+            #btn_login_mobile {
+                display: block; /* or inline-block, depending on how you want it to display */
+            }
+        }
+
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -137,7 +137,7 @@
 
                         <div class="main-header-one__top-right">
                             <div class="main-header__language-switcher">
-                                <p class="text-white">{{env('APP_NAME')}} A Cleaning Company</p>
+                                <p class="text-white">{{env('APP_NAME')}} : A Cleaning Company</p>
                             </div>
                             <div class="header-style1__social-links">
                                 <a target="_blank" href="{{$setting->facebook}}"><i class="icon-facebook-app-symbol"></i></a>
@@ -186,6 +186,10 @@
 
                                             <li class="">
                                                 <a href="{{route('contact')}}">Contact</a>
+                                            </li>
+
+                                            <li id="btn_login_mobile" class="">
+                                                <a href="{{route('login')}}">Login</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -248,7 +252,7 @@
             <div class="site-footer__top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".0s">
+                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".0s">
                             <div class="footer-widget__single footer-widget__about">
                                 <div class="site-footer__logo">
                                     <a href="{{route('home')}}"><img src="{{ asset('/'.$setting->light_logo) }}"  style="width:150px; height:auto;"
@@ -272,7 +276,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".1s">
+                        <div class="col-xl-6 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".1s">
                             <div class="footer-widget__single footer-widget__services">
                                 <div class="title-box">
                                     <h2>Services</h2>
@@ -291,7 +295,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".2s">
+                        <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay=".2s">
                             <div class="footer-widget__single footer-widget__contact">
                                 <div class="title-box">
                                     <h2>Official info:</h2>
@@ -349,15 +353,18 @@
                         <div class="col-xl-12">
                             <div class="site-footer__bottom-inner">
                                 <div class="site-footer__copyright">
-                                    <p>Copyright@ 2025 <a href="{{route('home')}}">Cleanin</a>. All Rights Reserved.</p>
+                                    {!! $setting->footer_text !!}
                                 </div>
 
                                 <ul class="site-footer__bottom-menu">
                                     @if(Route::has('privacy'))
-                                        <li><a href="{{route('privacy')}}">Setting & Privacy </a></li>
+                                        <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
                                     @endif
                                     @if(Route::has('terms'))
                                         <li><a href="{{route('terms')}}">Terms & Conditions</a></li>
+                                    @endif
+                                    @if(Route::has('terms'))
+                                        <li><a href="{{route('refund')}}">Refund Policy</a></li>
                                     @endif
                                     <li><a href="{{route('contact')}}">Support</a></li>
                                 </ul>
@@ -381,7 +388,7 @@
             </span>
             <div class="logo-box">
                 <a href="{{route('home')}}" aria-label="logo image">
-                    <img src="assets/images/resources/logo-2.png" alt="Logo" />
+                    <img src="{{ asset('/'.$setting->light_logo) }}" alt="Logo" />
                 </a>
             </div>
             <div class="mobile-nav__container"></div>
@@ -435,42 +442,16 @@
                     <div class="sidebar-info-contents">
                         <div class="content-inner">
                             <div class="logo">
-                                <a href="{{route('home')}}"><img src="assets/images/resources/logo-3.png"
+                                <a href="{{route('home')}}"><img src="{{ asset('/'.$setting->dark_logo) }}"
                                         alt="" /></a>
                             </div>
-                            <div class="content-box">
+                            <div style="display: block" class="content-box">
                                 <h4>About Us</h4>
                                 <div class="inner-text">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                        roots in a piece of classical Latin literature from 45 BC, making it over
-                                        2000 years old.
+                                    <p>
+                                        At Cleaning Rikki Saini, we believe that a clean space is a happy space. Founded with the goal of delivering high-quality, professional cleaning services, we’ve grown into one of the most trusted names in the cleaning industry. Our team is dedicated to ensuring that your home, office, or commercial space shines with cleanliness and freshness, every single time.
                                     </p>
                                 </div>
-                            </div>
-
-                            <div class="form-inner">
-                                <h4>Get a free quote</h4>
-                                <form action="https://php.unicktheme.com/cleanin/index.php" method="post">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message..."></textarea>
-                                    </div>
-                                    <div class="form-group message-btn">
-                                        <button class="thm-btn" type="submit" data-loading-text="Please wait...">
-                                            Submit Now
-                                            <i class="icon-next"></i>
-                                            <span class="hover-btn hover-bx"></span>
-                                            <span class="hover-btn hover-bx2"></span>
-                                            <span class="hover-btn hover-bx3"></span>
-                                            <span class="hover-btn hover-bx4"></span>
-                                        </button>
-                                    </div>
-                                </form>
                             </div>
 
                             <div class="sidebar-contact-info">
@@ -552,8 +533,5 @@
     <script src="{{asset('assets/js/script.js')}}"></script>
 
 </body>
-
-
-<!-- Mirrored from php.unicktheme.com/cleanin/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2025 10:34:51 GMT -->
 
 </html>

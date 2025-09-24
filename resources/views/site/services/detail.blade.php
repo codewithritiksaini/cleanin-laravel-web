@@ -1,5 +1,27 @@
 @extends('layout.site')
+@section('meta')
+    <!-- Title -->
+    <title>{{ $service->title }} | Cleanin - Professional Cleaning Services</title>
 
+    <!-- Meta Description -->
+    <meta name="description" content="{{ $service->description }}" />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="cleaning services, professional cleaning, {{ $service->title }}, home cleaning, office cleaning, carpet cleaning, commercial cleaning, deep cleaning" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="{{ $service->title }} | Cleanin - Professional Cleaning Services" />
+    <meta property="og:description" content="{{ $service->description }}" />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $service->title }} | Cleanin - Professional Cleaning Services" />
+    <meta name="twitter:description" content="{{ $service->description }}" />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+@endsection
 @section('content')
     <!--Start Page Header-->
         <section class="page-header">
@@ -38,7 +60,11 @@
                     {{$service->description}}
                   </p>
                   <p class="text2">
-                    {{$service->content}}
+                    {{-- <p>{!! nl2br(e($service->content)) !!}</p>  --}}
+                    {{-- agr eska use kroge aur tum db se custom koi html tag daloge to outpur mein tag hi print ho jayega --}}
+
+                    <p>{!! nl2br($service->content) !!}</p>
+                    {{-- agr eska use kroge to vo tag compile ho kr ke show hoga --}}
                   </p>
                 </div>
 

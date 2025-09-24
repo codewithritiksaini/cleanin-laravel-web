@@ -1,5 +1,30 @@
 @extends('layout.site')
 
+@section('meta')
+    <!-- Title -->
+    <title>Blog | Cleanin - Expert Cleaning Tips & Services Insights</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Explore Cleanin's blog for expert cleaning tips, industry insights, home cleaning hacks, office cleaning advice, and more. Stay updated with our latest articles and cleaning service trends." />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="cleaning blog, cleaning tips, home cleaning advice, office cleaning hacks, cleaning trends, professional cleaning services, carpet cleaning tips, cleaning industry insights, cleaning company blog, home maintenance blog" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="Blog | Cleanin - Expert Cleaning Tips & Services Insights" />
+    <meta property="og:description" content="Explore Cleanin's blog for expert cleaning tips, industry insights, home cleaning hacks, office cleaning advice, and more. Stay updated with our latest articles and cleaning service trends." />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blog | Cleanin - Expert Cleaning Tips & Services Insights" />
+    <meta name="twitter:description" content="Explore Cleanin's blog for expert cleaning tips, industry insights, home cleaning hacks, office cleaning advice, and more. Stay updated with our latest articles and cleaning service trends." />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+@endsection
+
 @section('content')
 <style>
     .blog-one__pagination {

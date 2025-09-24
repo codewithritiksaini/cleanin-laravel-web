@@ -11,7 +11,7 @@ class AboutController extends Controller
     public function index()
     {
         $about = About::where('slug', 'about-us')->first();
-        $services = Service::all(); // 👈 services fetch kiya
+        $services = Service::all();
         $testimonials = Testimonial::select('name', 'company', 'image', 'testimonial', 'rating', 'position')
             ->where('status', 1)
             ->inRandomOrder()
@@ -23,7 +23,7 @@ class AboutController extends Controller
         }
         return view('site.about.about', [
             'about' => $about,
-            'services' => $services, // 👈 services pass kiya
+            'services' => $services,
             'testimonials' => $testimonials,
         ]);
     }

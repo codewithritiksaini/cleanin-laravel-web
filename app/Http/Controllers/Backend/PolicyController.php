@@ -26,10 +26,7 @@ class PolicyController extends Controller
         $policy->term = $request->content;
         $policy->save();
 
-        return response()->json([
-            'status' => 1,
-            'message' => "Success! Terms & Conditions have been updated successfully.",
-        ]);
+        return redirect()->route('policy.update.term')->with('success','Success! Terms And Conditions have been updated successfully.');
     }
 
     // Privacy Policy
@@ -50,10 +47,8 @@ class PolicyController extends Controller
         $policy->policy = $request->content;
         $policy->save();
 
-        return response()->json([
-            'status' => 1,
-            'message' => "Success! Privacy Policy has been updated successfully.",
-        ]);
+        return redirect()->route('policy.update.policy')->with('success','Success! Privacy Policy has been updated successfully.');
+
     }
 
     // Refund Policy
@@ -74,9 +69,7 @@ class PolicyController extends Controller
         $policy->refund = $request->content;
         $policy->save();
 
-        return response()->json([
-            'status' => 1,
-            'message' => "Success! Refund Policy has been updated successfully.",
-        ]);
+        return redirect()->route('refund.update.policy')->with('success','Success! Refund Policy has been updated successfully.');
+
     }
 }

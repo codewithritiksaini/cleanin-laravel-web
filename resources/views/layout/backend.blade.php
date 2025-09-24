@@ -68,8 +68,8 @@
         <!-- BEGIN: Mobile Menu -->
         <div class="mobile-menu group top-0 inset-x-0 fixed bg-theme-1/90 z-[60] border-b border-white/[0.08] dark:bg-darkmode-800/90 md:hidden before:content-[''] before:w-full before:h-screen before:z-10 before:fixed before:inset-x-0 before:bg-black/90 before:transition-opacity before:duration-200 before:ease-in-out before:invisible before:opacity-0 [&.mobile-menu--active]:before:visible [&.mobile-menu--active]:before:opacity-100">
             <div class="flex h-[70px] items-center px-3 sm:px-8">
-                <a class="mr-auto flex" href="#">
-                    <img style="width: 120px" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{env('APP_NAME')}} Admin Dashboard Template">
+                <a class="mr-auto flex" href="{{ route('dashboard') }}">
+                    <img style="width: 120px" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{ $setting->title }} Admin Dashboard Template">
                 </a>
                 <a class="mobile-menu-toggler" href="#">
                     <i data-tw-merge="" data-lucide="bar-chart2" class="stroke-1.5 h-8 w-8 -rotate-90 transform text-white"></i>
@@ -415,8 +415,14 @@
                             </li>
                         </ul>
                     </li>
-
-
+                    <li>
+                        <a class="menu" href="{{ route('logout') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="power" class="lucide lucide-power size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"><path d="M12 2v10"></path><path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg>
+                            <div class="menu__title">
+                                Logout
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -425,7 +431,7 @@
             <!-- BEGIN: Side Menu -->
             <nav class="side-nav hidden w-[80px] overflow-x-hidden pb-16 pr-5 md:block xl:w-[230px]">
                 <a class="flex items-center pt-4 pl-5 intro-x" href="#">
-                    <img style="width: 120px;" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{env('APP_NAME')}} Admin Dashboard Template">
+                    <img style="width: 120px;" class="w-6" src="{{ asset('/'.$setting->light_logo) }}" alt="{{ $setting->title }} Admin Dashboard Template">
                     {{-- <span class="hidden ml-3 text-lg text-white xl:block"> {{env(APP_NAME)}} </span> --}}
                 </a>
                 <div class="my-6 side-nav__divider"></div>
@@ -892,6 +898,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{route('logout')}}" class="side-menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="power" class="lucide lucide-power size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"><path d="M12 2v10"></path><path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg>
+                            <div class="side-menu__title">
+                                Logout
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- END: Side Menu -->
@@ -904,7 +918,7 @@
                 <nav aria-label="breadcrumb" class="flex -intro-x mr-auto hidden sm:flex">
                     <ol class="flex items-center text-theme-1 dark:text-slate-300">
                         <li class="">
-                            <a href="{{ route('home') }}">Dashboard</a>
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
                         @php
                             $segment2 = request()->segment(2);
@@ -966,21 +980,21 @@
                         <div class="box w-[450px] p-5">
                             <div class="mb-2 font-medium">Pages</div>
                             <div class="mb-5">
-                                <a class="flex items-center" href="https://www.ritiksaini.in/admin/blog">
+                                <a class="flex items-center" href="{{ route('blogs.index') }}">
                                     <div
                                         class="flex h-8 w-8 items-center justify-center rounded-full bg-success/20 text-success dark:bg-success/10">
                                         <i data-tw-merge="" data-lucide="inbox" class="stroke-1.5 h-4 w-4"></i>
                                     </div>
                                     <div class="ml-3">Blog Page</div>
                                 </a>
-                                <a class="mt-2 flex items-center" href="https://www.ritiksaini.in/admin/service">
+                                <a class="mt-2 flex items-center" href="{{ route('services.index') }}">
                                     <div
                                         class="flex h-8 w-8 items-center justify-center rounded-full bg-pending/10 text-pending">
                                         <i data-tw-merge="" data-lucide="users" class="stroke-1.5 h-4 w-4"></i>
                                     </div>
                                     <div class="ml-3">Service Page</div>
                                 </a>
-                                <a class="mt-2 flex items-center" href="https://www.ritiksaini.in/admin/message">
+                                <a class="mt-2 flex items-center" href="{{ route('enquiries.index') }}">
                                     <div
                                         class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary/80 dark:bg-primary/20">
                                         <i data-tw-merge="" data-lucide="credit-card" class="stroke-1.5 h-4 w-4"></i>
@@ -996,7 +1010,7 @@
                 <div data-tw-merge="" data-tw-placement="bottom-end" class="dropdown relative">
                     <button data-tw-toggle="dropdown" aria-expanded="false"
                         class="cursor-pointer image-fit zoom-in intro-x block h-8 w-8 overflow-hidden rounded-full shadow-lg">
-                        <img src="https://www.ritiksaini.in/app-assets/images/fakers/profile-3.jpg" alt="MasterX Admin Panel">
+                        <img src="{{ asset('/'.$setting->favicon) }}" alt="MasterX Admin Panel">
                     </button>
                     <div data-transition="" data-selector=".show" data-enter="transition-all ease-linear duration-150"
                         data-enter-from="absolute !mt-5 invisible opacity-0 translate-y-1"
@@ -1008,14 +1022,14 @@
                         <div data-tw-merge=""
                             class="dropdown-content rounded-md border-transparent p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 mt-px w-56 bg-theme-1 text-white">
                             <div class="p-2 font-medium font-normal">
-                                <div class="font-medium">Welcome, Ritik Saini</div>
+                                <div class="font-medium">Welcome, {{ $setting->name }}</div>
                                 <div class="mt-0.5 text-xs text-white/70 dark:text-slate-500">
                                     Software Developer
                                 </div>
                             </div>
                             <div class="h-px my-2 -mx-2 bg-slate-200/60 dark:bg-darkmode-400 bg-white/[0.08]">
                             </div>
-                            <a
+                            {{-- <a
                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item hover:bg-white/5"><i
                                     data-tw-merge="" data-lucide="user" class="stroke-1.5 mr-2 h-4 w-4"></i>
                                 Profile</a>
@@ -1026,7 +1040,7 @@
                             <a
                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item hover:bg-white/5"><i
                                     data-tw-merge="" data-lucide="lock" class="stroke-1.5 mr-2 h-4 w-4"></i>
-                                Reset Password</a>
+                                Reset Password</a> --}}
                             <div class="h-px my-2 -mx-2 bg-slate-200/60 dark:bg-darkmode-400 bg-white/[0.08]">
                             </div>
                             <a href="{{ route('logout')}}"

@@ -1,136 +1,140 @@
 @extends('layout.site')
 
+@section('meta')
+    <!-- Title -->
+    <title>About Us | Cleanin - Trusted Cleaning Services for Homes & Offices</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Cleanin is your trusted partner for professional cleaning services. We specialize in residential, office, carpet, and commercial cleaning solutions. Learn more about our commitment to delivering spotless results and customer satisfaction!" />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="about Cleanin, professional cleaning services, home cleaning, office cleaning, carpet cleaning, commercial cleaning, reliable cleaning company, best cleaning services, customer satisfaction, eco-friendly cleaning solutions" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="About Us | Cleanin - Trusted Cleaning Services for Homes & Offices" />
+    <meta property="og:description" content="Cleanin is your trusted partner for professional cleaning services. We specialize in residential, office, carpet, and commercial cleaning solutions. Learn more about our commitment to delivering spotless results and customer satisfaction!" />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About Us | Cleanin - Trusted Cleaning Services for Homes & Offices" />
+    <meta name="twitter:description" content="Cleanin is your trusted partner for professional cleaning services. We specialize in residential, office, carpet, and commercial cleaning solutions. Learn more about our commitment to delivering spotless results and customer satisfaction!" />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+@endsection
+
 @section('content')
 
 <!--Start Page Header-->
-        <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-            </div>
-            <div class="shape1 float-bob-x"><img src="assets/images/shapes/main-slider-v4-shape1.png" alt="">
-            </div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <h2 class="wow fadeInDown" data-wow-duration="1500ms">
-                        About us</h2>
-
-                    <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
-                <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><span class="icon-right-arrow1"></span></li>
-                        <li>About us </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!--End Page Header-->
-
-<!--Start About One-->
-<section class="about-one">
-    <div class="shape1"><img src="{{ asset('assets/images/shapes/about-v1-shape1.png') }}" alt=""></div>
-    <div class="container">
-        <div class="row">
-            <!--Start About One Img-->
-            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                <div class="about-one__img">
-                    <div class="about-one__video">
-                        <a href="https://www.youtube.com/watch?v=n0ORkURsIw8" class="video-popup">
-                            <div class="about-one__video-icon">
-                                <span class="icon-play-button-arrowhead"></span>
-                                <i class="ripple"></i>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6">
-                            <div class="about-one__img-left">
-                                <div class="single-img">
-                                    <img src="{{ asset('assets/images/about/about-v1-img1.jpg') }}" alt="#">
-                                </div>
-                                <div class="single-img">
-                                    <img src="{{ asset('assets/images/about/about-v1-img2.jpg') }}" alt="#">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-6 col-lg-6 col-md-6">
-                            <div class="about-one__img-right">
-                                <div class="about-one__experience">
-                                    <div class="count-box">
-                                        <h2 class="count-text" data-stop="2" data-speed="1500">00</h2>
-                                        <span>+</span>
-                                    </div>
-                                    <p>Years Of Experience</p>
-                                </div>
-
-                                <div class="about-one__img-right-img">
-                                    <img src="{{ asset('assets/images/about/about-v1-img3.jpg') }}" alt="#">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End About One Img-->
-
-            <!--Start About One Content-->
-            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                <div class="about-one__content">
-                    <div class="sec-title sec-title-animation animation-style2">
-                        <div class="sec-title__tagline">
-                            <div class="icon-box">
-                                <span class="icon-household"></span>
-                            </div>
-
-                            <div class="text title-animation">
-                                <h4>About Cleaning Agency</h4>
-                            </div>
-                        </div>
-                        <h2 class="sec-title__title title-animation">We Are A Highly Experienced <br> Cleaning
-                            Service Company
-                        </h2>
-                    </div>
-
-                    <div class="about-one__content-text">
-
-                                    <p>{{ $about->content }}</p>
-                            </div>
-
-
-
-                    <div class="about-one__content-list">
-                      <ul>
-                                @foreach($services->take(2) as $service)
-                                    <li>
-                                        <div class="icon-box">
-                                            <span class=""><img style="width: 50px" src="{{asset('storage/services/' . $service->image[0])}}" alt=""></span>
-                                        </div>
-
-                                        <div class="content-box">
-                                            <h3>{{ $service['title'] ?? $service->title }}</h3>
-                                            <p>{{ $service['description'] ?? $service->description }}</p>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                    </div>
-
-                    <div class="about-one__content-btn">
-                        <a class="thm-btn" href="{{ route('services') }}">Read More
-                            <i class="icon-next"></i>
-                            <span class="hover-btn hover-bx"></span>
-                            <span class="hover-btn hover-bx2"></span>
-                            <span class="hover-btn hover-bx3"></span>
-                            <span class="hover-btn hover-bx4"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End About One Content-->
+    <section class="page-header">
+        <div class="page-header__bg" style="background-image: url({{ asset('assets/images/backgrounds/page-header-bg.jpg') }})">
         </div>
-    </div>
-</section>
-<!--End About One-->
+        <div class="shape1 float-bob-x"><img src="{{ asset('assets/images/shapes/main-slider-v4-shape1.png') }}" alt="">
+        </div>
+        <div class="container">
+            <div class="page-header__inner">
+                <h2 class="wow fadeInDown" data-wow-duration="1500ms">
+                    About us</h2>
+
+                <ul class="thm-breadcrumb wow fadeInUp" data-wow-duration="1500ms">
+            <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><span class="icon-right-arrow1"></span></li>
+                    <li>About us </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<!--End Page Header-->
+
+<!--End Main Slider One--><!--Start About One-->
+    <section class="about-one">
+        <div class="shape1"><img src="{{ asset('assets/images/shapes/about-v1-shape1.png') }}" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <!--Start About One Img-->
+                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="about-one__img">
+                        <div class="about-one__video">
+                            <a href="hhttps://www.youtube.com/watch?v=n0ORkURsIw8" class="video-popup">
+                                <div class="about-one__video-icon">
+                                    <span class="icon-play-button-arrowhead"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="about-one__img-left">
+                                    <div class="single-img">
+                                        <img src="assets/images/about/about-v1-img1.jpg" alt="#">
+                                    </div>
+                                    <div class="single-img">
+                                        <img src="assets/images/about/about-v1-img2.jpg" alt="#">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="about-one__img-right">
+                                    <div class="about-one__experience">
+                                        <div class="count-box">
+                                            <h2 class="count-text" data-stop="03" data-speed="1500">00</h2>
+                                            <span>+</span>
+                                        </div>
+                                        <p>Years Of Experience</p>
+                                    </div>
+
+                                    <div class="about-one__img-right-img">
+                                        <img src="{{ asset('assets/images/about/about-v1-img3.jpg') }}" alt="#">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End About One Img-->
+
+                <!--Start About One Content-->
+                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="about-one__content">
+                            <div class="sec-title sec-title-animation animation-style2">
+                                <div class="sec-title__tagline">
+                                    <div class="icon-box">
+                                        <span class="icon-household"></span>
+                                    </div>
+
+                                    <div class="text title-animation">
+                                        <h4>About {{ $setting->title }} Agency</h4>
+                                    </div>
+                                </div>
+                                <h2 class="sec-title__title title-animation">We Are A Highly Experienced <br> Cleaning
+                                    Service Company
+                                </h2>
+                            </div>
+
+                            <div class="about-one__content-text">
+                                <p>{!! nl2br($about->content) !!}</p>
+                            </div>
+
+                            <div class="about-one__content-btn">
+                                <a class="thm-btn" href="{{ route('contact') }}">Contact Us
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <!--End About One Content-->
+            </div>
+        </div>
+    </section>
+    <!--End About One--><!--Start Services One-->
 
 <!--Start Services One-->
 <div class="services-one">

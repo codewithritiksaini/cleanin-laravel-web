@@ -1,5 +1,30 @@
 @extends('layout.site')
 
+@section('meta')
+    <!-- Title -->
+    <title>Contact Us | Cleanin - Reliable Cleaning Services for Homes & Offices</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Get in touch with Cleanin for professional cleaning services. Whether you need home cleaning, office cleaning, or carpet cleaning, our team is ready to assist you. Contact us today for a free consultation!" />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="contact Cleanin, cleaning services contact, home cleaning, office cleaning, carpet cleaning, commercial cleaning, reliable cleaning company, best cleaning services, cleaning quote, cleaning consultation" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="Contact Us | Cleanin - Reliable Cleaning Services for Homes & Offices" />
+    <meta property="og:description" content="Get in touch with Cleanin for professional cleaning services. Whether you need home cleaning, office cleaning, or carpet cleaning, our team is ready to assist you. Contact us today for a free consultation!" />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact Us | Cleanin - Reliable Cleaning Services for Homes & Offices" />
+    <meta name="twitter:description" content="Get in touch with Cleanin for professional cleaning services. Whether you need home cleaning, office cleaning, or carpet cleaning, our team is ready to assist you. Contact us today for a free consultation!" />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+@endsection
+
 @section('content')
     <!--Start Page Header-->
     <section class="page-header">

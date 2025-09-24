@@ -1,5 +1,30 @@
 @extends('layout.site')
 
+@section('meta')
+    <!-- Title -->
+    <title>Home | Cleanin - Professional Cleaning Services for Homes and Offices</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Cleanin offers professional cleaning services for homes, offices, carpets, and commercial spaces. Affordable, reliable, and top-rated cleaning solutions. Book now for a spotless clean!" />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="cleaning services, professional cleaning, home cleaning, office cleaning, carpet cleaning, commercial cleaning, best cleaning services, affordable cleaning services, deep cleaning, cleaning company, reliable cleaning services" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="Cleanin - Professional Cleaning Services for Homes and Offices" />
+    <meta property="og:description" content="Cleanin offers professional cleaning services for homes, offices, carpets, and commercial spaces. Affordable, reliable, and top-rated cleaning solutions. Book now for a spotless clean!" />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cleanin - Professional Cleaning Services for Homes and Offices" />
+    <meta name="twitter:description" content="Cleanin offers professional cleaning services for homes, offices, carpets, and commercial spaces. Affordable, reliable, and top-rated cleaning solutions. Book now for a spotless clean!" />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+@endsection
+
 @section('content')
     <div class="stricky-header stricky-header__one stricked-menu main-menu">
         <div class="sticky-header__content"></div>
@@ -96,7 +121,7 @@
                                 <div class="about-one__img-right">
                                     <div class="about-one__experience">
                                         <div class="count-box">
-                                            <h2 class="count-text" data-stop="30" data-speed="1500">00</h2>
+                                            <h2 class="count-text" data-stop="03" data-speed="1500">00</h2>
                                             <span>+</span>
                                         </div>
                                         <p>Years Of Experience</p>
@@ -113,69 +138,38 @@
                 <!--End About One Img-->
 
                 <!--Start About One Content-->
-                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="about-one__content">
-                        <div class="sec-title sec-title-animation animation-style2">
-                            <div class="sec-title__tagline">
-                                <div class="icon-box">
-                                    <span class="icon-household"></span>
-                                </div>
+                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="about-one__content">
+                            <div class="sec-title sec-title-animation animation-style2">
+                                <div class="sec-title__tagline">
+                                    <div class="icon-box">
+                                        <span class="icon-household"></span>
+                                    </div>
 
-                                <div class="text title-animation">
-                                    <h4>About Cleaning Agency</h4>
+                                    <div class="text title-animation">
+                                        <h4>About {{ $setting->title }} Agency</h4>
+                                    </div>
                                 </div>
+                                <h2 class="sec-title__title title-animation">We Are A Highly Experienced <br> Cleaning
+                                    Service Company
+                                </h2>
                             </div>
-                            <h2 class="sec-title__title title-animation">We Are A Highly Experienced <br> Cleaning
-                                Service Company
-                            </h2>
-                        </div>
 
-                        <div class="about-one__content-text">
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                here,</p>
-                        </div>
+                            <div class="about-one__content-text">
+                                <p><p>{!! nl2br($about->content) !!}</p></p>
+                            </div>
 
-                        <div class="about-one__content-list">
-                            <ul>
-                                <li>
-                                    <div class="icon-box">
-                                        <span class="icon-window-cleaner"></span>
-                                    </div>
-
-                                    <div class="content-box">
-                                        <h3>Commercial Cleaning</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form,</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="icon-box">
-                                        <span class="icon-cleaning"></span>
-                                    </div>
-
-                                    <div class="content-box">
-                                        <h3>Residential Cleaning </h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form,</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="about-one__content-btn">
-                            <a class="thm-btn" href="{{ route('about') }}">Read More
-                                <i class="icon-next"></i>
-                                <span class="hover-btn hover-bx"></span>
-                                <span class="hover-btn hover-bx2"></span>
-                                <span class="hover-btn hover-bx3"></span>
-                                <span class="hover-btn hover-bx4"></span>
-                            </a>
+                            <div class="about-one__content-btn">
+                                <a class="thm-btn" href="{{ route('contact') }}">Contact Us
+                                    <i class="icon-next"></i>
+                                    <span class="hover-btn hover-bx"></span>
+                                    <span class="hover-btn hover-bx2"></span>
+                                    <span class="hover-btn hover-bx3"></span>
+                                    <span class="hover-btn hover-bx4"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <!--End About One Content-->
             </div>
         </div>

@@ -47,7 +47,8 @@ use App\Http\Controllers\Site\{
     Route::get('/teams', [TeamController::class, 'index'])->name('teams');
     Route::get('/teams/{slug}', [TeamController::class, 'detail'])->name('team.details');
 
-
+    Route::get('/image-gallery', [SiteHomeController::class, 'image'])->name('image');
+    Route::get('/video-gallery', [SiteHomeController::class, 'video'])->name('video');
 
     Route::get('/services', [ServicesController::class, 'index'])->name('services');
     Route::get('/services/{slug}', [ServicesController::class, 'detail'])->name('services.details');
@@ -63,14 +64,6 @@ use App\Http\Controllers\Site\{
     Route::get('/contact-us', function () {
         return view('site.Contact.index');
     })->name('contact');
-
-    Route::get('/test', function () {
-        return view('admin.message');
-    })->name('test');
-
-    Route::get('/message', function () {
-        return view('site.message');
-    })->name('message');
 
     Route::post('/send-message', [SiteMessageController::class, 'store'])->name('message.store');
 

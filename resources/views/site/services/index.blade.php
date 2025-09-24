@@ -1,5 +1,27 @@
 @extends('layout.site')
+@section('meta')
+    <!-- Title -->
+    <title>Our Services | Cleanin - Professional Cleaning Services for Homes & Offices</title>
 
+    <!-- Meta Description -->
+    <meta name="description" content="Cleanin offers a range of professional cleaning services including home cleaning, office cleaning, carpet cleaning, and commercial cleaning. Find the perfect cleaning solution for your needs today!" />
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="cleaning services, home cleaning, office cleaning, carpet cleaning, commercial cleaning, professional cleaning, best cleaning services, affordable cleaning solutions" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="Our Services | Cleanin - Professional Cleaning Services for Homes & Offices" />
+    <meta property="og:description" content="Cleanin offers a range of professional cleaning services including home cleaning, office cleaning, carpet cleaning, and commercial cleaning. Find the perfect cleaning solution for your needs today!" />
+    <meta property="og:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Our Services | Cleanin - Professional Cleaning Services for Homes & Offices" />
+    <meta name="twitter:description" content="Cleanin offers a range of professional cleaning services including home cleaning, office cleaning, carpet cleaning, and commercial cleaning. Find the perfect cleaning solution for your needs today!" />
+    <meta name="twitter:image" content="{{ asset('/'.$setting->dark_logo) }}" />
+@endsection
 @section('content')
 
 <!--Start Page Header-->

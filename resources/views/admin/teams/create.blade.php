@@ -54,7 +54,7 @@
                                 <label for="content" class="inline-block mb-2">
                                     Content
                                 </label>
-                                <textarea id="content" name="content" rows="4"
+                                <textarea id="content" name="content" rows="5"
                                     placeholder="Enter content"
                                     class="w-full text-sm border-slate-200 shadow-sm rounded-md focus:ring-4 focus:ring-primary">{{ old('content', $team->content ?? '') }}</textarea>
                             </div>

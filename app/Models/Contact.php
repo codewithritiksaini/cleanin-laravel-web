@@ -3,7 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Contact extends Model
 {
     protected $fillable = ['name','email','mobile','subject','message'];
 }

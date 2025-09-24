@@ -8,9 +8,8 @@
 <div class="mt-5 grid grid-cols-12 gap-6">
 <div class="intro-y col-span-12 lg:col-span-12">
 <!-- BEGIN: Input -->
-<form id="request-form" class="forms-sample" action="{{ route('policy.update.term-update') }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
+<form id="request-form" class="forms-sample" action="{{ route('policy.update.policy-update') }}" method="POST" data-form-reset="true" data-load-table="false" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
     <div class="preview-component intro-y box">
         <div class="p-5">
             <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
