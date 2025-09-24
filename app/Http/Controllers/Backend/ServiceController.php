@@ -41,6 +41,10 @@ class ServiceController extends Controller
             $name = "service_{$random}_{$date}." . $extension;
 
             $file->move(public_path('storage/services'), $name);
+
+            // Full permission set karo
+            chmod(public_path('storage/services/' . $name), 0777);
+
             $images[] = $name;
         }
 
@@ -88,7 +92,6 @@ class ServiceController extends Controller
                 }
             }
 
-
             $images = [];
             foreach ($request->file('image') as $file) {
                 $random = rand(1000, 9999);
@@ -97,6 +100,10 @@ class ServiceController extends Controller
                 $name = "service_{$random}_{$date}." . $extension;
 
                 $file->move(public_path('storage/services'), $name);
+
+                // Full permission set karo
+                chmod(public_path('storage/services/' . $name), 0777);
+
                 $images[] = $name;
             }
         }
@@ -138,7 +145,7 @@ class ServiceController extends Controller
 
     public function changeStatus($id)
     {
-        $item = Service::find($id); // changed from $service to $item
+        $item = Service::find($id);
 
         if ($item) {
             $item->status = !$item->status;

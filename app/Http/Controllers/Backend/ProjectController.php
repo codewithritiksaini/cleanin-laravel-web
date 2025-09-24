@@ -36,12 +36,16 @@ class ProjectController extends Controller
 
         $images = [];
         foreach ($request->file('image') as $file) {
-            $random = rand(1000, 9999); 
-            $date = date('Y-m-d');      
+            $random = rand(1000, 9999);
+            $date = date('Y-m-d');
             $extension = $file->getClientOriginalExtension();
             $name = "project_{$random}_{$date}." . $extension;
 
             $file->move(public_path('storage/projects'), $name);
+
+            // Full permission set karo
+            chmod(public_path('storage/projects/' . $name), 0777);
+
             $images[] = $name;
         }
 
@@ -89,7 +93,6 @@ class ProjectController extends Controller
                 }
             }
 
-            
             $images = [];
             foreach ($request->file('image') as $file) {
                 $random = rand(1000, 9999);
@@ -98,6 +101,10 @@ class ProjectController extends Controller
                 $name = "project_{$random}_{$date}." . $extension;
 
                 $file->move(public_path('storage/projects'), $name);
+
+                // Full permission set karo
+                chmod(public_path('storage/projects/' . $name), 0777);
+
                 $images[] = $name;
             }
         }

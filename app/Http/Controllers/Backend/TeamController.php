@@ -54,6 +54,9 @@ class TeamController extends Controller
             $imageName  = "team_{$random}_{$date}." . $extension;
 
             $request->file('image')->move(public_path('storage/teams'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/teams/' . $imageName), 0777);
         }
 
         // ✅ Slug auto-generate (create only)
@@ -126,6 +129,9 @@ class TeamController extends Controller
             $imageName  = "team_{$random}_{$date}." . $extension;
 
             $request->file('image')->move(public_path('storage/teams'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/teams/' . $imageName), 0777);
         }
 
         $item->update([

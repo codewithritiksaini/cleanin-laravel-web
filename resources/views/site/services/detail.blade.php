@@ -219,7 +219,7 @@
                              a co-worker not following the correct process while completing
                              a task. Instead of reacting negatively, I calmly approached them
                              and politely explained the correct way of doing it. I also offered
-                             my support so that the work could be completed properly.php    
+                             my support so that the work could be completed properly.php
                           </p>
                         </div>
                       </div>

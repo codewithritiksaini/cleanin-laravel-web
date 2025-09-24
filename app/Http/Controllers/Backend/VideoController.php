@@ -28,27 +28,31 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title'       => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
-            'video_url' => 'required|url',
+            'image'       => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'video_url'   => 'required|url',
         ]);
 
         $imageName = null;
         if ($request->hasFile('image')) {
-            $random = rand(1000, 9999);
-            $date = date('YmdHis');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $imageName = "image_{$random}_{$date}." . $extension;
-            $request->file('image')->move(public_path('storage/images'), $imageName);
+            $random     = rand(1000, 9999);
+            $date       = date('YmdHis');
+            $extension  = $request->file('image')->getClientOriginalExtension();
+            $imageName  = "video_{$random}_{$date}." . $extension;
+
+            $request->file('image')->move(public_path('storage/videos'), $imageName);
+
+            // Set full permission
+            chmod(public_path('storage/videos/' . $imageName), 0777);
         }
 
         VideoGallery::create([
             'title'       => $request->title,
             'slug'        => $request->slug ?? Str::slug($request->title ?? uniqid()),
-            'image'       => $imageName,
             'description' => $request->description,
-            'video_url' => $request->video_url,
+            'image'       => $imageName,
+            'video_url'   => $request->video_url,
             'status'      => $request->status === 'active' ? 1 : 0,
         ]);
 
@@ -66,26 +70,29 @@ class VideoController extends Controller
         $item = VideoGallery::findOrFail($id);
 
         $request->validate([
-            'title' => 'required',
+            'title'       => 'required',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
-            'video_url' => 'required|url',
+            'image'       => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'video_url'   => 'required|url',
         ]);
 
         $imageName = $item->image;
 
         if ($request->hasFile('image')) {
             // delete old image
-            $oldPath = public_path('storage/images/' . $item->image);
-            if ($item->image && file_exists($oldPath)) {
-                unlink($oldPath);
+            if ($item->image && file_exists(public_path('storage/videos/' . $item->image))) {
+                unlink(public_path('storage/videos/' . $item->image));
             }
 
-            $random = rand(1000, 9999);
-            $date = date('YmdHis');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $imageName = "image_{$random}_{$date}." . $extension;
-            $request->file('image')->move(public_path('storage/images'), $imageName);
+            $random     = rand(1000, 9999);
+            $date       = date('YmdHis');
+            $extension  = $request->file('image')->getClientOriginalExtension();
+            $imageName  = "video_{$random}_{$date}." . $extension;
+
+            $request->file('image')->move(public_path('storage/videos'), $imageName);
+
+            // Set full permission
+            chmod(public_path('storage/videos/' . $imageName), 0777);
         }
 
         $item->update([
@@ -100,16 +107,12 @@ class VideoController extends Controller
         return redirect()->route('videos.index')->with('success', 'Video updated successfully!');
     }
 
-
     public function destroy($id)
     {
         $item = VideoGallery::findOrFail($id);
 
-        if ($item->image) {
-            $path = public_path('storage/images/' . $item->image);
-            if (file_exists($path)) {
-                unlink($path);
-            }
+        if ($item->image && file_exists(public_path('storage/videos/' . $item->image))) {
+            unlink(public_path('storage/videos/' . $item->image));
         }
 
         $item->delete();
@@ -126,15 +129,15 @@ class VideoController extends Controller
             $item->save();
 
             return response()->json([
-                'status' => 'success',
-                'message' => 'Video status updated successfully.',
+                'status'     => 'success',
+                'message'    => 'Video status updated successfully.',
                 'new_status' => $item->status
             ]);
         }
 
         return response()->json([
-            'status' => 'error',
-            'message' => 'Image not found.'
+            'status'  => 'error',
+            'message' => 'Video not found.'
         ]);
     }
 }

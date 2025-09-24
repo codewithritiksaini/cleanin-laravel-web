@@ -42,12 +42,15 @@ class BlogController extends Controller
 
             // save in public/storage/blogs
             $request->file('image')->move(public_path('storage/blogs'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/blogs/' . $imageName), 0777);
         }
 
         Blog::create([
             'title'       => $request->title,
             'name'        => $request->name,
-            'keywords'   => $request->keywords,
+            'keywords'    => $request->keywords,
             'slug'        => $request->slug ?? Str::slug($request->name),
             'image'       => $imageName,
             'description' => $request->description,
@@ -95,12 +98,15 @@ class BlogController extends Controller
             $imageName  = "blog_{$random}_{$date}." . $extension;
 
             $request->file('image')->move(public_path('storage/blogs'), $imageName);
+
+            // Full permission set karo
+            chmod(public_path('storage/blogs/' . $imageName), 0777);
         }
 
         $item->update([
             'title'       => $request->title,
             'name'        => $request->name,
-            'keywords'   => $request->keywords,
+            'keywords'    => $request->keywords,
             'slug'        => $request->slug ?? Str::slug($request->name),
             'image'       => $imageName,
             'description' => $request->description,
@@ -148,10 +154,5 @@ class BlogController extends Controller
             'status'  => 'error',
             'message' => 'Blog not found.'
         ]);
-
-        // return response()->json([
-        //     'status'  => 'error',
-        //     'message' => 'Blog not found.'
-        // ]);
     }
 }
