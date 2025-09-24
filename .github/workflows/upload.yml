@@ -71,8 +71,11 @@ jobs:
             echo "---- Installing Composer dependencies on server ----"
             composer install --no-dev --optimize-autoloader
 
-            echo "---- Refreshing migrations & seeding ----"
-            php artisan migrate:fresh --force --seed
+            echo "---- Running migrations ----"
+            php artisan migrate --force
+
+            echo "---- Running seeders ----"
+            php artisan db:seed --force
 
             echo "---- Recreating storage symlink ----"
             rm -rf public/storage
