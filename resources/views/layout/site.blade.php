@@ -137,7 +137,7 @@
 
                         <div class="main-header-one__top-right">
                             <div class="main-header__language-switcher">
-                                <p class="text-white">{{env('APP_NAME')}} : A Cleaning Company</p>
+                                <p class="text-white">{{ $setting->name }} : A Cleaning Company</p>
                             </div>
                             <div class="header-style1__social-links">
                                 <a target="_blank" href="{{$setting->facebook}}"><i class="icon-facebook-app-symbol"></i></a>
