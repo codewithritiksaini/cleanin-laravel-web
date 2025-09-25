@@ -56,7 +56,7 @@
                         <div class="blog-one__single">
                             <div class="blog-one__single-img">
                                 {{-- <img src="assets/images/blog/blog-details-img7.jpg" alt=""> --}}
-                                <img src="{{ asset('assets/images/blog/blog-details-img7.jpg') }}" alt="" />
+                                <img src="{{asset('storage/blogs/'.$blog->image)}}" alt="" />
 
                             </div>
 
