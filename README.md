@@ -1,7 +1,7 @@
 # 🧹 Cleanin Laravel Web
 
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-red.svg)](https://laravel.com/)  
-[![PHP](https://img.shields.io/badge/PHP-8.2-blue.svg)](https://www.php.net/)  
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com/)  
+[![PHP](https://img.shields.io/badge/PHP-8.3-blue.svg)](https://www.php.net/)  
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
